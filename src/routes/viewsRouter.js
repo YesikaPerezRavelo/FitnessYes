@@ -1,0 +1,109 @@
+import { Router } from "express";
+import productController from "../controllers/productController.js";
+import messageController from "../controllers/messageController.js";
+import cartController from "../controllers/cartController.js";
+import { authToken } from "../utils/utils.js";
+import passport from "passport";
+
+const router = Router();
+const productManagerService = new productController();
+const cartManagerService = new cartController();
+
+router.get("/", (req, res) => {
+  res.render("home", {
+    title: "YesFitness | Home",
+    style: "index.css",
+  });
+});
+
+router.get("/login", async (req, res) => {
+  if (req.cookies.auth) {
+    res.redirect("/user");
+  } else {
+    res.render("login", {
+      title: "YesFitness | Login",
+      style: "index.css",
+      failLogin: req.session.failLogin ?? false,
+    });
+  }
+});
+
+router.get("/register", (req, res) => {
+  if (req.cookies.auth) {
+    res.redirect("/user");
+  }
+  res.render("register", {
+    title: "YesFitness | Register",
+    style: "index.css",
+    failRegister: req.session.failRegister ?? false,
+  });
+});
+
+router.get(
+  "/user",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      res.render("user", {
+        title: "YesFitness | Usuario",
+        style: "index.css",
+        user: req.user.user,
+        cart: [],
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    }
+  }
+);
+
+router.get("/products", async (req, res) => {
+  let { limit = 5, page = 1 } = req.query;
+
+  res.render("products", {
+    title: "Productos",
+    style: "index.css",
+    products: await productManagerService.getAllProducts(limit, page),
+  });
+});
+
+router.get("/realtimeproducts", async (req, res) => {
+  res.render("realTimeProducts", {
+    title: "Productos",
+    style: "index.css",
+    products: await productManagerService.getAllProducts(),
+  });
+});
+
+router.get("/chat", async (req, res) => {
+  try {
+    const messages = await messageController.getAllMessages();
+    res.render("messageService", {
+      title: "Chat",
+      style: "index.css",
+      messages: messages,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+router.get("/cart", authToken, async (req, res) => {
+  const cartId = req.query.cid;
+  try {
+    const cart = await cartManagerService.getProductsFromCartByID(cartId);
+    res.render("cart", {
+      title: "YesFitness Cart",
+      style: "index.css",
+      cartId: cartId,
+      products: cart.products,
+      user: req.user,
+    });
+  } catch (error) {
+    console.error(error);
+    res.redirect("/error");
+  }
+});
+
+export default router;
