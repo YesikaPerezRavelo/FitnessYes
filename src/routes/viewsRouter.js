@@ -4,6 +4,7 @@ import messageController from "../controllers/messageController.js";
 import cartController from "../controllers/cartController.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
+import { auth } from "../middlewares/auth.js";
 
 const router = Router();
 const productManagerService = new productController();
@@ -67,13 +68,26 @@ router.get("/products", async (req, res) => {
   });
 });
 
-router.get("/realtimeproducts", async (req, res) => {
-  res.render("realTimeProducts", {
-    title: "Productos",
-    style: "index.css",
-    products: await productManagerService.getAllProducts(),
-  });
-});
+router.get(
+  "/realtimeproducts",
+  passport.authenticate("jwt", { session: false }),
+  auth("teacher"),
+  async (req, res) => {
+    try {
+      const products = await productManagerService.getAllProducts();
+      res.render("realTimeProducts", {
+        title: "Productos",
+        style: "index.css",
+        products,
+      });
+    } catch (error) {
+      res.status(403).send({
+        status: "error",
+        message: "Forbidden",
+      });
+    }
+  }
+);
 
 router.get("/chat", async (req, res) => {
   try {
@@ -104,6 +118,14 @@ router.get("/cart", authToken, async (req, res) => {
     console.error(error);
     res.redirect("/error");
   }
+});
+
+// Unauthorized route
+router.get("/unauthorized", (req, res) => {
+  res.status(401).render("unauthorized", {
+    title: "Unauthorized",
+    style: "index.css",
+  });
 });
 
 export default router;

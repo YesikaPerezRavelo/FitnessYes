@@ -1,15 +1,9 @@
-import { userModel } from "../models/userModel.js";
-import { isValidPassword } from "../utils/functionUtil.js";
-import jwt from "jsonwebtoken";
+import userService from "../services/userService.js";
 
-export default class userController {
+export default class UserController {
   async getUsers() {
     try {
-      const result = await userModel
-        .find({})
-        .populate("cart")
-        .populate("cart.products.product");
-      return result;
+      return await userService.getUsers();
     } catch (error) {
       console.error(error);
     }
@@ -17,37 +11,15 @@ export default class userController {
 
   async registerUser(user) {
     try {
-      if (
-        user.email == "admin@fitness.com" &&
-        isValidPassword(user, "admin12345")
-      ) {
-        const result = await userModel.create(user);
-        result.role = "teacher";
-        result.save();
-        return result;
-      }
-      const result = await userModel.create(user);
-      return result;
+      return await userService.registerUser(user);
     } catch (error) {
       console.error(error);
     }
   }
 
   async loginUser(email, password) {
-    if (!email || !password) {
-      throw new Error("Invalid credentials!");
-    }
     try {
-      const user = await userModel.findOne({ email }).lean();
-
-      if (!user) throw new Error("Invalid user!");
-
-      if (isValidPassword(user, password)) {
-        const token = jwt.sign(user, "secretKey", { expiresIn: "1h" });
-        return { token, user };
-      } else {
-        throw new Error("Invalid Password!");
-      }
+      return await userService.loginUser(email, password);
     } catch (error) {
       throw new Error("Login Error!");
     }
@@ -55,10 +27,7 @@ export default class userController {
 
   async updateUser(userId, cartId) {
     try {
-      const result = await userModel.findByIdAndUpdate(userId, {
-        cart: cartId,
-      });
-      return result;
+      return await userService.updateUser(userId, cartId);
     } catch (error) {
       console.error(error);
     }
@@ -66,8 +35,7 @@ export default class userController {
 
   async findUserEmail(email) {
     try {
-      const result = await userModel.findOne({ email: email });
-      return result;
+      return await userService.findUserEmail(email);
     } catch (error) {
       console.error(error);
     }
