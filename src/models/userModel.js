@@ -34,8 +34,15 @@ const usersSchema = new mongoose.Schema({
   },
 });
 
-usersSchema.pre("save", function () {
-  this.password = createHash(this.password);
+usersSchema.pre("save", function (next) {
+  if (this.isModified("password")) {
+    if (this.password) {
+      this.password = createHash(this.password);
+    } else {
+      return next(new Error("Password is required"));
+    }
+  }
+  next();
 });
 
 export const userModel = mongoose.model(usersCollection, usersSchema);
