@@ -7,8 +7,8 @@ import cartController from "../controllers/cartController.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const userManagerService = new userController();
-const cartManagerService = new cartController();
+const userControllerDB = new userController();
+const cartControllerDB = new cartController();
 
 const JWTStrategy = jwt.Strategy;
 
@@ -69,13 +69,9 @@ const initializePassport = () => {
 
             console.log("Creating new user:", newUser);
 
-            const registeredUser = await userManagerService.registerUser(
-              newUser
-            );
-            const cart = await cartManagerService.createCart(
-              registeredUser._id
-            );
-            const updatedUser = await userManagerService.updateUser(
+            const registeredUser = await userControllerDB.registerUser(newUser);
+            const cart = await cartControllerDB.createCart(registeredUser._id);
+            const updatedUser = await userControllerDB.updateUser(
               registeredUser._id,
               { cartId: cart._id }
             );
