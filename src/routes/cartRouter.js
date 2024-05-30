@@ -4,7 +4,7 @@ import userController from "../controllers/userController.js";
 
 const router = Router();
 const cartControllerDB = new cartController();
-const userManagerService = new userController();
+const userControllerDB = new userController();
 
 router.get("/:cid", async (req, res) => {
   try {
@@ -42,9 +42,9 @@ router.post("/", async (req, res) => {
 router.post("/register", async (req, res) => {
   const user = req.body;
   try {
-    const response = await userManagerService.registerUser(user);
+    const response = await userControllerDB.registerUser(user);
     const cart = await cartControllerDB.createCart();
-    await userManagerService.updateUser(response._id, { cart: cart._id });
+    await userControllerDB.updateUser(response._id, { cart: cart._id });
     res.redirect("/user");
   } catch (error) {
     res.redirect("/register");

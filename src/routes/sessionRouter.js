@@ -1,5 +1,5 @@
 import { Router } from "express";
-import userManagerDB from "../controllers/userController.js";
+import userController from "../controllers/userController.js";
 import passport from "passport";
 import { generateToken } from "../utils/utils.js";
 import { isValidPassword } from "../utils/functionUtil.js";
@@ -7,11 +7,11 @@ import { isValidPassword } from "../utils/functionUtil.js";
 import { auth } from "../middlewares/auth.js";
 
 const sessionRouter = Router();
-const userManagerService = new userManagerDB();
+const userControllerDB = new userController();
 
 sessionRouter.get("/users", async (_req, res) => {
   try {
-    const result = await userManagerService.getUsers();
+    const result = await userControllerDB.getUsers();
     res.send({ users: result });
   } catch (error) {
     console.error(error);
@@ -23,7 +23,7 @@ sessionRouter.get("/users", async (_req, res) => {
 });
 
 sessionRouter.post("/register", async (req, res) => {
-  await userManagerService.registerUser(req.body);
+  await userControllerDB.registerUser(req.body);
 
   res.render("login", {
     title: "YesFitness | Login",
@@ -40,7 +40,7 @@ sessionRouter.get("/failRegister", (_req, res) => {
 });
 
 sessionRouter.post("/login", async (req, res) => {
-  const user = await userManagerService.findUserEmail(req.body.email);
+  const user = await userControllerDB.findUserEmail(req.body.email);
   if (!user || !isValidPassword(user, req.body.password)) {
     return res.status(401).send({
       status: "error",
@@ -102,7 +102,7 @@ sessionRouter.get(
   auth("teacher"),
   async (req, res) => {
     try {
-      const result = await userManagerService.getUsers(req.params.uid);
+      const result = await userControllerDB.getUsers(req.params.uid);
       res.send({
         status: "success",
         payload: result,

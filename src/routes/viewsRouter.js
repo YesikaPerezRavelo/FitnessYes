@@ -7,8 +7,8 @@ import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 
 const router = Router();
-const productManagerService = new productController();
-const cartManagerService = new cartController();
+const productControllerDB = new productController();
+const cartControllerDB = new cartController();
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -64,7 +64,7 @@ router.get("/products", async (req, res) => {
   res.render("products", {
     title: "Productos",
     style: "index.css",
-    products: await productManagerService.getAllProducts(limit, page),
+    products: await productControllerDB.getAllProducts(limit, page),
   });
 });
 
@@ -74,7 +74,7 @@ router.get(
   auth("teacher"),
   async (req, res) => {
     try {
-      const products = await productManagerService.getAllProducts();
+      const products = await productControllerDB.getAllProducts();
       res.render("realTimeProducts", {
         title: "Productos",
         style: "index.css",
@@ -106,7 +106,7 @@ router.get("/chat", async (req, res) => {
 router.get("/cart", authToken, async (req, res) => {
   const cartId = req.query.cid;
   try {
-    const cart = await cartManagerService.getProductsFromCartByID(cartId);
+    const cart = await cartControllerDB.getProductsFromCartByID(cartId);
     res.render("cart", {
       title: "YesFitness Cart",
       style: "index.css",
