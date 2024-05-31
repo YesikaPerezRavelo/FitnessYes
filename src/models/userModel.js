@@ -4,6 +4,9 @@ import { createHash } from "../utils/functionUtil.js";
 const usersCollection = "users";
 
 const usersSchema = new mongoose.Schema({
+  fullName: {
+    type: String,
+  },
   firstName: {
     type: String,
   },
@@ -30,7 +33,7 @@ const usersSchema = new mongoose.Schema({
   },
   cart: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "carts",
+    ref: "Cart",
   },
 });
 

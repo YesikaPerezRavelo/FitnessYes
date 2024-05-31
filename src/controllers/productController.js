@@ -1,4 +1,5 @@
 import productModel from "../models/productModel.js";
+import ProductDTO from "../dao/DTOs/productDto.js";
 
 class ProductController {
   async getAllProducts(limit, page, query, sort) {
@@ -27,8 +28,9 @@ class ProductController {
   }
 
   async createProduct(product) {
+    const newProduct = new ProductDTO(product);
     const { title, description, code, price, stock, category, thumbnails } =
-      product;
+      newProduct;
 
     if (!title || !description || !code || !price || !stock || !category) {
       throw new Error("Error creating product");

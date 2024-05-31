@@ -3,7 +3,7 @@ import cartService from "../services/cartService.js";
 class cartController {
   async getAllCarts() {
     try {
-      return await cartService.find();
+      return await cartService.getAllCarts();
     } catch (error) {
       console.error(error.message);
       throw new Error("Error fetching carts");
@@ -12,7 +12,7 @@ class cartController {
 
   async createCart() {
     try {
-      const newCart = await cartService.create({ products: [] });
+      const newCart = await cartService.createCart({ products: [] });
       return newCart;
     } catch (error) {
       console.error(error.message);
@@ -36,7 +36,7 @@ class cartController {
 
   async addProductToCart(cartid, productId, quantity = 1) {
     try {
-      const cart = await cartService.findOne({ _id: cartid });
+      const cart = await cartService.addProductToCart({ _id: cartid });
       if (!cart) throw new Error(`Cart with ID ${cartid} not found`);
 
       const existingProduct = cart.products.find(
