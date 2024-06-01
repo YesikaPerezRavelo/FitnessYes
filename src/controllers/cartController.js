@@ -1,4 +1,5 @@
 import cartService from "../services/cartService.js";
+import cartDTO from "../dao/DTOs/cartDto.js";
 
 class cartController {
   async getAllCarts() {
@@ -12,7 +13,8 @@ class cartController {
 
   async createCart() {
     try {
-      const newCart = await cartService.createCart({ products: [] });
+      const newCartDTO = new cartDTO({ products: [] });
+      const newCart = await cartService.createCart(newCartDTO);
       return newCart;
     } catch (error) {
       console.error(error.message);
@@ -39,9 +41,14 @@ class cartController {
       const cart = await cartService.addProductToCart({ _id: cartid });
       if (!cart) throw new Error(`Cart with ID ${cartid} not found`);
 
+      console.log("Cart retrieved:", cart); // Logging the cart
+
       const existingProduct = cart.products.find(
-        (product) => product.product === productId
+        (product) => product.product.toString() === productId.toString()
       );
+
+      console.log("Existing product:", existingProduct); // Logging the existing product
+
       if (existingProduct) {
         existingProduct.quantity += quantity;
       } else {

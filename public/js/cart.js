@@ -6,7 +6,8 @@ const socket = io();
 // Function to fetch cart data from the server and render it
 const renderCart = async () => {
   try {
-    const response = await fetch("/api/carts/:cid"); // Adjust the endpoint if necessary
+    const cartId = document.querySelector(".add-to-cart-button").dataset.cartId;
+    const response = await fetch(`/api/carts/${cartId}`);
     if (!response.ok) {
       throw new Error("Failed to fetch cart data");
     }
@@ -20,9 +21,9 @@ const renderCart = async () => {
 };
 
 // Function to handle adding items to the cart
-const addToCart = async (productId, quantity) => {
+const addToCart = async (productId, cartId, quantity = 1) => {
   try {
-    const response = await fetch(`/api/carts/:cid/products/${productId}`, {
+    const response = await fetch(`/api/carts/${cartId}/products/${productId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,12 +46,12 @@ const initCart = () => {
   renderCart();
 
   // Add event listener to handle adding items to cart
-  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const productId = button.dataset.productId;
-      const quantity = 1; // You can adjust this based on user input if needed
-      addToCart(productId, quantity);
+      const cartId = button.dataset.cartId;
+      addToCart(productId, cartId);
     });
   });
 

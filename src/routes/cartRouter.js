@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
 router.post("/:cid/products/:pid", async (req, res) => {
   const cartId = req.params.cid;
   const productId = req.params.pid;
-  const quantity = req.body.quantity;
+  const quantity = req.body.quantity || 1;
 
   try {
     await cartControllerDB.addProductToCart(cartId, productId, quantity);
