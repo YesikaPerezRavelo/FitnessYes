@@ -32,7 +32,7 @@ class UserService {
     if (!user) throw new Error("Invalid user!");
 
     if (isValidPassword(user, password)) {
-      const token = jwt.sign(user, secretKey, { expiresIn: "1h" });
+      const token = jwt.sign(user, secretKey, { expiresIn: "1h" });//added env.
       return { token, user };
     } else {
       throw new Error("Invalid Password!");
