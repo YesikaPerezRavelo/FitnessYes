@@ -1,7 +1,7 @@
 import { Router } from "express";
 import productController from "../controllers/productController.js";
 import messageController from "../controllers/messageController.js";
-import cartController from "../controllers/cartController.js";
+import cartController from "../repository/cartRepository.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
@@ -58,20 +58,31 @@ router.get(
   }
 );
 
-router.get("/products", async (req, res) => {
-  let { limit = 5, page = 1 } = req.query;
-
-  res.render("products", {
-    title: "Productos",
-    style: "index.css",
-    products: await productControllerDB.getAllProducts(limit, page),
-  });
-});
+router.get(
+  "/products",
+  passport.authenticate("jwt", { session: false }),
+  auth("student"), // Allow students
+  async (req, res) => {
+    let { limit = 5, page = 1 } = req.query;
+    try {
+      res.render("products", {
+        title: "Productos",
+        style: "index.css",
+        products: await productControllerDB.getAllProducts(limit, page),
+      });
+    } catch (error) {
+      res.status(403).send({
+        status: "error",
+        message: "Forbidden",
+      });
+    }
+  }
+);
 
 router.get(
   "/realtimeproducts",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher"),
+  auth("teacher"), // Only allow teachers
   async (req, res) => {
     try {
       const products = await productControllerDB.getAllProducts();
@@ -89,36 +100,45 @@ router.get(
   }
 );
 
-router.get("/chat", async (req, res) => {
-  try {
-    const messages = await messageController.getAllMessages();
-    res.render("messageService", {
-      title: "Chat",
-      style: "index.css",
-      messages: messages,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+router.get(
+  "/chat",
+  passport.authenticate("jwt", { session: false }),
+  auth("student"), // Only allow students
+  async (req, res) => {
+    try {
+      const messages = await messageController.getAllMessages();
+      res.render("messageService", {
+        title: "Chat",
+        style: "index.css",
+        messages: messages,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    }
   }
-});
+);
 
-router.get("/cart", authToken, async (req, res) => {
-  const cartId = req.query.cid;
-  try {
-    const cart = await cartControllerDB.getProductsFromCartByID(cartId);
-    res.render("cart", {
-      title: "YesFitness Cart",
-      style: "index.css",
-      cartId: cartId,
-      products: cart.products,
-      user: req.user,
-    });
-  } catch (error) {
-    console.error(error);
-    res.redirect("/error");
+router.get(
+  "/cart",
+  passport.authenticate("jwt", { session: false }), // Allow all authenticated users
+  async (req, res) => {
+    const cartId = req.query.cid;
+    try {
+      const cart = await cartControllerDB.getProductsFromCartByID(cartId);
+      res.render("cart", {
+        title: "YesFitness Cart",
+        style: "index.css",
+        cartId: cartId,
+        products: cart.products,
+        user: req.user,
+      });
+    } catch (error) {
+      console.error(error);
+      res.redirect("/error");
+    }
   }
-});
+);
 
 // Unauthorized route
 router.get("/unauthorized", (req, res) => {

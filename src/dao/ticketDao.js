@@ -1,8 +1,17 @@
 import ticketModel from "../models/ticketModel.js";
 
 class TicketDao {
-  async getAllTickets(query, options) {
-    return await ticketModel.paginate(query, options);
+  async getAllTickets() {
+    try {
+      const tickets = await ticketModel
+        .find()
+        .populate("purchaser")
+        .populate("products.product")
+        .lean();
+      return tickets;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async getTicketById(ticketId) {
@@ -10,11 +19,21 @@ class TicketDao {
   }
 
   async getTicketsByUserId(userId) {
-    return await ticketModel.find({ purchaser: userId });
+    try {
+      const tickets = await ticketModel.find({ userId: userId });
+      return tickets;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async createTicket(ticket) {
-    return await ticketModel.create(ticket);
+    try {
+      const newTicket = await ticketModel.create(ticket);
+      return newTicket;
+    } catch (error) {
+      throw error;
+    }
   }
 }
 

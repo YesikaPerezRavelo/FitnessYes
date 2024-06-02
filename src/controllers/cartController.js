@@ -1,10 +1,9 @@
-import cartService from "../services/cartService.js";
-import cartDTO from "../dao/DTOs/cartDto.js";
+import cartRepository from "../repository/cartRepository.js";
 
-class cartController {
+class CartController {
   async getAllCarts() {
     try {
-      return await cartService.getAllCarts();
+      return await cartRepository.getAllCarts();
     } catch (error) {
       console.error(error.message);
       throw new Error("Error fetching carts");
@@ -13,50 +12,25 @@ class cartController {
 
   async createCart() {
     try {
-      const newCartDTO = new cartDTO({ products: [] });
-      const newCart = await cartService.createCart(newCartDTO);
-      return newCart;
+      return await cartRepository.createCart({ products: [] });
     } catch (error) {
       console.error(error.message);
       throw new Error("Error creating cart");
     }
   }
 
-  async getProductsFromCartByID(cid) {
+  async getProductsFromCartByID(cartId) {
     try {
-      const cart = await cartService
-        .findById(cid)
-        .populate("products.product")
-        .lean();
-      if (!cart) throw new Error(`Cart with ID ${cid} not found`);
-      return cart;
+      return await cartRepository.getProductsFromCart(cartId);
     } catch (error) {
       console.error(error.message);
-      throw new Error("Error fetching cart products");
+      throw new Error(`Products not found in cart ${cartId}`);
     }
   }
 
-  async addProductToCart(cartid, productId, quantity = 1) {
+  async addProductToCart(cartId, productId, quantity = 1) {
     try {
-      const cart = await cartService.addProductToCart({ _id: cartid });
-      if (!cart) throw new Error(`Cart with ID ${cartid} not found`);
-
-      console.log("Cart retrieved:", cart); // Logging the cart
-
-      const existingProduct = cart.products.find(
-        (product) => product.product.toString() === productId.toString()
-      );
-
-      console.log("Existing product:", existingProduct); // Logging the existing product
-
-      if (existingProduct) {
-        existingProduct.quantity += quantity;
-      } else {
-        cart.products.push({ product: productId, quantity });
-      }
-
-      await cart.save();
-      return cart;
+      return await cartRepository.addProductToCart(cartId, productId, quantity);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error adding product to cart");
@@ -65,9 +39,10 @@ class cartController {
 
   async updateProductQuantity(cartId, productId, quantity) {
     try {
-      return await cartService.updateOne(
-        { _id: cartId, "products.product": productId },
-        { $set: { "products.$.quantity": quantity } }
+      return await cartRepository.updateProductQuantity(
+        cartId,
+        productId,
+        quantity
       );
     } catch (error) {
       console.error(error.message);
@@ -77,7 +52,7 @@ class cartController {
 
   async deleteCart(id) {
     try {
-      return await cartModel.deleteOne({ _id: id });
+      return await cartRepository.deleteCart(id);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error deleting cart");
@@ -86,7 +61,7 @@ class cartController {
 
   async deleteAllProductsFromCart(cartId) {
     try {
-      return await cartService.findByIdAndUpdate(cartId, { products: [] });
+      return await cartRepository.deleteAllProductsFromCart(cartId);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error deleting all products from cart");
@@ -95,10 +70,7 @@ class cartController {
 
   async deleteProductFromCart(cartId, productId) {
     try {
-      return await cartService.findOneAndUpdate(
-        { _id: cartId },
-        { $pull: { products: { product: productId } } }
-      );
+      return await cartRepository.deleteProductFromCart(cartId, productId);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error deleting product from cart");
@@ -106,4 +78,5 @@ class cartController {
   }
 }
 
+const cartController = new CartController();
 export default cartController;

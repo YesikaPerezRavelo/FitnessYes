@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import mongoStore from "connect-mongo";
 import session from "express-session";
 import usersRouter from "./routes/usersRouter.js";
+import ticketRouter from "./routes/ticketRouter.js";
 import passport from "passport";
 import initializatePassport from "./config/passportConfig.js";
 import sessionRouter from "./routes/sessionRouter.js";
@@ -63,10 +64,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routers
+app.use("/api/ticket", ticketRouter);
 app.use("/api/session", sessionRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/products", productRouter);
-app.use("/api/carts", cartRouter);
+app.use("/api/cart", cartRouter);
 app.use("/", viewsRouter);
 
 // Start server

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import userController from "../controllers/userController.js";
-import cartController from "../controllers/cartController.js";
+import cartController from "../repository/cartRepository.js";
 import { generateToken, authToken } from "../utils/utils.js";
 
 const router = Router();

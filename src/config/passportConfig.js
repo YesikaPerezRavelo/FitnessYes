@@ -3,7 +3,7 @@ import GitHubStrategy from "passport-github2";
 import jwt, { ExtractJwt } from "passport-jwt";
 import { userModel } from "../models/userModel.js";
 import userController from "../controllers/userController.js";
-import cartController from "../controllers/cartController.js";
+import cartController from "../repository/cartRepository.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 

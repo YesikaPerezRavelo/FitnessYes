@@ -1,19 +1,18 @@
-import MessageModel from "../models/messageModel.js";
+import messageRepository from "../repository/messageRepository.js";
 
-class messageController {
+class MessageController {
   async getAllMessages() {
     try {
-      return await MessageModel.find().lean();
+      return await messageRepository.getAllMessages();
     } catch (error) {
       console.error(error.message);
-      throw new Error("Error fetching messages from database");
+      throw new Error("Error fetching messages");
     }
   }
 
   async insertMessage(user, message) {
     try {
-      const newMessage = await MessageModel.create({ user, message });
-      return newMessage.toObject();
+      return await messageRepository.insertMessage(user, message);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error creating new message");
@@ -21,6 +20,5 @@ class messageController {
   }
 }
 
-const messagecontroller = new messageController();
-
-export default messagecontroller;
+const messageController = new MessageController();
+export default messageController;

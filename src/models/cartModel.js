@@ -1,6 +1,6 @@
 // import mongoose from "mongoose";
 
-// const cartCollection = "carts";
+// const cartCollection = "Carts";
 
 // const cartSchema = new mongoose.Schema({
 //   products: {
@@ -29,7 +29,7 @@ const cartSchema = new Schema({
   products: [
     {
       product: { type: Schema.Types.ObjectId, ref: "products" },
-      quantity: { type: Number, default: 1 },
+      quantity: { type: Number, default: [] },
     },
   ],
 });
