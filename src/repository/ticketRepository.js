@@ -1,25 +1,61 @@
-import TicketModel from "../models/ticketModel.js";
+import ticketDTO from "../dao/DTOs/ticketDto.js";
+import ticketService from "../services/ticketService.js";
+import { userModel } from "../models/userModel.js";
 
 class TicketRepository {
-  async getAllTickets() {
+  async getAllTickets(limit, page, query, sort) {
     try {
-      return await TicketModel.find().lean();
+      return await ticketService.getAllTickets(limit, page, query, sort);
     } catch (error) {
       console.error(error.message);
-      throw new Error("Error fetching tickets from database");
+      throw new Error("Error fetching tickets from repository");
+    }
+  }
+
+  async getTicketById(tid) {
+    try {
+      const result = await ticketService.getTicketById(tid);
+      if (!result) throw new Error(`Ticket with ID ${tid} does not exist!`);
+      return result;
+    } catch (error) {
+      console.error(error.message);
+      throw new Error("Error fetching ticket from repository");
     }
   }
 
   async createTicket(ticketData) {
     try {
-      const newTicket = await TicketModel.create(ticketData);
-      return newTicket.toObject();
+      const { purchaseDateTime, amount, purchaser } = ticketData;
+
+      // Find the user by email
+      const user = await userModel.findOne({ email: purchaser });
+      if (!user) {
+        throw new Error("Purchaser not found");
+      }
+
+      const code = await this.generateTicketCode();
+      const newTicketDTO = new ticketDTO({
+        code,
+        purchaseDateTime,
+        amount,
+        purchaser: user._id,
+      });
+      return await ticketService.createTicket(newTicketDTO);
     } catch (error) {
       console.error(error.message);
-      throw new Error("Error creating new ticket");
+      throw new Error("Error creating ticket in repository");
+    }
+  }
+
+  async generateTicketCode() {
+    try {
+      const randomCode = Math.floor(Math.random() * 1000) + 1;
+      return randomCode;
+    } catch (error) {
+      console.error(error.message);
+      throw new Error("Error generating random code");
     }
   }
 }
 
-const ticketRepository = new TicketRepository();
-export default ticketRepository;
+export default new TicketRepository();

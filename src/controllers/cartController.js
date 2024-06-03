@@ -76,6 +76,10 @@ class CartController {
       throw new Error("Error deleting product from cart");
     }
   }
+
+  async getStockfromProducts(cart) {
+    return await cartRepository.getStockfromProducts(cart);
+  }
 }
 
 const cartController = new CartController();

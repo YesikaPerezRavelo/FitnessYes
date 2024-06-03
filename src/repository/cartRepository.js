@@ -99,6 +99,16 @@ class cartController {
       throw new Error("Error deleting product from cart");
     }
   }
+
+  async getStockfromProducts(cid) {
+    try {
+      const results = await this.dao.getStockfromProducts(cid);
+      return new cartDTO(results);
+    } catch (error) {
+      console.log(error);
+      throw new Error(`Could not add products to ${cid}`);
+    }
+  }
 }
 
 export default cartController;
