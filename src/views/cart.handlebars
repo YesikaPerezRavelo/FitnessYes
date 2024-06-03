@@ -19,6 +19,7 @@
     </ul>
   </nav>
 
+
   <div class="cart">
     <div class="cart-header">
       <h2 class="cart-title">Your Cart</h2>
@@ -36,7 +37,11 @@
             <p class="item-quantity">Quantity: {{this.quantity}}</p>
           </div>
           <div class="item-actions">
-            <button class="remove-item">Remove</button>
+            <button
+              class="remove-item"
+              data-product-id="{{this.product._id}}"
+              data-cart-id="{{../cartId}}"
+            >Remove</button>
           </div>
         </div>
       {{/each}}
@@ -45,11 +50,20 @@
       <p>Total: ${{totalPrice}}</p>
     </div>
     <div class="cart-actions">
-      <button class="checkout-btn">Checkout</button>
-      <button class="clear-cart-btn">Clear Cart</button>
+      <button class="checkout-btn" data-cart-id="{{cartId}}">Checkout</button>
+      <button class="clear-cart-btn" data-cart-id="{{cartId}}">Clear Cart</button>
+    </div>
+    <div class="paginate">
+      {{#if products.prevPage}}
+        <a href="/cart?page={{products.prevPage}}" class="prev">previous</a>
+      {{/if}}
+      {{#if products.nextPage}}
+        <a href="/cart?page={{products.nextPage}}" class="next">next</a>
+      {{/if}}
     </div>
   </div>
 </div>
+
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/cart.js"></script>

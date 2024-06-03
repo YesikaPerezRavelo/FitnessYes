@@ -19,6 +19,7 @@
     </ul>
   </nav>
 
+
   <div class="box">
     <h1>Productos</h1>
     <div class="products-box">
@@ -30,7 +31,8 @@
           <p>Descripción: {{this.description}}</p>
           <p>Precio: $ {{this.price}}</p>
           <button
-            onclick="addToCart('{{this._id}}', '{{user.cid}}')"
+            data-product-id="{{this._id}}"
+            data-cart-id="{{../user.cid}}"
             class="add-to-cart-button"
           >Add to Cart</button>
         </div>
@@ -45,7 +47,7 @@
       {{/if}}
     </div>
   </div>
-
 </div>
+
 
 <script src="/js/products.js"></script>
