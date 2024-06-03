@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const response = await fetch(
-          `/api/carts/${cartId}/products/${productId}`,
+          `/api/cart/${cartId}/products/${productId}`,
           {
             method: "DELETE",
             headers: {
