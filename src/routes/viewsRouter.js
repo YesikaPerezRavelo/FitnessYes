@@ -2,6 +2,7 @@ import { Router } from "express";
 import productController from "../controllers/productController.js";
 import messageController from "../controllers/messageController.js";
 import cartController from "../repository/cartRepository.js";
+import userRepository from "../repository/userRepository.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
@@ -64,10 +65,12 @@ router.get(
   auth("student"), // Allow students
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
+    console.log(await userRepository.findUserById(req.user.user._id));
     try {
       res.render("products", {
         title: "Productos",
         style: "index.css",
+        user: await userRepository.findUserById(req.user.user._id),
         products: await productControllerDB.getAllProducts(limit, page),
       });
     } catch (error) {

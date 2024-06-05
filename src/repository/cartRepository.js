@@ -1,7 +1,7 @@
 import cartService from "../services/cartService.js";
 import cartDTO from "../dao/DTOs/cartDto.js";
 
-class cartController {
+class cartRepository {
   async getAllCarts() {
     try {
       return await cartService.getAllCarts();
@@ -111,4 +111,4 @@ class cartController {
   }
 }
 
-export default cartController;
+export default cartRepository;
