@@ -28,6 +28,18 @@ Back-end using JavaScript which is the most popular backend language. It is used
 10. npm mongoose-paginate-v2
 11. npm socket.io"
 12. Mongo DB atlas: Cloud-Native Document Database
+13. mpn axios
+14. mpn bcrypt
+15. mpn connect-mongo
+16. mpn cookie-parse
+17. mpn cookie-parser
+18. mpn dotenv
+19. mpn express-session
+20. mpn jsonwebtoken
+21. mpn passport
+22. mpn passport-github2
+23. passport-jwt
+24. mpn passport-local
 
 ---
 
