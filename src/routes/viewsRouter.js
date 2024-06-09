@@ -2,15 +2,16 @@ import { Router } from "express";
 import ProductController from "../controllers/productController.js";
 import MessageController from "../controllers/messageController.js";
 import CartController from "../repository/cartRepository.js";
-import UserRepository from "../repository/userRepository.js";
+import UserController from "../controllers/userController.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 
 const router = Router();
-const productControllerDB = new ProductController();
+const productController = new ProductController();
 const cartControllerDB = new CartController();
 const messageController = new MessageController();
+const userController = new UserController();
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -66,13 +67,13 @@ router.get(
   auth("student"),
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
-    console.log(await userRepository.findUserById(req.user.user._id));
+    console.log(await userController.findUserById(req.user.user._id));
     try {
       res.render("products", {
         title: "Productos",
         style: "index.css",
-        user: await userRepository.findUserById(req.user.user._id),
-        products: await productControllerDB.getAllProducts(limit, page),
+        user: await userController.findUserById(req.user.user._id),
+        products: await productController.getAllProducts(limit, page),
       });
     } catch (error) {
       res.status(403).send({
@@ -89,7 +90,7 @@ router.get(
   auth("teacher"),
   async (req, res) => {
     try {
-      const products = await productControllerDB.getAllProducts();
+      const products = await productController.getAllProducts();
       res.render("realTimeProducts", {
         title: "Productos",
         style: "index.css",
