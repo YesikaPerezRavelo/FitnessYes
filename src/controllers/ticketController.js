@@ -1,10 +1,14 @@
-import ticketRepository from "../repository/ticketRepository.js";
+import TicketService from "../services/ticketService";
 
 class TicketController {
+  constructor() {
+    this.ticketService = new TicketService();
+  }
+
   async getAllTickets(req, res) {
     const { limit, page, query, sort } = req.query;
     try {
-      const result = await ticketRepository.getAllTickets(
+      const result = await this.ticketService.getAllTickets(
         limit,
         page,
         query,
@@ -22,7 +26,7 @@ class TicketController {
   async getTicketById(req, res) {
     const { tid } = req.params;
     try {
-      const result = await ticketRepository.getTicketById(tid);
+      const result = await this.ticketService.getTicketById(tid);
       if (!result) throw new Error(`Ticket with ID ${tid} does not exist!`);
       res.send({ status: "success", payload: result });
     } catch (error) {
@@ -35,7 +39,7 @@ class TicketController {
     try {
       const { purchaseDateTime, amount, purchaser } = req.body;
       const ticketData = { purchaseDateTime, amount, purchaser };
-      const newTicket = await ticketRepository.createTicket(ticketData);
+      const newTicket = await this.ticketService.createTicket(ticketData);
       res.send({ status: "success", payload: newTicket });
     } catch (error) {
       console.error(error.message);

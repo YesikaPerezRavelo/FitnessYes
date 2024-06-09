@@ -1,11 +1,15 @@
 import ticketDTO from "../dao/DTOs/ticketDto.js";
-import ticketService from "../services/ticketService.js";
+import TicketDao from "../dao/ticketDao.js";
 import { userModel } from "../models/userModel.js";
 
 class TicketRepository {
+  constructor() {
+    this.ticketDao = new TicketDao();
+  }
+
   async getAllTickets(limit, page, query, sort) {
     try {
-      return await ticketService.getAllTickets(limit, page, query, sort);
+      return await this.ticketDao.getAll(limit, page, query, sort);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error fetching tickets from repository");
@@ -14,7 +18,7 @@ class TicketRepository {
 
   async getTicketById(tid) {
     try {
-      const result = await ticketService.getTicketById(tid);
+      const result = await this.ticketDao.getById(tid);
       if (!result) throw new Error(`Ticket with ID ${tid} does not exist!`);
       return result;
     } catch (error) {
@@ -40,7 +44,7 @@ class TicketRepository {
         amount,
         purchaser: user._id,
       });
-      return await ticketService.createTicket(newTicketDTO);
+      return await this.ticketDao.create(newTicketDTO);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error creating ticket in repository");

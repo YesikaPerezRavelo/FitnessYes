@@ -4,7 +4,7 @@ import { uploader } from "../utils/multerUtil.js";
 import productModel from "../models/productModel.js";
 
 const router = Router();
-const productControllerDB = new ProductController();
+const productController = new ProductController();
 
 router.get("/", async (req, res) => {
   try {
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     page = page ? parseInt(page) : undefined;
     sort = sort ? JSON.parse(sort) : undefined; // Assuming sort is passed as a JSON string
 
-    const result = await productControllerDB.getAllProducts(
+    const result = await productController.getAllProducts(
       limit,
       page,
       query,
@@ -42,7 +42,7 @@ router.post("/", uploader.array("thumbnails", 3), async (req, res) => {
   }
 
   try {
-    const result = await productControllerDB.createProduct(req.body);
+    const result = await productController.createProduct(req.body);
     res.send({
       status: "success",
       payload: result,
@@ -64,7 +64,7 @@ router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
   }
 
   try {
-    const result = await productControllerDB.updateProduct(
+    const result = await productController.updateProduct(
       req.params.pid,
       req.body
     );
@@ -82,7 +82,7 @@ router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
 
 router.delete("/:pid", async (req, res) => {
   try {
-    const result = await productControllerDB.deleteProduct(req.params.pid);
+    const result = await productController.deleteProduct(req.params.pid);
     res.send({
       status: "success",
       payload: result,
@@ -120,7 +120,7 @@ router.get("/search", async (req, res) => {
 
 router.get("/:pid", async (req, res) => {
   try {
-    const result = await productControllerDB.getProductByID(req.params.pid);
+    const result = await productController.getProductByID(req.params.pid);
     res.send({
       status: "success",
       payload: result,

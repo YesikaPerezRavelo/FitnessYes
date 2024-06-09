@@ -1,7 +1,7 @@
 import { Router } from "express";
 import ProductController from "../controllers/productController.js";
 import MessageController from "../controllers/messageController.js";
-import CartController from "../repository/cartRepository.js";
+import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
@@ -9,7 +9,7 @@ import { auth } from "../middlewares/auth.js";
 
 const router = Router();
 const productController = new ProductController();
-const cartControllerDB = new CartController();
+const cartController = new CartController();
 const messageController = new MessageController();
 const userController = new UserController();
 
@@ -128,14 +128,19 @@ router.get(
   "/cart",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const cartId = req.query.cid;
+    let cartId = req.query.cid;
     try {
-      const cart = await cartControllerDB.getProductsFromCartByID(cartId);
+      if (!cartId) {
+        const newCart = await cartController.createCart();
+        cartId = newCart._id;
+        return res.redirect(`/cart?cid=${cartId}`);
+      }
+      const cart = await cartController.getProductsFromCartByID(cartId);
       res.render("cart", {
         title: "YesFitness Cart",
         style: "index.css",
         cartId: cartId,
-        products: cart.products,
+        products: cart.products || [],
         user: req.user,
       });
     } catch (error) {
