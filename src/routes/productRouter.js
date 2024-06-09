@@ -8,7 +8,12 @@ const productControllerDB = new ProductController();
 
 router.get("/", async (req, res) => {
   try {
-    let { limit = 10, page = 1, query = {}, sort = null } = req.query;
+    let { limit, page, query, sort } = req.query;
+    query = query ? JSON.parse(query) : {}; // Assuming query is passed as a JSON string
+    limit = limit ? parseInt(limit) : undefined;
+    page = page ? parseInt(page) : undefined;
+    sort = sort ? JSON.parse(sort) : undefined; // Assuming sort is passed as a JSON string
+
     const result = await productControllerDB.getAllProducts(
       limit,
       page,

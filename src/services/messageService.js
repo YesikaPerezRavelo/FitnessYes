@@ -1,13 +1,13 @@
-import MessageDao from "../dao/messageDao.js";
+import MessageRepository from "../repository/messageRepository.js";
 
-export default class MessageRepository {
+export default class MessageService {
   constructor() {
-    this.messageDao = new MessageDao();
+    this.messageRepository = new MessageRepository();
   }
 
   async getAllMessages() {
     try {
-      return await this.messageDao.getAll();
+      return await this.messageRepository.getAllMessages();
     } catch (error) {
       throw new Error("Error fetching messages: " + error.message);
     }
@@ -15,8 +15,7 @@ export default class MessageRepository {
 
   async insertMessage(user, message) {
     try {
-      const newMessage = await this.messageDao.insert(user, message);
-      return newMessage.toObject();
+      return await this.messageRepository.insertMessage(user, message);
     } catch (error) {
       throw new Error("Error creating new message: " + error.message);
     }

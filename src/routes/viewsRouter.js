@@ -1,15 +1,16 @@
 import { Router } from "express";
-import productController from "../controllers/productController.js";
-import messageController from "../controllers/messageController.js";
-import cartController from "../repository/cartRepository.js";
-import userRepository from "../repository/userRepository.js";
+import ProductController from "../controllers/productController.js";
+import MessageController from "../controllers/messageController.js";
+import CartController from "../repository/cartRepository.js";
+import UserRepository from "../repository/userRepository.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 
 const router = Router();
-const productControllerDB = new productController();
-const cartControllerDB = new cartController();
+const productControllerDB = new ProductController();
+const cartControllerDB = new CartController();
+const messageController = new MessageController();
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -62,7 +63,7 @@ router.get(
 router.get(
   "/products",
   passport.authenticate("jwt", { session: false }),
-  auth("student"), // Allow students
+  auth("student"),
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
     console.log(await userRepository.findUserById(req.user.user._id));
@@ -85,7 +86,7 @@ router.get(
 router.get(
   "/realtimeproducts",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher"), // Only allow teachers
+  auth("teacher"),
   async (req, res) => {
     try {
       const products = await productControllerDB.getAllProducts();
@@ -106,7 +107,7 @@ router.get(
 router.get(
   "/chat",
   passport.authenticate("jwt", { session: false }),
-  auth("student"), // Only allow students
+  auth("student"),
   async (req, res) => {
     try {
       const messages = await messageController.getAllMessages();
@@ -124,7 +125,7 @@ router.get(
 
 router.get(
   "/cart",
-  passport.authenticate("jwt", { session: false }), // Allow all authenticated users
+  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     const cartId = req.query.cid;
     try {
@@ -143,7 +144,6 @@ router.get(
   }
 );
 
-// Unauthorized route
 router.get("/unauthorized", (req, res) => {
   res.status(401).render("unauthorized", {
     title: "Unauthorized",
