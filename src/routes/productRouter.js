@@ -2,6 +2,8 @@ import { Router } from "express";
 import ProductController from "../controllers/productController.js";
 import { uploader } from "../utils/multerUtil.js";
 import productModel from "../models/productModel.js";
+import passport from "passport";
+import { auth } from "../middlewares/auth.js";
 
 const router = Router();
 const productController = new ProductController();
@@ -33,27 +35,33 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", uploader.array("thumbnails", 3), async (req, res) => {
-  if (req.files) {
-    req.body.thumbnails = [];
-    req.files.forEach((file) => {
-      req.body.thumbnails.push(file.filename);
-    });
-  }
+router.post(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  auth("teacher"),
+  uploader.array("thumbnails", 3),
+  async (req, res) => {
+    if (req.files) {
+      req.body.thumbnails = [];
+      req.files.forEach((file) => {
+        req.body.thumbnails.push(file.filename);
+      });
+    }
 
-  try {
-    const result = await productController.createProduct(req.body);
-    res.send({
-      status: "success",
-      payload: result,
-    });
-  } catch (error) {
-    res.status(400).send({
-      status: "error",
-      message: error.message,
-    });
+    try {
+      const result = await productController.createProduct(req.body);
+      res.send({
+        status: "success",
+        payload: result,
+      });
+    } catch (error) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+      });
+    }
   }
-});
+);
 
 router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
   if (req.files) {

@@ -1,8 +1,8 @@
-import ticketRepository from "../repository/ticketRepository.js";
+import TicketRepository from "../repository/ticketRepository.js";
 
 export default class TicketService {
   constructor() {
-    this.ticketRepository = new ticketRepository();
+    this.ticketRepository = new TicketRepository();
   }
 
   async getAllTickets(limit, page, query, sort) {

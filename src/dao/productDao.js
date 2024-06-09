@@ -1,7 +1,7 @@
 import productModel from "../models/productModel.js";
 //import DB relacional
 
-//depest 1
+//depest to shallowest MODEL/DAO/REPOSITORY/SERVICE/CONTROLLER/ROUTER
 
 export default class ProductDao {
   async getAll(query, options) {

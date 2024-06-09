@@ -1,4 +1,4 @@
-import TicketService from "../services/ticketService";
+import TicketService from "../services/ticketService.js";
 
 class TicketController {
   constructor() {
@@ -39,7 +39,7 @@ class TicketController {
     try {
       const { purchaseDateTime, amount, purchaser } = req.body;
       const ticketData = { purchaseDateTime, amount, purchaser };
-      const newTicket = await this.ticketService.createTicket(ticketData);
+      const newTicket = await this.ticketService.generateTicketCode(ticketData);
       res.send({ status: "success", payload: newTicket });
     } catch (error) {
       console.error(error.message);

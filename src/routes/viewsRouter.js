@@ -3,6 +3,7 @@ import ProductController from "../controllers/productController.js";
 import MessageController from "../controllers/messageController.js";
 import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
+import TicketController from "../controllers/ticketController.js"; // Import TicketController
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
@@ -12,6 +13,7 @@ const productController = new ProductController();
 const cartController = new CartController();
 const messageController = new MessageController();
 const userController = new UserController();
+const ticketController = new TicketController(); // Instantiate TicketController
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -67,7 +69,6 @@ router.get(
   auth("student"),
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
-    console.log(await userController.findUserById(req.user.user._id));
     try {
       res.render("products", {
         title: "Productos",
@@ -156,5 +157,24 @@ router.get("/unauthorized", (req, res) => {
     style: "index.css",
   });
 });
+
+// Add the route for viewing the ticket
+router.get(
+  "/ticket/:tid",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const ticket = await ticketController.getTicketById(req, res);
+      res.render("ticket", {
+        title: "Ticket Details",
+        style: "index.css",
+        ticket: ticket.payload,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    }
+  }
+);
 
 export default router;

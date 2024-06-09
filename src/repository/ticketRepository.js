@@ -2,7 +2,7 @@ import ticketDTO from "../dao/DTOs/ticketDto.js";
 import TicketDao from "../dao/ticketDao.js";
 import { userModel } from "../models/userModel.js";
 
-class TicketRepository {
+export default class TicketRepository {
   constructor() {
     this.ticketDao = new TicketDao();
   }
@@ -53,13 +53,10 @@ class TicketRepository {
 
   async generateTicketCode() {
     try {
-      const randomCode = Math.floor(Math.random() * 1000) + 1;
-      return randomCode;
+      return await this.ticketDao.generateCode();
     } catch (error) {
       console.error(error.message);
       throw new Error("Error generating random code");
     }
   }
 }
-
-export default new TicketRepository();

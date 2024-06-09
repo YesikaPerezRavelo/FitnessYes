@@ -1,7 +1,7 @@
 import { Router } from "express";
 import cartRepository from "../repository/cartRepository.js";
 import userController from "../controllers/userController.js";
-import ticketRepository from "../repository/ticketRepository.js";
+import ticketController from "../controllers/ticketController.js";
 
 const router = Router();
 const cartRepositoryDB = new cartRepository();
@@ -166,7 +166,7 @@ router.get("/:cid/purchase", async (req, res) => {
       amount += cartProduct.product.price * cartProduct.quantity;
     }
 
-    const ticket = await ticketRepository.createTicket(
+    const ticket = await ticketController.createTicket(
       purchaser,
       amount,
       cart.id
