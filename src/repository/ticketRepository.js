@@ -1,4 +1,4 @@
-import ticketDTO from "../dao/DTOs/ticketDto.js";
+import TicketDTO from "../dao/DTOs/ticketDto.js";
 import TicketDao from "../dao/ticketDao.js";
 import { userModel } from "../models/userModel.js";
 
@@ -7,9 +7,9 @@ export default class TicketRepository {
     this.ticketDao = new TicketDao();
   }
 
-  async getAllTickets(limit, page, query, sort) {
+  async getAllTickets() {
     try {
-      return await this.ticketDao.getAll(limit, page, query, sort);
+      return await this.ticketDao.getAll();
     } catch (error) {
       console.error(error.message);
       throw new Error("Error fetching tickets from repository");
@@ -38,7 +38,7 @@ export default class TicketRepository {
       }
 
       const code = await this.generateTicketCode();
-      const newTicketDTO = new ticketDTO({
+      const newTicketDTO = new TicketDTO({
         code,
         purchaseDateTime,
         amount,

@@ -6,8 +6,7 @@ export default class TicketService {
   }
 
   async getAllTickets(limit, page, query, sort) {
-    const options = { page: page ?? 1, limit: limit ?? 100, sort, lean: true };
-    return await this.ticketRepository.getAllTickets(query ?? {}, options);
+    return await this.ticketRepository.getAllTickets(limit, page, query, sort);
   }
 
   async getTicketById(tid) {

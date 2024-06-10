@@ -3,17 +3,18 @@ import ProductController from "../controllers/productController.js";
 import MessageController from "../controllers/messageController.js";
 import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
-import TicketController from "../controllers/ticketController.js"; // Import TicketController
+import TicketController from "../controllers/ticketController.js";
 import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
+import { generateProducts } from "../utils/fakerUtil.js";
 
 const router = Router();
 const productController = new ProductController();
 const cartController = new CartController();
 const messageController = new MessageController();
 const userController = new UserController();
-const ticketController = new TicketController(); // Instantiate TicketController
+const ticketController = new TicketController();
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -158,7 +159,6 @@ router.get("/unauthorized", (req, res) => {
   });
 });
 
-// Add the route for viewing the ticket
 router.get(
   "/ticket/:tid",
   passport.authenticate("jwt", { session: false }),
@@ -166,7 +166,7 @@ router.get(
     try {
       const ticket = await ticketController.getTicketById(req, res);
       res.render("ticket", {
-        title: "Ticket Details",
+        title: "Ticket",
         style: "index.css",
         ticket: ticket.payload,
       });
@@ -176,5 +176,27 @@ router.get(
     }
   }
 );
+
+router.get("/mockingproducts", (req, res) => {
+  const productsPerPage = 5;
+  const currentPage = parseInt(req.query.page) || 1;
+  const totalProducts = 100;
+  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  const prevPage = currentPage > 1 ? currentPage - 1 : null;
+  const nextPage = currentPage < totalPages ? currentPage + 1 : null;
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
+  const currentProducts = generateProducts().slice(startIndex, endIndex);
+
+  res.render("mockingProducts", {
+    title: "Mocking Products",
+    style: "index.css",
+    products: currentProducts,
+    prevPage,
+    nextPage,
+    pages,
+  });
+});
 
 export default router;
