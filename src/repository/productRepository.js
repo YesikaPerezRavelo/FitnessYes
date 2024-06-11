@@ -19,7 +19,7 @@ export default class ProductRepository {
       if (limit && page) {
         return await this.productDao.getAll(query ?? {}, options);
       } else {
-        return await this.productDao.getAll(query ?? {});
+        return await this.productDao.getAll(query ?? {}, { lean: true });
       }
     } catch (error) {
       throw new Error("Error fetching products: " + error.message);

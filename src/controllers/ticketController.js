@@ -5,21 +5,11 @@ class TicketController {
     this.ticketService = new TicketService();
   }
 
-  async getAllTickets(req, res) {
-    const { limit, page, query, sort } = req.query;
+  async getAllTickets(limit, page, query, sort) {
     try {
-      const result = await this.ticketService.getAllTickets(
-        limit,
-        page,
-        query,
-        sort
-      );
-      res.send({ status: "success", payload: result });
+      await this.ticketService.getAllTickets(limit, page, query, sort);
     } catch (error) {
       console.error(error.message);
-      res
-        .status(500)
-        .send({ status: "error", message: "Error fetching tickets" });
     }
   }
 

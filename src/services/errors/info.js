@@ -9,7 +9,3 @@ export const generateProductsErrorInfo = (product) => {
     * stock: needs to be a Number, received ${product.stock}
     * category: needs to be a String, received ${product.category}`;
 };
-
-export const updateorDeleteProductsErrorInfo = (product) => {
-  return `* id: not found, received ${product}`;
-};
