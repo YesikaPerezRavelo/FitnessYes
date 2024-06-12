@@ -5,9 +5,11 @@ import { generateToken } from "../utils/utils.js";
 import { isValidPassword } from "../utils/functionUtil.js";
 //policies
 import { auth } from "../middlewares/auth.js";
+import CartController from "../controllers/cartController.js";
 
 const sessionRouter = Router();
 const userControllerDB = new userController();
+const cartControllerDB = new CartController();
 
 sessionRouter.get("/users", async (_req, res) => {
   try {
@@ -23,8 +25,11 @@ sessionRouter.get("/users", async (_req, res) => {
 });
 
 sessionRouter.post("/register", async (req, res) => {
-  await userControllerDB.registerUser(req.body);
-
+  const response = await userControllerDB.registerUser(req.body);
+  const cart = await cartControllerDB.createCart();
+  console.log(cart);
+  const result = await userControllerDB.updateUser(response._id, cart._id);
+  console.log(result);
   res.render("login", {
     title: "YesFitness | Login",
     style: "index.css",

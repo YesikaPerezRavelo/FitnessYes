@@ -79,34 +79,33 @@ router.post(
     const { title, description, code, price, status, stock, category } =
       req.body;
 
-    if (
-      !title ||
-      !description ||
-      !code ||
-      !price ||
-      typeof status === "undefined" ||
-      !stock ||
-      !category
-    ) {
-      const product = {
-        title,
-        description,
-        code,
-        price,
-        status,
-        stock,
-        category,
-      };
-      const errorInfo = generateProductsErrorInfo(product);
-      return CustomError.createError({
-        name: "Product creation error",
-        cause: errorInfo,
-        message: "Error trying to create Product",
-        code: ErrorCodes.INVALID_TYPES_ERROR,
-      });
-    }
-
     try {
+      if (
+        !title ||
+        !description ||
+        !code ||
+        !price ||
+        typeof status === "undefined" ||
+        !stock ||
+        !category
+      ) {
+        const product = {
+          title,
+          description,
+          code,
+          price,
+          status,
+          stock,
+          category,
+        };
+        const errorInfo = generateProductsErrorInfo(product);
+        return CustomError.createError({
+          name: "Product creation error",
+          cause: errorInfo,
+          message: "Error trying to create Product",
+          code: ErrorCodes.INVALID_TYPES_ERROR,
+        });
+      }
       const result = await productController.createProduct(req.body);
       res.send({
         status: "success",
@@ -116,6 +115,7 @@ router.post(
       res.status(400).send({
         status: "error",
         message: error.message,
+        cause: error,
       });
     }
   }

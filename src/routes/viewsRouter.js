@@ -165,10 +165,11 @@ router.get(
   async (req, res) => {
     try {
       const ticket = await ticketController.getTicketById(req, res);
+      console.log(ticket);
       res.render("ticket", {
         title: "Ticket",
         style: "index.css",
-        ticket: ticket.payload,
+        ticket: ticket,
       });
     } catch (error) {
       console.error(error);

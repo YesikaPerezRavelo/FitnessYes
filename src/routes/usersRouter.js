@@ -22,8 +22,12 @@ router.post("/register", async (req, res) => {
   const user = req.body;
   try {
     const response = await userControllerDB.registerUser(user);
+    console.log({ response });
     const cart = await cartControllerDB.createCart();
-    await userControllerDB.updateUser(response._id, cart._id);
+    console.log({ cart });
+    console.log("carrito", cart);
+    const result = await userControllerDB.updateUser(response._id, cart._id);
+    console.log({ result });
     res.redirect("/user");
   } catch (error) {
     res.redirect("/register");
