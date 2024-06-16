@@ -16,6 +16,7 @@ router.get("/:cid", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot get Products from cart");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -32,6 +33,7 @@ router.post("/", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot add Cart");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -48,6 +50,7 @@ router.post("/register", async (req, res) => {
     res.redirect("/user");
   } catch (error) {
     res.redirect("/register");
+    req.logger.warning("Cannot register User with CartId");
   }
 });
 
@@ -56,6 +59,7 @@ router.get("/", async (req, res) => {
     const carts = await cartController.getAllCarts();
     res.send({ carts });
   } catch (error) {
+    req.logger.warning("Cannot see all Carts made");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -75,6 +79,7 @@ router.post("/:cid/products/:pid", async (req, res) => {
       message: "Product has been added successfully",
     });
   } catch (error) {
+    req.logger.warning("There was an error adding the product to the cart");
     console.error(error);
     res.status(400).send({
       status: "error",
@@ -90,6 +95,7 @@ router.put("/:cid", async (req, res) => {
     const cart = await cartController.updateCart(cartId, products);
     res.send({ status: "success", message: "Your cart has been edited", cart });
   } catch (error) {
+    req.logger.warning("Cannot update Cart");
     console.error(error);
   }
 });
@@ -102,6 +108,7 @@ router.put("/:cid/products/:pid", async (req, res) => {
     await cartController.updateProductQuantity(cartId, productId, quantity);
     res.send({ status: "success", message: "Quantity changed" });
   } catch (error) {
+    req.logger.warning("Cannot update Quantity");
     console.error(error);
     res.status(400).send({
       status: "error",
@@ -116,6 +123,7 @@ router.delete("/:cid", async (req, res) => {
     await cartController.deleteAllProductsFromCart(cartId);
     res.send("Cart has been deleted");
   } catch (error) {
+    req.logger.warning("Cannot delete cart");
     console.error(error);
     res
       .status(400)
@@ -130,6 +138,7 @@ router.delete("/:cid/products/:pid", async (req, res) => {
     await cartController.deleteProductFromCart(cartId, productId);
     res.send(`Product ${productId} has been deleted from the cart`);
   } catch (error) {
+    req.logger.warning("Cannot delete Product from cart");
     console.error(error);
     res.status(400).send({
       status: "error",
@@ -147,6 +156,7 @@ router.get("/:cid", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot fetch the details");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -196,6 +206,7 @@ router.post("/:cid/purchase", async (req, res) => {
       notProcessed: notProcessed,
     });
   } catch (error) {
+    req.logger.warning("Cannot create ticket");
     console.error(error);
     res.status(400).send({
       status: "error",

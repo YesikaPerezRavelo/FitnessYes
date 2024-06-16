@@ -16,6 +16,7 @@ sessionRouter.get("/users", async (_req, res) => {
     const result = await userControllerDB.getUsers();
     res.send({ users: result });
   } catch (error) {
+    req.logger.warning("Cannot fetch all users");
     console.error(error);
     res.status(500).send({
       status: "error",
@@ -113,6 +114,7 @@ sessionRouter.get(
         payload: result,
       });
     } catch (error) {
+      req.logger.warning("Cannot get User");
       res.status(400).send({
         status: "error",
         message: error.message,

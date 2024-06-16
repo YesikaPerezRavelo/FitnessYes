@@ -30,6 +30,7 @@ router.get("/", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot fetch all products");
     console.error(error);
     res.status(500).send({
       status: "error",
@@ -112,6 +113,7 @@ router.post(
         payload: result,
       });
     } catch (error) {
+      req.logger.warning("Cannot create product");
       res.status(400).send({
         status: "error",
         message: error.message,
@@ -136,6 +138,7 @@ router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot update product");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -151,6 +154,7 @@ router.delete("/:pid", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot delete product");
     res.status(400).send({
       status: "error",
       message: error.message,
@@ -188,6 +192,7 @@ router.get("/:pid", async (req, res) => {
       payload: result,
     });
   } catch (error) {
+    req.logger.warning("Cannot get product by Id");
     res.status(400).send({
       status: "error",
       message: error.message,

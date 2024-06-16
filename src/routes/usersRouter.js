@@ -14,6 +14,7 @@ router.get("/users", async (req, res) => {
     const result = await userControllerDB.getUsers();
     res.send({ users: result });
   } catch (error) {
+    req.logger.warning("Cannot fetch users");
     console.error(error);
   }
 });
@@ -22,14 +23,15 @@ router.post("/register", async (req, res) => {
   const user = req.body;
   try {
     const response = await userControllerDB.registerUser(user);
-    console.log({ response });
+    // console.log({ response });
     const cart = await cartControllerDB.createCart();
-    console.log({ cart });
-    console.log("carrito", cart);
+    // console.log({ cart });
+    // console.log("carrito", cart);
     const result = await userControllerDB.updateUser(response._id, cart._id);
-    console.log({ result });
+    // console.log({ result });
     res.redirect("/user");
   } catch (error) {
+    req.logger.warning("Cannot register");
     res.redirect("/register");
   }
 });
@@ -48,6 +50,7 @@ router.post("/login", async (req, res) => {
     res.cookie("access_token", access_token);
     res.redirect("/user");
   } catch (error) {
+    req.logger.warning("Cannot login");
     console.error("Error during login:", error);
     req.session.failLogin = true;
     res.redirect("/login");

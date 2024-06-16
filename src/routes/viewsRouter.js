@@ -58,6 +58,7 @@ router.get(
         cart: [],
       });
     } catch (error) {
+      req.logger.warning("Error authenticating");
       console.error(error);
       res.status(500).send("Internal Server Error");
     }
@@ -78,6 +79,7 @@ router.get(
         products: await productController.getAllProducts(limit, page),
       });
     } catch (error) {
+      req.logger.warning("Cannot get products");
       res.status(403).send({
         status: "error",
         message: "Forbidden",
@@ -99,6 +101,7 @@ router.get(
         products,
       });
     } catch (error) {
+      req.logger.warning("Cannot post products");
       res.status(403).send({
         status: "error",
         message: "Forbidden",
@@ -120,6 +123,7 @@ router.get(
         messages: messages,
       });
     } catch (error) {
+      req.logger.warning("Cannot post messages");
       console.error(error);
       res.status(500).send("Internal Server Error");
     }
@@ -146,6 +150,7 @@ router.get(
         user: req.user,
       });
     } catch (error) {
+      req.logger.warning("Cannot get cart");
       console.error(error);
       res.redirect("/error");
     }
@@ -172,6 +177,7 @@ router.get(
         ticket: ticket,
       });
     } catch (error) {
+      req.logger.warning("Cannot get ticket");
       console.error(error);
       res.status(500).send("Internal Server Error");
     }
@@ -198,6 +204,17 @@ router.get("/mockingproducts", (req, res) => {
     nextPage,
     pages,
   });
+});
+
+router.get("/loggerTest", (req, res) => {
+  req.logger.fatal("Logger test fatal message");
+  req.logger.error("Logger test error message");
+  req.logger.warning("Logger test warning message");
+  req.logger.info("Logger test info message");
+  req.logger.http("Logger test http message");
+  req.logger.debug("Logger test debug message");
+
+  res.send("Logger test completed!");
 });
 
 export default router;

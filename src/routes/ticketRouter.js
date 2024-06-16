@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
     const tickets = await ticketRepository.getAllTickets();
     res.status(200).json(tickets);
   } catch (error) {
+    req.logger.warning("Cannot fetch all tickets");
     res.status(500).json({ message: error.message });
   }
 });
@@ -21,6 +22,7 @@ router.get("/:tid", async (req, res) => {
     }
     res.status(200).json(ticket);
   } catch (error) {
+    req.logger.warning("Ticket not found");
     res.status(500).json({ message: error.message });
   }
 });
@@ -30,6 +32,7 @@ router.post("/", async (req, res) => {
     const newTicket = await ticketRepository.createTicket(req.body);
     res.status(201).json(newTicket);
   } catch (error) {
+    req.logger.warning("Error creating ticket");
     res.status(500).json({ message: error.message });
   }
 });
