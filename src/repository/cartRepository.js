@@ -1,7 +1,7 @@
 import CartDao from "../dao/cartDao.js";
 import cartDTO from "../dao/DTOs/cartDto.js";
 
-export default class cartRepository {
+export default class CartRepository {
   constructor() {
     this.cartDao = new CartDao();
   }
