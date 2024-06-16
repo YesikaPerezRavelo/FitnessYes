@@ -94,6 +94,48 @@ class CartController {
       throw new Error(`Could not get stock from products in cart ${cartId}`);
     }
   }
+
+  async purchaseCart(cartId) {
+    try {
+      const notProcessed = await this.cartService.purchaseCart(cartId);
+
+      // Calculate total amount from the processed items in cart
+      const cart = await this.cartService.getProductsFromCartByID(cartId);
+      let amount = 0;
+      for (const cartProduct of cart.products) {
+        const product = await Product.findById(cartProduct.product._id);
+        amount += product.price * cartProduct.quantity;
+      }
+
+      // Create ticket for the purchase (assuming TicketController is correctly implemented)
+      const ticket = await this.ticketController.createTicket(
+        req.user.email,
+        amount,
+        cartId
+      );
+
+      // Send response
+      return {
+        ticket,
+        notProcessed,
+      };
+    } catch (error) {
+      console.error(error);
+      throw new Error("Error purchasing cart");
+    }
+  }
+
+  async updateCartWithNotProcessed(cartId, notProcessed) {
+    try {
+      return await this.cartService.updateCartWithNotProcessed(
+        cartId,
+        notProcessed
+      );
+    } catch (error) {
+      console.error(error);
+      throw new Error("Error updating cart with not processed products");
+    }
+  }
 }
 
 export default CartController;
