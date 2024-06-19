@@ -30,7 +30,6 @@ router.get("/", async (req, res) => {
       payload: result,
     });
   } catch (error) {
-    req.logger.warning("Cannot fetch all products");
     console.error(error);
     res.status(500).send({
       status: "error",
@@ -113,7 +112,7 @@ router.post(
         payload: result,
       });
     } catch (error) {
-      req.logger.warning("Cannot create product");
+      req.logger.warning("Cannot add product");
       res.status(400).send({
         status: "error",
         message: error.message,
@@ -192,7 +191,7 @@ router.get("/:pid", async (req, res) => {
       payload: result,
     });
   } catch (error) {
-    req.logger.warning("Cannot get product by Id");
+    req.logger.warning("Cannot get product");
     res.status(400).send({
       status: "error",
       message: error.message,

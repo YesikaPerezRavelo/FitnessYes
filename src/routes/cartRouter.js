@@ -79,7 +79,6 @@ router.post("/:cid/products/:pid", async (req, res) => {
       message: "Product has been added successfully",
     });
   } catch (error) {
-    req.logger.warning("There was an error adding the product to the cart");
     console.error(error);
     res.status(400).send({
       status: "error",

@@ -1,4 +1,4 @@
-import winston from "winston/lib/winston/config";
+import winston from "winston";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -12,7 +12,6 @@ const customLevels = {
     http: 4,
     debug: 5,
   },
-
   colors: {
     fatal: "red",
     error: "yellow",
@@ -23,13 +22,15 @@ const customLevels = {
   },
 };
 
+winston.addColors(customLevels.colors);
+
 const devLogger = winston.createLogger({
   levels: customLevels.levels,
   transports: [
     new winston.transports.Console({
       level: "debug",
       format: winston.format.combine(
-        winston.format.colorize({ colors: customLevels.colors }),
+        winston.format.colorize(),
         winston.format.simple()
       ),
     }),
@@ -47,7 +48,7 @@ const prodLogger = winston.createLogger({
     new winston.transports.Console({
       level: "info",
       format: winston.format.combine(
-        winston.format.colorize({ colors: customLevels.colors }),
+        winston.format.colorize(),
         winston.format.simple()
       ),
     }),

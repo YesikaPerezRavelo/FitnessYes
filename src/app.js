@@ -16,6 +16,7 @@ import initializatePassport from "./config/passportConfig.js";
 import sessionRouter from "./routes/sessionRouter.js";
 import * as dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import { addLogger, startLogger } from "./utils/loggerUtil.js";
 
 dotenv.config();
 
@@ -63,6 +64,9 @@ initializatePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Logger
+app.use(addLogger);
+
 // Routers
 app.use("/api/ticket", ticketRouter);
 app.use("/api/session", sessionRouter);
@@ -74,7 +78,7 @@ app.use("/", viewsRouter);
 // Start server
 const PORT = 8080;
 const httpServer = app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  startLogger(`Server is running on port ${PORT}`);
 });
 
 // Socket.io integration
