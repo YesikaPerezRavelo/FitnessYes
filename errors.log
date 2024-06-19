@@ -1,3 +1,21 @@
 info: Server is running on port 8080
 http: GET in / - 08:43:09
 info: Server is running on port 8080
+http: GET in /login - 08:50:25
+http: POST in /api/session/login - 08:50:48
+http: GET in /user - 08:50:50
+http: GET in /products/ - 08:51:07
+http: GET in /products?page=2 - 08:51:10
+http: GET in /realtimeproducts - 08:51:15
+http: GET in /unauthorized - 08:51:15
+http: GET in /stylesheets/index.css - 08:51:15
+http: GET in /user - 08:53:04
+info: Server is running on port 8080
+http: GET in / - 08:55:23
+http: GET in /loggertest - 08:55:39
+fatal: Logger test fatal message
+error: Logger test error message
+warning: Logger test warning message
+info: Logger test info message
+http: Logger test http message
+debug: Logger test debug message
