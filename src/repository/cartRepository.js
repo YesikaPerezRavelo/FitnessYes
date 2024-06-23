@@ -28,8 +28,8 @@ export default class CartRepository {
 
   async getProductsFromCartByID(cid) {
     try {
-      const products = await this.cartDao.getById(cid);
-      return new cartDTO(products);
+      const cart = await this.cartDao.getById(cid);
+      return cart;
     } catch (error) {
       throw new Error(`Products not found in ${cid}`);
     }
@@ -37,24 +37,9 @@ export default class CartRepository {
 
   async addProductToCart(cartid, productId, quantity = 1) {
     try {
-      const cart = await this.cartDao.addCart(cartid);
+      const cart = await this.cartDao.addCart(cartid, productId, quantity);
       if (!cart) throw new Error(`Cart with ID ${cartid} not found`);
 
-      console.log("Cart retrieved:", cart); // Logging the cart
-
-      const existingProduct = cart.products.find(
-        (product) => product.product.toString() === productId.toString()
-      );
-
-      console.log("Existing product:", existingProduct); // Logging the existing product
-
-      if (existingProduct) {
-        existingProduct.quantity += quantity;
-      } else {
-        cart.products.push({ product: productId, quantity });
-      }
-
-      await cart.save();
       return cart;
     } catch (error) {
       console.error(error.message);
@@ -64,10 +49,7 @@ export default class CartRepository {
 
   async updateProductQuantity(cartId, productId, quantity) {
     try {
-      return await this.cartDao.updateQuantity(
-        { cartId, productId },
-        { quantity }
-      );
+      return await this.cartDao.updateQuantity(cartId, productId, quantity);
     } catch (error) {
       console.error(error.message);
       throw new Error("Error updating product quantity");

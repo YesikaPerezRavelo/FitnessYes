@@ -41,12 +41,13 @@ router.post("/login", async (req, res) => {
     const user = await userControllerDB.findUserEmail(email);
     if (!user || password !== user.password) {
       req.session.failLogin = true;
+      console.log("contraseña incorrecta");
       return res.redirect("/login");
     }
     req.session.user = user;
     const access_token = generateToken(user);
-    res.cookie("access_token", access_token);
-    res.redirect("/user");
+    res.cookie("access_token", access_token).json("success", access_token);
+    // res.redirect("/user");
   } catch (error) {
     console.error("Error during login:", error);
     req.session.failLogin = true;

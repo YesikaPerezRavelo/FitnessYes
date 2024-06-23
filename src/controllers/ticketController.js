@@ -39,31 +39,15 @@ class TicketController {
     }
   }
 
-  async createTicket(req, res) {
-    const { purchaser, cart, products } = req.body;
-    if (!cart || !purchaser || !products) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
+  async createTicket(purchaser, amount, processed, cartId) {
     try {
-      const resultUser = await this.userService.findUserById(purchaser);
-      const purchaserEmail = resultUser.email;
-
-      const code = await this.generateUniqueCode();
       const purchase_datetime = Date.now();
-
       let totalAmount = 0;
       const updatedProducts = [];
 
-      for (const item of products) {
-        const product = await this.productService.getProductById(item.product);
+      const product = await this.productService.getProductById(item.product);
 
-        if (product.stock < item.quantity) {
-          return res.status(400).json({
-            error: `Not enough stock for product ${product.title}. Available: ${product.stock}, Requested: ${item.quantity}`,
-          });
-        }
-
+      if (product.stock < item.quantity) {
         const updatedProduct = await this.productService.updateProduct(
           product._id,
           { stock: product.stock - item.quantity }
@@ -78,25 +62,23 @@ class TicketController {
         });
       }
 
+      // Create new ticket
       const newTicket = {
-        code,
         purchase_datetime,
+        products: processed,
         amount: totalAmount,
-        purchaser: purchaserEmail,
-        products: updatedProducts,
+        purchaser: purchaser,
       };
 
       const result = await this.ticketService.createTicket(newTicket);
 
-      await this.cartService.updateCartWithTicket(cart, result._id);
-
-      res.json({
+      return {
         ticket: result,
         updatedProducts,
-      });
+      };
     } catch (error) {
       console.error(error.message);
-      res.status(500).json({ error: "Error creating ticket" });
+      return error;
     }
   }
 

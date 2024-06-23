@@ -2,6 +2,7 @@ import { Router } from "express";
 import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
 import TicketController from "../controllers/ticketController.js";
+import passport from "passport";
 
 const router = Router();
 const cartController = new CartController();
@@ -71,6 +72,23 @@ router.post("/:cid/products/:pid", async (req, res) => {
   const cartId = req.params.cid;
   const productId = req.params.pid;
   const quantity = req.body.quantity || 1;
+
+  console.log(
+    "cartId:",
+    cartId,
+    "productId:",
+    productId,
+    "quantity:",
+    quantity
+  );
+
+  if (!productId || !quantity) {
+    console.error("Invalid productId or quantity");
+    return res.status(400).send({
+      status: "error",
+      error: "Invalid productId or quantity",
+    });
+  }
 
   try {
     await cartController.addProductToCart(cartId, productId, quantity);
@@ -164,54 +182,59 @@ router.get("/:cid", async (req, res) => {
 });
 
 // POST /carts/:cid/purchase - Finalize the purchase process for a cart
-router.post("/:cid/purchase", async (req, res) => {
-  try {
-    // Step 1: Get purchaser's email (assuming it's stored in req.user.email)
-    const purchaser = req.user.email;
-    const cartId = req.params.cid;
+router.post(
+  "/:cid/purchase",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      // Step 1: Get purchaser's email (assuming it's stored in req.user.email)
+      const purchaser = req.user.email;
+      const cartId = req.params.cid;
 
-    // Step 2: Purchase cart and get products that couldn't be processed
-    const notProcessed = await cartController.purchaseCart(cartId);
+      // Step 2: Purchase cart and get products that couldn't be processed
+      const { processed, notProcessed } = await cartController.purchaseCart(
+        cartId
+      );
 
-    // Step 3: Calculate total amount from the processed items in cart
-    const cart = await cartController.getProductsFromCartByID(cartId);
-    let amount = 0;
-    for (const cartProduct of cart.products) {
-      amount += cartProduct.product.price * cartProduct.quantity;
+      // Step 3: Calculate total amount from the processed items in cart
+      const cart = await cartController.getProductsFromCartByID(cartId);
+      let amount = 0;
+      for (const cartProduct of cart.products) {
+        amount += cartProduct.product.price * cartProduct.quantity;
+      }
+
+      // Step 4: Create ticket for the purchase
+      const ticket = await ticketController.createTicket(
+        purchaser,
+        amount,
+        processed,
+        cartId
+      );
+
+      // Step 5: Update cart with products that were not successfully processed
+      // await cartController.updateCartWithNotProcessed(cartId, notProcessed);
+
+      // Step 6: Send response
+      res.send({
+        status: "success",
+        payload: {
+          ticket,
+          notProcessed,
+        },
+      });
+
+      // res.render("ticket", {
+      // title: "Ticket",
+      // ticket: ticket,
+      // notProcessed: notProcessed
+    } catch (error) {
+      console.error(error);
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+      });
     }
-
-    // Step 4: Create ticket for the purchase
-    const ticket = await ticketController.createTicket(
-      purchaser,
-      amount,
-      cartId
-    );
-
-    // Step 5: Update cart with products that were not successfully processed
-    await cartController.updateCartWithNotProcessed(cartId, notProcessed);
-
-    // Step 6: Send response
-    res.send({
-      status: "success",
-      payload: {
-        ticket,
-        notProcessed,
-      },
-    });
-
-    res.render("ticket", {
-      title: "Ticket",
-      ticket: ticket,
-      notProcessed: notProcessed,
-    });
-  } catch (error) {
-    req.logger.warning("Cannot create ticket");
-    console.error(error);
-    res.status(400).send({
-      status: "error",
-      message: error.message,
-    });
   }
-});
+);
 
 export default router;

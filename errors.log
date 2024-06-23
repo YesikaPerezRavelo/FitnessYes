@@ -19,3 +19,63 @@ warning: Logger test warning message
 info: Logger test info message
 http: Logger test http message
 debug: Logger test debug message
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 18:43:15
+http: GET in /login - 18:43:19
+http: POST in /api/session/login - 18:43:28
+http: GET in /user - 18:43:29
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/sessions/login - 18:45:36
+http: GET in /api/session/logout - 18:45:44
+http: GET in /login - 18:45:44
+http: POST in /api/session/login - 18:46:08
+http: GET in /user - 18:46:08
+http: POST in /api/cart - 18:46:19
+http: GET in /api/products - 18:49:06
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 18:49:32
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:03:39
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:04:33
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:10:48
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:21:40
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:46:30
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:52:04
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:56:34
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 19:57:54
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 20:02:28
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 20:29:01
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 20:30:18
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 20:44:10
+info: Server is running on port 8080

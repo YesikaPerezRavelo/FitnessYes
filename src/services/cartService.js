@@ -22,6 +22,14 @@ export default class CartService {
   }
 
   async addProductToCart(cartid, productId, quantity) {
+    console.log(
+      "CartService.addProductToCart - cartid:",
+      cartid,
+      "productId:",
+      productId,
+      "quantity:",
+      quantity
+    );
     return await this.cartRepository.addProductToCart(
       cartid,
       productId,

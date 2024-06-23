@@ -159,24 +159,24 @@ router.get("/unauthorized", (req, res) => {
   });
 });
 
-router.get(
-  "/ticket/:tid",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    try {
-      const ticket = await ticketController.getTicketById(req, res);
-      console.log(ticket);
-      res.render("ticket", {
-        title: "Ticket",
-        style: "index.css",
-        ticket: ticket,
-      });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Internal Server Error");
-    }
-  }
-);
+// router.get(
+//   "/ticket/:tid",
+//   passport.authenticate("jwt", { session: false }),
+//   async (req, res) => {
+//     try {
+//       const ticket = await ticketController.getTicketById(req, res);
+//       console.log(ticket);
+//       res.render("ticket", {
+//         title: "Ticket",
+//         style: "index.css",
+//         ticket: ticket,
+//       });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send("Internal Server Error");
+//     }
+//   }
+// );
 
 router.get("/mockingproducts", (req, res) => {
   const productsPerPage = 5;
