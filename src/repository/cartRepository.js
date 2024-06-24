@@ -93,15 +93,15 @@ export default class CartRepository {
     }
   }
 
-  async updateCartWithNotProcessed(cartId, notProcessed) {
-    try {
-      return await this.cartDao.updateCartWithNotProcessed(
-        cartId,
-        notProcessed
-      );
-    } catch (error) {
-      console.error(error.message);
-      throw new Error("Error updating cart with not processed products");
-    }
-  }
+  // async updateCartWithNotProcessed(cartId, notProcessed) {
+  //   try {
+  //     return await this.cartDao.updateCartWithNotProcessed(
+  //       cartId,
+  //       notProcessed
+  //     );
+  //   } catch (error) {
+  //     console.error(error.message);
+  //     throw new Error("Error updating cart with not processed products");
+  //   }
+  // }
 }

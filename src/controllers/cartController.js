@@ -107,8 +107,12 @@ class CartController {
 
       // Step 2: Process each product
       for (const cartProduct of cart.products) {
-        const product = await productModel.findById(cartProduct.product._id);
+        if (!cartProduct.product) {
+          console.error(`Invalid product in cart: ${cartProduct}`);
+          continue;
+        }
 
+        const product = await productModel.findById(cartProduct.product._id);
         if (product.stock >= cartProduct.quantity) {
           // Deduct the quantity from the product's stock
           product.stock -= cartProduct.quantity;
@@ -121,7 +125,7 @@ class CartController {
           const remainingQuantity = cartProduct.quantity - product.stock;
           if (remainingQuantity > 0) {
             notProcessed.push({
-              product: cartProduct.product._id,
+              product: cartProduct.product.id,
               quantity: remainingQuantity,
             });
             await this.updateProductQuantity(
@@ -130,11 +134,11 @@ class CartController {
               remainingQuantity
             );
             processed.push({
-              product: cartProduct.product._id,
+              product: cartProduct.product.id,
               quantity: product.stock,
             });
             product.stock = 0;
-            product.save();
+            await product.save();
           }
         }
       }

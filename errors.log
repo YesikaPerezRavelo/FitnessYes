@@ -115,3 +115,41 @@ info: Server is running on port 8080
 http: POST in /api/cart/667897abc79aba527950d614/purchase - 21:49:23
 info: Server is running on port 8080
 info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 21:55:22
+http: GET in / - 21:55:45
+http: GET in /login - 21:56:08
+http: GET in /user - 21:56:08
+http: GET in /api/session/logout - 21:56:25
+http: GET in /login - 21:56:25
+http: POST in /api/session/login - 21:56:37
+http: GET in /user - 21:56:37
+http: GET in /api/users/current - 21:57:55
+http: GET in /api/users/current - 21:58:28
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid:%22s%3Ap4yx16i4bSsPE7rxa37kyRm86CRRfNWV.wIeWN%2FUTK5quoTRiyZUYE%2Fq0PQKUEFfRkrtfMM5iXvM%22 - 21:58:55
+http: GET in /api/session/logout - 21:59:00
+http: GET in /login - 21:59:00
+http: POST in /api/session/login - 21:59:55
+http: GET in /user - 21:59:55
+http: GET in /api/users/current - 22:00:58
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid:%22s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI%22 - 22:01:17
+http: GET in /api/users/current - 22:02:01
+http: GET in /api/users/current - 22:02:36
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:02:53
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:23:26
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:26:17
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:42:49
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:43:02
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:51:50
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:59:07
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:59:33
