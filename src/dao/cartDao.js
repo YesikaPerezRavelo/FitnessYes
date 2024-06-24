@@ -35,14 +35,11 @@ export default class CartDao {
     }
 
     // Validate existing product quantities
-    cart.products.forEach((product) => {
-      if (Array.isArray(product.quantity)) {
-        console.error(
-          `Invalid quantity for product ${product.product}:`,
-          product.quantity
-        );
-        product.quantity = product.quantity[0] || 0; // Fix invalid quantity
-      }
+    cart.products = cart.products.map((product) => {
+      product.quantity
+        ? product.quantity[0]
+        : `Invalid quantity for product ${product.product}:`;
+      return product;
     });
 
     const existingProduct = cart.products.find((product) => {

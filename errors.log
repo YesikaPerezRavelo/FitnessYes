@@ -79,3 +79,38 @@ info: Server is running on port 8080
 info: Server is running on port 8080
 http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 20:44:10
 info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:11:04
+http: GET in /login - 21:11:07
+http: POST in /api/session/login - 21:11:21
+http: GET in /user - 21:11:21
+http: GET in /products/ - 21:11:26
+http: GET in /products?page=2 - 21:11:33
+http: GET in /api/session/logout - 21:11:34
+http: GET in /login - 21:11:35
+http: POST in /api/cart - 21:19:57
+http: POST in /api/cart/6678bbaeafd05ac0288f26bf/purchase - 21:20:29
+http: GET in / - 21:21:08
+http: GET in /login - 21:21:24
+http: POST in /api/session/login - 21:21:42
+http: GET in /user - 21:21:42
+info: Server is running on port 8080
+http: POST in /api/cart/6678bbaeafd05ac0288f26bf/purchase - 21:23:42
+info: Server is running on port 8080
+http: POST in /api/cart/6678bbaeafd05ac0288f26bf/purchase - 21:29:42
+http: GET in /api/cart/?_id=66590dc0cecf1787e6206907 - 21:30:08
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:40:05
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:41:10
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:41:18
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:44:10
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:47:49
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 21:48:12
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 21:49:23
+info: Server is running on port 8080
