@@ -184,7 +184,7 @@ router.get("/:cid", async (req, res) => {
 // POST /carts/:cid/purchase - Finalize the purchase process for a cart
 router.post(
   "/:cid/purchase",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
       // Step 1: Get purchaser's email (assuming it's stored in req.user.email)
