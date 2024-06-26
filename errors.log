@@ -253,3 +253,20 @@ http: GET in /login - 21:37:59
 http: POST in /api/session/login - 21:38:09
 http: GET in /user - 21:38:10
 http: GET in /realtimeproducts - 21:38:11
+http: POST in /api/session/register - 21:50:44
+http: POST in /api/cart - 21:51:56
+http: POST in /api/cart/667b662cc2575bad5502c61a/products/661c4fe7f81c89e8a8db59ff - 21:54:13
+http: POST in /api/cart/667b662cc2575bad5502c61a/purchase - 21:57:41
+http: POST in /api/session/login - 21:57:57
+http: GET in /user - 21:57:57
+http: POST in /api/cart/667b662cc2575bad5502c61a/purchase - 21:58:06
+http: POST in /api/session/register - 21:58:31
+info: Server is running on port 8080
+http: POST in /api/session/login - 21:59:41
+http: GET in /user - 21:59:41
+http: POST in /api/cart - 21:59:49
+http: POST in /api/cart/667b6805e9e0b4c23c0e64bc/products/661c4fe7f81c89e8a8db59ff - 22:00:33
+http: POST in /api/cart/667b6805e9e0b4c23c0e64bc/purchase - 22:00:56
+http: POST in /api/cart - 22:02:25
+http: POST in /api/cart/667b68a1e9e0b4c23c0e64c5/products/661c4fe7f81c89e8a8db59ff - 22:02:56
+http: POST in /api/cart/667b68a1e9e0b4c23c0e64c5/purchase - 22:03:08

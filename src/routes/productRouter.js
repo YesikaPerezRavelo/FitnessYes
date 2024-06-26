@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   try {
     let { limit, page, query, sort } = req.query;
     query = query ? JSON.parse(query) : {};
-    limit = limit ? parseInt(limit) : 20;
+    limit = limit ? parseInt(limit) : undefined;
     page = page ? parseInt(page) : undefined;
     sort = sort ? JSON.parse(sort) : undefined;
 
