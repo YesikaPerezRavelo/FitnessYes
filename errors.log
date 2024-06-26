@@ -153,3 +153,103 @@ info: Server is running on port 8080
 http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:59:07
 info: Server is running on port 8080
 http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 22:59:33
+http: GET in / - 23:09:22
+http: GET in /login - 23:09:27
+http: POST in /api/session/login - 23:09:39
+http: GET in /user - 23:09:40
+http: GET in /api/session/logout - 23:09:45
+http: GET in /login - 23:09:45
+http: POST in /api/session/login - 23:10:02
+http: GET in /user - 23:10:02
+http: GET in /api/session/logout - 23:10:06
+http: GET in /login - 23:10:06
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 20:22:35
+http: GET in /favicon.ico - 20:22:36
+http: GET in /login - 20:22:38
+http: POST in /api/session/login - 20:22:48
+http: GET in /user - 20:22:48
+http: POST in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 20:27:45
+http: GET in / - 21:46:48
+http: GET in /login - 21:46:52
+http: GET in /favicon.ico - 21:46:53
+http: POST in /api/session/login - 21:46:59
+http: GET in /user - 21:47:00
+http: GET in /favicon.ico - 21:47:00
+http: GET in /api/session/logout - 21:51:52
+http: GET in /login - 21:51:52
+http: POST in /api/session/login - 21:52:12
+http: GET in /user - 21:52:12
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 15:31:31
+http: GET in /login - 15:32:54
+http: POST in /api/session/login - 15:36:12
+http: GET in /user - 15:36:13
+http: GET in /products/ - 15:36:19
+http: GET in /products/ - 15:39:32
+http: GET in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 15:44:36
+http: GET in /api/cart/667897abc79aba527950d614/purchase?cookie=connect.sid=s%3AgVYKqNhT1WDFYXoi4KkshD5Y_ZbleutX.Pq%2FH1UVvn4xk67bbN83ybPbFcVkZAhF%2B5Vdi6JAzOeI - 15:44:42
+http: GET in /api/cart/667897abc79aba527950d614/purchase - 15:45:24
+http: GET in /products/ - 15:47:11
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 15:48:46
+http: GET in /api/cart/667897abc79aba527950d614/purchase - 15:49:45
+http: GET in /api/cart/667897abc79aba527950d614/purchase - 15:50:10
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 15:50:41
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 15:51:30
+info: Server is running on port 8080
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 15:54:18
+http: GET in /api/cart/667897abc79aba527950d614/purchase - 15:54:35
+http: POST in /api/cart/667897abc79aba527950d614/purchase - 15:54:47
+http: GET in /favicon.ico - 15:56:31
+http: GET in /favicon.ico - 15:56:56
+http: GET in /favicon.ico - 15:57:11
+http: GET in /favicon.ico - 15:57:25
+http: GET in /products/ - 15:57:32
+http: GET in /products/ - 15:57:58
+http: GET in /api/cart/667ac08493c62ef27732b3fb/purchase - 15:59:07
+http: POST in /api/cart/667ac08493c62ef27732b3fb/purchase - 15:59:35
+http: POST in /api/session/login - 16:04:16
+http: GET in /user - 16:04:16
+info: Server is running on port 8080
+http: POST in /api/session/login - 16:08:01
+http: GET in /user - 16:08:02
+http: POST in /api/cart/667ac08493c62ef27732b3fb/purchase - 16:09:59
+info: Server is running on port 8080
+http: POST in /api/session/login - 20:52:48
+http: GET in /user - 20:52:49
+http: POST in /api/cart/667ac08493c62ef27732b3fb/purchase - 20:53:33
+http: POST in /api/cart/667ac08493c62ef27732b3fb/purchase - 20:57:04
+http: POST in /api/cart/667897abc79aba527950d614/products/661c82909905cc901b886f42 - 21:02:51
+http: POST in /api/cart - 21:04:49
+http: GET in /api/products - 21:05:19
+http: POST in /api/cart/667b5b21158684f147c5fe3a/products/661c4b20f81c89e8a8db59d3 - 21:05:45
+http: POST in /api/session/login - 21:07:17
+http: GET in /user - 21:07:17
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:07:47
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:22:04
+info: Server is running on port 8080
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:25:53
+http: POST in /api/session/login - 21:26:50
+http: GET in /user - 21:26:50
+http: POST in /api/session/login - 21:27:11
+http: GET in /user - 21:27:12
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:27:19
+info: Server is running on port 8080
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:28:29
+info: Server is running on port 8080
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:29:06
+info: Server is running on port 8080
+http: POST in /api/cart/667b5b21158684f147c5fe3a/purchase - 21:30:46
+http: GET in /api/products - 21:33:18
+info: Server is running on port 8080
+http: GET in /api/products - 21:37:40
+http: GET in /api/products - 21:37:48
+http: GET in / - 21:37:57
+http: GET in /login - 21:37:59
+http: POST in /api/session/login - 21:38:09
+http: GET in /user - 21:38:10
+http: GET in /realtimeproducts - 21:38:11

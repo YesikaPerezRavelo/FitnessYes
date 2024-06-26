@@ -184,12 +184,13 @@ router.get("/:cid", async (req, res) => {
 // POST /carts/:cid/purchase - Finalize the purchase process for a cart
 router.post(
   "/:cid/purchase",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   async (req, res) => {
+    console.log("el usuario es", req.user);
     try {
-      console.log("req.user:", req.user);
+      // console.log("req.user:", req.user);
       // Step 1: Get purchaser's email (assuming it's stored in req.user.email)
-      const purchaser = req.user.email;
+      const purchaser = req.user.user.email;
       const cartId = req.params.cid;
 
       // Step 2: Purchase cart and get products that couldn't be processed
@@ -212,6 +213,8 @@ router.post(
         cartId
       );
 
+      console.log(purchaser);
+
       // Step 5: Update cart with products that were not successfully processed
       // await cartController.updateCartWithNotProcessed(cartId, notProcessed);
 
@@ -229,7 +232,7 @@ router.post(
       // ticket: ticket,
       // notProcessed: notProcessed
     } catch (error) {
-      console.error(error);
+      console.error("Error en cartRouter ", error);
       res.status(400).send({
         status: "error",
         message: error.message,

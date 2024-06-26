@@ -39,34 +39,16 @@ class TicketController {
     }
   }
 
-  async createTicket(purchaser, amount, processed, cartId) {
+  async createTicket(purchaser, amount, processed) {
+    console.log(purchaser);
     try {
       const purchase_datetime = Date.now();
-      let totalAmount = 0;
-      const updatedProducts = [];
-
-      const product = await this.productService.getProductById(item.product);
-
-      if (product.stock < item.quantity) {
-        const updatedProduct = await this.productService.updateProduct(
-          product._id,
-          { stock: product.stock - item.quantity }
-        );
-
-        totalAmount += product.price * item.quantity;
-
-        updatedProducts.push({
-          product: product._id,
-          quantity: item.quantity,
-          updatedStock: updatedProduct.stock,
-        });
-      }
 
       // Create new ticket
       const newTicket = {
         purchase_datetime,
         products: processed,
-        amount: totalAmount,
+        amount: amount,
         purchaser: purchaser,
       };
 
@@ -74,7 +56,6 @@ class TicketController {
 
       return {
         ticket: result,
-        updatedProducts,
       };
     } catch (error) {
       console.error(error.message);
