@@ -270,3 +270,23 @@ http: POST in /api/cart/667b6805e9e0b4c23c0e64bc/purchase - 22:00:56
 http: POST in /api/cart - 22:02:25
 http: POST in /api/cart/667b68a1e9e0b4c23c0e64c5/products/661c4fe7f81c89e8a8db59ff - 22:02:56
 http: POST in /api/cart/667b68a1e9e0b4c23c0e64c5/purchase - 22:03:08
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 22:18:29
+http: GET in /login - 22:18:33
+http: GET in /login - 22:19:51
+http: GET in /login - 22:21:20
+http: GET in /login - 22:22:18
+http: GET in /login - 22:22:47
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /recover - 23:30:07
+info: Server is running on port 8080
+http: GET in /recover - 23:31:57
+http: GET in / - 23:32:53
+http: GET in /login - 23:32:56
+http: POST in /api/session/login - 23:33:10
+http: GET in /user - 23:33:11
+http: GET in /api/session/logout - 23:33:13
+http: GET in /login - 23:33:13
+info: Server is running on port 8080

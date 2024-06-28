@@ -3,8 +3,6 @@ import ProductController from "../controllers/productController.js";
 import MessageController from "../controllers/messageController.js";
 import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
-import TicketController from "../controllers/ticketController.js";
-import { authToken } from "../utils/utils.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 import { generateProducts } from "../utils/fakerUtil.js";
@@ -14,7 +12,6 @@ const productController = new ProductController();
 const cartController = new CartController();
 const messageController = new MessageController();
 const userController = new UserController();
-const ticketController = new TicketController();
 
 router.get("/", (req, res) => {
   res.render("home", {
@@ -159,25 +156,6 @@ router.get("/unauthorized", (req, res) => {
   });
 });
 
-// router.get(
-//   "/ticket/:tid",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     try {
-//       const ticket = await ticketController.getTicketById(req, res);
-//       console.log(ticket);
-//       res.render("ticket", {
-//         title: "Ticket",
-//         style: "index.css",
-//         ticket: ticket,
-//       });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send("Internal Server Error");
-//     }
-//   }
-// );
-
 router.get("/mockingproducts", (req, res) => {
   const productsPerPage = 5;
   const currentPage = parseInt(req.query.page) || 1;
@@ -209,6 +187,34 @@ router.get("/loggertest", (req, res) => {
   req.logger.debug("Logger test debug message");
 
   res.send("Logger test completed!");
+});
+
+router.post("/recover", async (req, res) => {
+  try {
+    const result = await transport.sendMail({
+      from: "Yesika Perez <yesikapr@gmail.com>",
+      to: "yesikapr@gmail.com",
+      subject: "Password Recovery",
+      text: `Click on this link to recover your password: ${link}`,
+      html: ` <div>
+                        <h1>Recperemos tu password</h1>
+                        <p>Click on this link to recover your password: <a href="${link}">${link}</a></p>
+                        <img src="cid:image1"/>
+                    </div>`,
+      attachments: [
+        {
+          filename: "cheems.jpg",
+          path: `${__dirname}/../images/image1.webp`,
+          cid: "Recover your password",
+        },
+      ],
+    });
+
+    res.send({ status: "success", result });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ status: "error", message: "Error in send email!" });
+  }
 });
 
 export default router;

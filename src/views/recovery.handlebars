@@ -1,0 +1,20 @@
+<body>
+  <div class="recovery-page">
+    <h1>Password Recovery</h1>
+    <p>Enter your email address to recover your password.</p>
+    {{#if error}}
+      <div class="error-message">{{error}}</div>
+    {{/if}}
+    <form>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
+      <button type="submit">Recover Password</button>
+    </form>
+    <p>Didn't receive an email? <a href="#" id="resend-email">Resend</a></p>
+    {{#if success}}
+      <div class="success-message">Check your email for password recovery
+        instructions.</div>
+    {{/if}}
+  </div>
+  <script src="/js/recovery.js"></script>
+</body>
