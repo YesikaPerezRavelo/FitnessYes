@@ -18,27 +18,11 @@ router.get("/users", async (req, res) => {
   }
 });
 
-router.post("/register", async (req, res) => {
-  const user = req.body;
-  try {
-    const response = await userControllerDB.registerUser(user);
-    console.log({ response });
-    const cart = await cartControllerDB.createCart();
-    console.log({ cart });
-    console.log("carrito", cart);
-    const result = await userControllerDB.updateUser(response._id, cart._id);
-    console.log({ result });
-    res.redirect("/user");
-  } catch (error) {
-    res.redirect("/register");
-  }
-});
-
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     req.session.failLogin = false;
-    const user = await userControllerDB.findUserEmail(email).lean();
+    const user = await userControllerDB.findUserEmail(email);
     if (!user || password !== user.password) {
       req.session.failLogin = true;
       console.log("contraseña incorrecta");

@@ -415,3 +415,19 @@ http: GET in /api/session/logout - 16:46:49
 http: GET in /login - 16:46:49
 http: POST in /api/session/login - 16:46:57
 http: GET in /user - 16:46:57
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/logout - 17:02:55
+http: GET in /login - 17:02:55
+http: GET in /register - 17:03:07
+http: POST in /api/session/register - 17:03:37
+http: POST in /api/session/login - 17:03:47
+http: GET in /user - 17:03:48
+info: Server is running on port 8080
+http: GET in /api/session/logout - 17:04:23
+http: GET in /login - 17:04:23
+http: GET in /register - 17:04:26
+http: POST in /api/session/register - 17:04:49
+http: POST in /api/session/login - 17:04:58
+http: GET in /user - 17:04:58
+info: Server is running on port 8080
