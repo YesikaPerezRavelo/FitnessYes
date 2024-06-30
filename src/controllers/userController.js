@@ -54,4 +54,34 @@ export default class UserController {
       console.error(error);
     }
   }
+
+  async updatePassword(userId, newPassword) {
+    return await this.userService.updatePassword(userId, newPassword);
+  }
+
+  async getUserByToken(token) {
+    return await this.userService.getUserByToken(token);
+  }
+
+  async sendPasswordRecoveryEmail(email) {
+    const user = await this.userService.findUserEmail(email);
+    if (!user) {
+      throw new Error("Email not found");
+    }
+    const token = jwt.sign({ email: user.email }, "secretKey", {
+      expiresIn: "1h",
+    });
+    const link = `http://localhost:8080/recover/${token}`;
+    const mailOptions = {
+      from: "Node Products <your.email@example.com>",
+      to: email,
+      subject: "Password Recovery",
+      html: `<p>Click on this link to recover your password: <a href="${link}">${link}</a></p>`,
+    };
+    transport.sendMail(mailOptions, (error) => {
+      if (error) {
+        throw new Error("Error sending email");
+      }
+    });
+  }
 }

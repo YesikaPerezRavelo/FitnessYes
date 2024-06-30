@@ -290,3 +290,94 @@ http: GET in /user - 23:33:11
 http: GET in /api/session/logout - 23:33:13
 http: GET in /login - 23:33:13
 info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /send/mail - 12:35:34
+http: POST in /send/mail - 12:36:52
+info: Server is running on port 8080
+http: POST in /send/mail - 12:40:42
+info: Server is running on port 8080
+http: GET in /send/mail - 12:41:16
+http: GET in /send/mail - 12:41:22
+info: Server is running on port 8080
+http: GET in /send/mail - 12:43:21
+info: Server is running on port 8080
+http: GET in /send/mail - 12:44:35
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /send/mail - 12:50:54
+info: Server is running on port 8080
+http: GET in /send/mail - 12:52:32
+info: Server is running on port 8080
+http: GET in /send/mail - 12:54:26
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 13:43:52
+http: GET in /login - 13:43:54
+http: POST in /api/session/login - 13:44:02
+http: GET in /user - 13:44:03
+http: GET in /chat - 13:44:07
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 14:35:59
+http: GET in /login - 14:36:07
+http: GET in /user - 14:36:07
+http: GET in /api/session/logout - 14:36:10
+http: GET in /login - 14:36:10
+http: POST in /api/session/login - 14:36:22
+http: GET in /user - 14:36:23
+http: GET in /api/session/logout - 14:36:30
+http: GET in /login - 14:36:30
+http: GET in /products/recover - 14:39:44
+http: GET in /products/recover - 14:40:32
+http: GET in /login - 14:40:49
+http: GET in /recover/$%7Btoken%7D - 14:40:51
+http: GET in / - 14:45:43
+http: GET in /login - 14:45:45
+http: GET in /recover - 14:45:47
+info: Server is running on port 8080
+http: GET in / - 14:51:11
+http: GET in /login - 14:51:13
+http: GET in /recover - 14:51:16
+http: GET in /css/ - 14:51:16
+http: GET in /js/recover.js - 14:51:16
+http: GET in /recover?email=yesi%40gmail.com - 15:02:32
+http: GET in /css/ - 15:02:32
+http: GET in /js/recover.js - 15:02:32
+http: GET in /recover?email=yesi%40gmail.com - 15:03:02
+http: GET in /js/recover.js - 15:03:02
+http: GET in /css/ - 15:03:02
+http: GET in /js/recover.js - 15:03:03
+http: GET in /recover - 15:07:35
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 15:42:46
+http: GET in /login - 15:42:48
+http: GET in /recover - 15:42:51
+http: GET in /js/recover.js - 15:42:52
+http: GET in /recover?email=yesi%40gmail.com - 15:43:14
+http: GET in /js/recover.js - 15:43:14
+http: GET in /favicon.ico - 15:43:15
+http: GET in /recover?email=yesi%40gmail.com - 15:44:50
+http: GET in /favicon.ico - 15:44:50
+http: GET in /recover - 15:53:11
+http: GET in /recover - 15:53:55
+http: GET in //changePassword - 15:54:41
+http: GET in /changePassword - 15:54:48
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /recover?email=yesi%40gmail.com - 16:10:55
+info: Server is running on port 8080
+http: GET in /recover - 16:15:05
+http: GET in /recover - 16:15:15
+info: Server is running on port 8080
+http: GET in /recover - 16:16:00
+info: Server is running on port 8080

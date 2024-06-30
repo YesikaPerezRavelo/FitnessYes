@@ -1,5 +1,5 @@
 import UserRepository from "../repository/userRepository.js";
-import { isValidPassword } from "../utils/functionUtil.js";
+import { createHash, isValidPassword } from "../utils/functionUtil.js";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -53,5 +53,14 @@ export default class UserService {
 
   async findUserById(userId) {
     return await this.userRepository.findUserById(userId);
+  }
+
+  async updatePassword(userId, newPassword) {
+    const hashedPassword = createHash(newPassword);
+    return await this.userRepository.updatePassword(userId, hashedPassword);
+  }
+
+  async getUserByToken(token) {
+    return await this.userRepository.getUserByToken(token);
   }
 }

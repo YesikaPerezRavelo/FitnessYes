@@ -30,6 +30,7 @@ const usersSchema = new mongoose.Schema({
   role: {
     type: String,
     default: "student",
+    enum: ["student", "teacher", "premium"],
   },
   cart: {
     type: mongoose.Schema.Types.ObjectId,
