@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     req.session.failLogin = false;
-    const user = await userControllerDB.findUserEmail(email);
+    const user = await userControllerDB.findUserEmail(email).lean();
     if (!user || password !== user.password) {
       req.session.failLogin = true;
       console.log("contraseña incorrecta");

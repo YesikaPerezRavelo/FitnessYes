@@ -9,7 +9,8 @@ export default class UserDao {
     return await userModel
       .find({})
       .populate("cart")
-      .populate("cart.products.product");
+      .populate("cart.products.product")
+      .lean();
   }
 
   async create(user) {
@@ -17,7 +18,7 @@ export default class UserDao {
   }
 
   async findByEmail(email) {
-    return await userModel.findOne({ email });
+    return await userModel.findOne({ email }).lean();
   }
 
   async update(userId, cartId) {
@@ -25,7 +26,7 @@ export default class UserDao {
   }
 
   async findById(userId) {
-    return await userModel.findById(userId);
+    return await userModel.findById(userId).lean();
   }
 
   async updatePassword(userId, newPassword) {
@@ -35,6 +36,6 @@ export default class UserDao {
   async getUserByToken(token) {
     //ask if I should use passport here
     const decoded = jwt.verify(token, secretKey);
-    return await userModel.findOne({ email: decoded.email });
+    return await userModel.findOne({ email: decoded.email }).lean();
   }
 }

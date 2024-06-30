@@ -1,5 +1,9 @@
 import UserService from "../services/userService.js";
 import UserDTO from "../dao/DTOs/userDto.js";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+const secretKey = process.env.SECRET_KEY;
 
 export default class UserController {
   constructor() {
@@ -68,12 +72,12 @@ export default class UserController {
     if (!user) {
       throw new Error("Email not found");
     }
-    const token = jwt.sign({ email: user.email }, "secretKey", {
+    const token = jwt.sign({ email: user.email }, secretKey, {
       expiresIn: "1h",
     });
     const link = `http://localhost:8080/recover/${token}`;
     const mailOptions = {
-      from: "Node Products <your.email@example.com>",
+      from: "FitnessYes <yesikapr@gmail.com>",
       to: email,
       subject: "Password Recovery",
       html: `<p>Click on this link to recover your password: <a href="${link}">${link}</a></p>`,
