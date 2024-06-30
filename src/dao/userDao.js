@@ -38,4 +38,12 @@ export default class UserDao {
     const decoded = jwt.verify(token, secretKey);
     return await userModel.findOne({ email: decoded.email }).lean();
   }
+
+  async updateRole(userId, newRole) {
+    return await userModel.findByIdAndUpdate(
+      userId,
+      { role: newRole },
+      { new: true }
+    );
+  }
 }

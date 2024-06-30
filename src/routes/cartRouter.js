@@ -2,12 +2,14 @@ import { Router } from "express";
 import CartController from "../controllers/cartController.js";
 import UserController from "../controllers/userController.js";
 import TicketController from "../controllers/ticketController.js";
+import ProductController from "../controllers/productController.js";
 import passport from "passport";
 
 const router = Router();
 const cartController = new CartController();
 const userController = new UserController();
 const ticketController = new TicketController();
+const productController = new ProductController();
 
 router.get("/:cid", async (req, res) => {
   try {
@@ -68,42 +70,63 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/:cid/products/:pid", async (req, res) => {
-  const cartId = req.params.cid;
-  const productId = req.params.pid;
-  const quantity = req.body.quantity || 1;
+router.post(
+  "/:cid/products/:pid",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    const cartId = req.params.cid;
+    const productId = req.params.pid;
+    const quantity = req.body.quantity || 1;
 
-  console.log(
-    "cartId:",
-    cartId,
-    "productId:",
-    productId,
-    "quantity:",
-    quantity
-  );
+    console.log(
+      "cartId:",
+      cartId,
+      "productId:",
+      productId,
+      "quantity:",
+      quantity
+    );
 
-  if (!productId || !quantity) {
-    console.error("Invalid productId or quantity");
-    return res.status(400).send({
-      status: "error",
-      error: "Invalid productId or quantity",
-    });
+    if (!productId || !quantity) {
+      console.error("Invalid productId or quantity");
+      return res.status(400).send({
+        status: "error",
+        error: "Invalid productId or quantity",
+      });
+    }
+
+    try {
+      // Obtener información del producto
+      const product = await productController.getProductByID(productId);
+      // Obtener información del usuario autenticado
+      const user = req.user;
+
+      // Comprobar si el usuario es premium y si es el creador del producto
+      if (
+        user.isPremium &&
+        product.creatorId.toString() === user._id.toString()
+      ) {
+        return res.status(403).send({
+          status: "error",
+          message: "Premium users cannot add their own products to the cart",
+        });
+      }
+
+      // Añadir el producto al carrito si no se cumplen las condiciones anteriores
+      await cartController.addProductToCart(cartId, productId, quantity);
+      res.send({
+        status: "success",
+        message: "Product has been added successfully",
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(400).send({
+        status: "error",
+        error: "There was an error adding the product to the cart",
+      });
+    }
   }
-
-  try {
-    await cartController.addProductToCart(cartId, productId, quantity);
-    res.send({
-      status: "success",
-      message: "Product has been added successfully",
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(400).send({
-      status: "error",
-      error: "There was an error adding the product to the cart",
-    });
-  }
-});
+);
 
 router.put("/:cid", async (req, res) => {
   const cartId = req.params.cid;
@@ -226,11 +249,6 @@ router.post(
           notProcessed,
         },
       });
-
-      // res.render("ticket", {
-      // title: "Ticket",
-      // ticket: ticket,
-      // notProcessed: notProcessed
     } catch (error) {
       console.error("Error en cartRouter ", error);
       res.status(400).send({

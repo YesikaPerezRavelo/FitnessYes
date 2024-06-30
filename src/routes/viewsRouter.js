@@ -8,7 +8,7 @@ import { auth } from "../middlewares/auth.js";
 import { generateProducts } from "../utils/fakerUtil.js";
 import { transport } from "../utils/mailUtil.js";
 import __dirname from "../utils/constantsUtil.js";
-// import role from "../role/role.js";
+import role from "../role/role.js";
 
 const router = Router();
 const productController = new ProductController();
@@ -264,12 +264,12 @@ router.post("/recover", async (req, res) => {
   const { email } = req.body;
   try {
     const result = await userController.sendPasswordRecoveryEmail(email);
-    console.log(result); // Log the result for debugging
+    console.log(result);
     res.json({
       success: "Check your email for password recovery instructions",
     });
   } catch (error) {
-    console.error(error); // Log the error for debugging
+    console.error(error);
     res.status(500).json({ error: "Error recovering password" });
   }
 });

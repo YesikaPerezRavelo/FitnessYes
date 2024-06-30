@@ -63,4 +63,11 @@ export default class UserService {
   async getUserByToken(token) {
     return await this.userRepository.getUserByToken(token);
   }
+
+  async updateRole(userId, newRole) {
+    if (!["student", "teacher", "premium"].includes(newRole)) {
+      throw new Error("Invalid role");
+    }
+    return await this.userRepository.updateRole(userId, newRole);
+  }
 }

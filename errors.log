@@ -431,3 +431,49 @@ http: POST in /api/session/register - 17:04:49
 http: POST in /api/session/login - 17:04:58
 http: GET in /user - 17:04:58
 info: Server is running on port 8080
+http: GET in /api/session/logout - 17:06:11
+http: GET in /login - 17:06:11
+http: GET in /favicon.ico - 17:06:12
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/session/login - 17:45:27
+http: GET in /user - 17:45:28
+http: GET in /api/users - 17:45:47
+http: GET in /api/users - 17:46:13
+http: PUT in /premium/6681ba61905d215d63dc5982 - 17:47:55
+http: PUT in /api/sessions/premium/6681ba61905d215d63dc5982 - 17:48:28
+http: GET in /api/session/github - 17:48:56
+http: GET in /api/session/githubcallback?code=59c13f1503d320d44bb8 - 17:48:57
+http: GET in /user - 17:48:58
+http: GET in /api/session/logout - 17:49:04
+http: GET in /login - 17:49:04
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 18:36:00
+http: GET in /login - 18:36:02
+http: POST in /api/session/login - 18:36:10
+http: GET in /user - 18:36:10
+http: GET in /realtimeproducts - 18:36:14
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/session/login - 18:54:37
+http: GET in /user - 18:54:38
+http: POST in /api/cart - 18:55:05
+http: POST in /api/cart/6681d439793d9a127b6319fd/products/661c4fe7f81c89e8a8db59ff - 18:55:31
+info: Server is running on port 8080
+http: POST in /api/cart/6681d439793d9a127b6319fd/products/661c4fe7f81c89e8a8db59ff - 19:00:19
+info: Server is running on port 8080

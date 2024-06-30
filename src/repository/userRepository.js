@@ -60,4 +60,8 @@ export default class UserRepository {
       throw new Error("Error getting user by token: " + error.message);
     }
   }
+
+  async updateRole(userId, newRole) {
+    return await this.userDao.updateRole(userId, newRole);
+  }
 }

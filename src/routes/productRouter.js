@@ -38,38 +38,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.post(
-//   "/",
-//   passport.authenticate("jwt", { session: false }),
-//   auth("teacher"),
-//   uploader.array("thumbnails", 3),
-//   async (req, res) => {
-//     if (req.files) {
-//       req.body.thumbnails = [];
-//       req.files.forEach((file) => {
-//         req.body.thumbnails.push(file.filename);
-//       });
-//     }
-
-//     try {
-//       const result = await productController.createProduct(req.body);
-//       res.send({
-//         status: "success",
-//         payload: result,
-//       });
-//     } catch (error) {
-//       res.status(400).send({
-//         status: "error",
-//         message: error.message,
-//       });
-//     }
-//   }
-// );
-
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher"),
+  auth("teacher", "premium"),
   uploader.array("thumbnails", 3),
   async (req, res) => {
     if (req.files) {
@@ -106,6 +78,7 @@ router.post(
           code: ErrorCodes.INVALID_TYPES_ERROR,
         });
       }
+      req.body.owner = req.user.user._id; // Set the owner to the user creating the product
       const result = await productController.createProduct(req.body);
       res.send({
         status: "success",
@@ -145,21 +118,47 @@ router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
   }
 });
 
-router.delete("/:pid", async (req, res) => {
-  try {
-    const result = await productController.deleteProduct(req.params.pid);
-    res.send({
-      status: "success",
-      payload: result,
-    });
-  } catch (error) {
-    req.logger.warning("Cannot delete product");
-    res.status(400).send({
-      status: "error",
-      message: error.message,
-    });
+router.delete(
+  "/:pid",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    const userId = req.user.user._id;
+    try {
+      const product = await productController.getProductByID(req.params.pid);
+
+      if (!product) {
+        return res.status(404).send({
+          status: "error",
+          message: "Product not found",
+        });
+      }
+
+      // Check if the user is either a teacher or the owner of the product
+      if (
+        req.user.user.role === "student" || // students can't delete any products
+        (req.user.user.role === "premium" &&
+          product.owner.toString() !== userId.toString())
+      ) {
+        return res.status(403).send({
+          status: "error",
+          message: "You do not have permission to delete this product",
+        });
+      }
+
+      const result = await productController.deleteProduct(req.params.pid);
+      res.send({
+        status: "success",
+        payload: result,
+      });
+    } catch (error) {
+      req.logger.warning("Cannot delete product");
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+      });
+    }
   }
-});
+);
 
 router.get("/search", async (req, res) => {
   try {
