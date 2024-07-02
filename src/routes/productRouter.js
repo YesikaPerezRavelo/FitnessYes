@@ -7,6 +7,7 @@ import { uploader } from "../utils/multerUtil.js";
 import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 import productModel from "../models/productModel.js";
+import role from "../role/role.js";
 
 const router = Router();
 const productController = new ProductController();

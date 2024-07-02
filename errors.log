@@ -490,3 +490,23 @@ http: GET in / - 08:14:53
 http: GET in /login - 08:14:55
 http: GET in /recover - 08:14:57
 http: POST in /recover - 08:15:03
+info: Server is running on port 8080
+http: GET in / - 15:51:38
+http: GET in /favicon.ico - 15:51:39
+http: GET in /login - 15:51:51
+http: GET in /recover - 15:51:54
+http: POST in /recover - 15:52:01
+info: Server is running on port 8080
+http: GET in / - 16:10:48
+http: GET in /login - 16:10:52
+http: GET in /recover - 16:10:55
+http: POST in /recover - 16:11:00
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 16:33:37
+http: GET in /login - 16:33:40
+http: GET in /recover - 16:33:42
+http: POST in /recover - 16:33:47
+http: GET in /stylesheets/index.css - 16:33:48
+http: GET in /login - 16:34:05

@@ -1,7 +1,7 @@
 import UserService from "../services/userService.js";
 import UserDTO from "../dao/DTOs/userDto.js";
 import { transport } from "../utils/mailUtil.js";
-import jwt from "passport-jwt";
+import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 dotenv.config();
 

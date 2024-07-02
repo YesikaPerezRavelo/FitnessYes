@@ -96,12 +96,12 @@ router.post(
     }
 
     try {
-      // Obtener información del producto
+      // Info of the product
       const product = await productController.getProductByID(productId);
-      // Obtener información del usuario autenticado
+      //Info of the user authentication
       const user = req.user;
 
-      // Comprobar si el usuario es premium y si es el creador del producto
+      // Check if the user is premium and if they are the creator of the product
       if (
         user.isPremium &&
         product.creatorId.toString() === user._id.toString()
@@ -112,7 +112,7 @@ router.post(
         });
       }
 
-      // Añadir el producto al carrito si no se cumplen las condiciones anteriores
+      //Add the product to the cart if the above conditions are not met
       await cartController.addProductToCart(cartId, productId, quantity);
       res.send({
         status: "success",
