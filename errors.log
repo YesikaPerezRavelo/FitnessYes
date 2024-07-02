@@ -477,3 +477,16 @@ http: POST in /api/cart/6681d439793d9a127b6319fd/products/661c4fe7f81c89e8a8db59
 info: Server is running on port 8080
 http: POST in /api/cart/6681d439793d9a127b6319fd/products/661c4fe7f81c89e8a8db59ff - 19:00:19
 info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 08:13:22
+http: GET in /login - 08:13:31
+http: GET in /recover - 08:13:34
+http: GET in /favicon.ico - 08:13:34
+http: POST in /recover - 08:13:41
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 08:14:53
+http: GET in /login - 08:14:55
+http: GET in /recover - 08:14:57
+http: POST in /recover - 08:15:03
