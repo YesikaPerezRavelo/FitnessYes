@@ -91,14 +91,12 @@ export default class UserController {
     });
   }
 
-  async updateRole(req, res) {
-    const { uid } = req.params;
-    const { role } = req.body;
+  async updateRole(uid, role) {
     try {
       const updatedUser = await this.userService.updateRole(uid, role);
-      res.status(200).json({ success: true, user: updatedUser });
+      return updatedUser;
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      throw new Error("Error updating role: " + error.message);
     }
   }
 }

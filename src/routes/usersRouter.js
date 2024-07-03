@@ -66,11 +66,41 @@ router.get(
 router.get(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher"),
+  auth("student"),
   async (req, res) => {
     try {
       const user = await userControllerDB.findUserById(req.params.uid);
-      const roles = ["student", "teacher"];
+      const roles = ["student", "premium"];
+
+      if (req.user.user.role !== "teacher") {
+        return res.status(401).json({
+          error: "Unauthorized",
+          message: "You do not have permission to access this page.",
+        });
+      }
+
+      res.render("switchRole", {
+        title: "Role Switcher",
+        user: user,
+        role: roles,
+      });
+    } catch (error) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+      });
+    }
+  }
+);
+
+router.get(
+  "/premium/:uid",
+  passport.authenticate("jwt", { session: false }),
+  auth("student"),
+  async (req, res) => {
+    try {
+      const user = await userControllerDB.findUserById(req.params.uid);
+      const roles = ["student", "premium"];
 
       if (req.user.user.role !== "teacher") {
         return res.status(401).json({
@@ -93,22 +123,17 @@ router.get(
   }
 );
 
-// Update user role (teacher)
 router.put(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const uid = req.params.uid;
-      const user = await userControllerDB(uid);
-      user.role = user.role === "premium" ? "user" : "premium";
-      const update = await userControllerDB.updateRole({ _id: uid }, user, {
-        new: true,
-      });
-
-      res.status(200).send("Role updated successfully!");
+      const { uid } = req.params;
+      const { role } = req.body;
+      const updatedUser = await userControllerDB.updateRole(uid, role);
+      res.status(200).json({ success: true, user: updatedUser });
     } catch (error) {
-      res.status(500).send("Error updating role!");
+      res.status(500).json({ error: error.message });
     }
   }
 );

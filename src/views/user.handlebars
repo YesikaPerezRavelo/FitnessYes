@@ -10,7 +10,6 @@
       <li class="nav__item">
         <a class="nav_link" href="/chat">Help</a>
       </li>
-      </li>
       <li class="nav__item">
         <a class="nav_link" href="/mockingproducts">Extras</a>
       </li>
@@ -29,7 +28,7 @@
       class="user-image"
     />
     <div class="user-details">
-      <a href="/ticket/{{user.ticketId}}">see ticket</a>
+      <a href="/ticket/{{user.ticketId}}">See ticket</a>
       <p>Email: {{user.email}}</p>
       <h1>{{#if user.lastName}}{{user.firstName}}
           {{user.lastName}}{{else}}{{user.firstName}}{{/if}}</h1>
@@ -37,6 +36,15 @@
         <h2>{{#if user.age}}Age: {{user.age}}{{/if}}</h2>
         <h2>Role: {{user.role}}</h2>
       </div>
+
+      <a href="/premium/{{user._id}}" class="button">Switch to Premium</a>
+
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Switch to Premium"
+          class="switch-role-image"
+        />
+      </a>
     </div>
   </div>
 </div>

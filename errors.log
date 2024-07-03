@@ -584,3 +584,15 @@ http: GET in /api/users - 01:32:03
 info: Server is running on port 8080
 http: GET in /api/users - 01:52:50
 info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 16:44:28
+info: Server is running on port 8080
+http: GET in /login - 16:45:00
+http: POST in /api/session/login - 16:45:12
+http: GET in /user - 16:45:13
+http: GET in /premium/66411cc677a5a1cfd1815bc8 - 16:45:19
+info: Server is running on port 8080
+http: GET in / - 16:47:12
+http: GET in /login - 16:47:15
+http: GET in /user - 16:47:16
+http: GET in /premium/66411cc677a5a1cfd1815bc8 - 16:47:20
