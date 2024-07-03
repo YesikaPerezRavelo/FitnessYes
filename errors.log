@@ -510,3 +510,77 @@ http: GET in /recover - 16:33:42
 http: POST in /recover - 16:33:47
 http: GET in /stylesheets/index.css - 16:33:48
 http: GET in /login - 16:34:05
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 00:24:04
+http: GET in /login - 00:24:06
+http: POST in /api/session/login - 00:24:20
+http: GET in /user - 00:24:21
+http: GET in /products/ - 00:24:24
+http: GET in /realtimeproducts - 00:24:29
+http: GET in /unauthorized - 00:24:29
+http: GET in /stylesheets/index.css - 00:24:29
+http: GET in /user - 00:24:33
+http: GET in /api/session/logout - 00:24:34
+http: GET in /login - 00:24:34
+http: POST in /api/session/login - 00:24:38
+http: GET in /user - 00:24:38
+http: GET in /realtimeproducts - 00:24:39
+http: GET in /chat - 00:24:45
+http: GET in /unauthorized - 00:24:46
+http: GET in /stylesheets/index.css - 00:24:46
+http: GET in /user - 00:24:48
+http: GET in /mockingproducts - 00:24:49
+http: GET in /cart?cid= - 00:24:56
+http: GET in /cart?cid=6684c488e4637297dcf7e358 - 00:24:56
+http: GET in /products/ - 00:24:59
+http: GET in /unauthorized - 00:25:00
+http: GET in /stylesheets/index.css - 00:25:00
+http: GET in /user - 00:25:02
+http: GET in /api/session/logout - 00:25:07
+http: GET in /login - 00:25:07
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 00:37:30
+http: GET in /login - 00:37:32
+http: POST in /api/session/login - 00:37:38
+http: GET in /user - 00:37:38
+http: GET in /realtimeproducts - 00:37:40
+http: GET in /api/session/logout - 00:37:47
+http: GET in /login - 00:37:47
+http: POST in /api/session/login - 00:38:00
+http: GET in /user - 00:38:01
+http: GET in /products/ - 00:38:04
+http: GET in /products?page=2 - 00:38:07
+http: GET in /api/session/logout - 00:38:12
+http: GET in /login - 00:38:12
+info: Server is running on port 8080
+http: POST in /api/cart - 00:59:37
+http: POST in /api/session/login - 01:00:01
+http: GET in /user - 01:00:01
+http: POST in /api/cart/6684ccaa9e10dff92b202a63/products/661c4fe7f81c89e8a8db59ff - 01:00:21
+info: Server is running on port 8080
+http: POST in /api/cart/6684ccaa9e10dff92b202a63/products/661c4fe7f81c89e8a8db59ff - 01:01:14
+http: POST in /api/session/login - 01:01:53
+http: GET in /user - 01:01:54
+http: GET in /realtimeproducts - 01:01:56
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/users - 01:27:36
+http: GET in /api/users/users - 01:28:34
+info: Server is running on port 8080
+http: GET in /api/users/users - 01:31:45
+info: Server is running on port 8080
+http: GET in /api/users - 01:32:03
+info: Server is running on port 8080
+http: GET in /api/users - 01:52:50
+info: Server is running on port 8080

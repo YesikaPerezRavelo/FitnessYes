@@ -1,15 +1,14 @@
 import { Router } from "express";
 import userController from "../controllers/userController.js";
-import ProductController from "../controllers/productController.js";
-import { generateToken, authToken } from "../utils/utils.js";
+import { generateToken } from "../utils/utils.js";
 import passport from "passport";
+import { auth } from "../middlewares/auth.js";
 
 const router = Router();
 
-const productControllerDB = new ProductController();
 const userControllerDB = new userController();
 
-router.get("/users", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const result = await userControllerDB.getUsers();
     res.send({ users: result });
@@ -63,10 +62,11 @@ router.get(
   }
 );
 
-// Route to switch user role (teacher)
+// Route to switch user role (only teacher)
 router.get(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
+  auth("teacher"),
   async (req, res) => {
     try {
       const user = await userControllerDB.findUserById(req.params.uid);
@@ -98,18 +98,14 @@ router.put(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const uid = req.params.uid;
-    const newRole = req.body.role;
-
     try {
-      if (req.user.user.role !== "teacher") {
-        return res.status(401).json({
-          error: "Unauthorized",
-          message: "You do not have permission to update roles.",
-        });
-      }
+      const uid = req.params.uid;
+      const user = await userControllerDB(uid);
+      user.role = user.role === "premium" ? "user" : "premium";
+      const update = await userControllerDB.updateRole({ _id: uid }, user, {
+        new: true,
+      });
 
-      await userControllerDB.updateRole(uid, newRole);
       res.status(200).send("Role updated successfully!");
     } catch (error) {
       res.status(500).send("Error updating role!");

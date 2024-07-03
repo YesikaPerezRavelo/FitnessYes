@@ -4,6 +4,7 @@ import UserController from "../controllers/userController.js";
 import TicketController from "../controllers/ticketController.js";
 import ProductController from "../controllers/productController.js";
 import passport from "passport";
+import { checkOwnership } from "../utils/checkOwnershipUtil.js";
 
 const router = Router();
 const cartController = new CartController();
@@ -77,6 +78,8 @@ router.post(
     const cartId = req.params.cid;
     const productId = req.params.pid;
     const quantity = req.body.quantity || 1;
+    const email = req.user.user.email;
+    let proceedWithCartUpdate = true;
 
     console.log(
       "cartId:",
@@ -84,7 +87,9 @@ router.post(
       "productId:",
       productId,
       "quantity:",
-      quantity
+      quantity,
+      "email:",
+      email
     );
 
     if (!productId || !quantity) {
@@ -98,29 +103,30 @@ router.post(
     try {
       // Info of the product
       const product = await productController.getProductByID(productId);
-      //Info of the user authentication
+      // Info of the user authentication
       const user = req.user;
 
       // Check if the user is premium and if they are the creator of the product
-      if (
-        user.isPremium &&
-        product.creatorId.toString() === user._id.toString()
-      ) {
-        return res.status(403).send({
-          status: "error",
-          message: "Premium users cannot add their own products to the cart",
-        });
+      if (user.role === "premium") {
+        proceedWithCartUpdate = !(await checkOwnership(productId, email));
       }
 
-      //Add the product to the cart if the above conditions are not met
-      await cartController.addProductToCart(cartId, productId, quantity);
-      res.send({
-        status: "success",
-        message: "Product has been added successfully",
-      });
+      if (proceedWithCartUpdate) {
+        // Add the product to the cart if the above conditions are not met
+        await cartController.addProductToCart(cartId, productId, quantity);
+        return res.send({
+          status: "success",
+          message: "Product has been added successfully",
+        });
+      } else {
+        return res.status(403).send({
+          status: "error",
+          message: "You cannot add your own product to the cart",
+        });
+      }
     } catch (error) {
       console.error(error);
-      res.status(400).send({
+      return res.status(500).send({
         status: "error",
         error: "There was an error adding the product to the cart",
       });

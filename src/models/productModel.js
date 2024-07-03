@@ -89,9 +89,8 @@ const productSchema = mongoose.Schema({
     default: [],
   },
   owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-    required: true,
+    type: String,
+    default: "teacher",
   },
 });
 
