@@ -82,9 +82,9 @@ const swaggerOptions = {
   definition: {
     openapi: "3.1.0",
     info: {
-      title: "Ecommerce",
+      title: "YesFitness",
       version: "1.0.0",
-      description: "API for ecommerce",
+      description: "API for YesFitness",
     },
   },
   apis: [`${__dirname}/../docs/**/*.yaml`],

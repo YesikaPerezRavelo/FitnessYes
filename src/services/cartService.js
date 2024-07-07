@@ -100,19 +100,6 @@ export default class CartService {
     }
   }
 
-  // async updateCartWithNotProcessed(cartId, notProcessed) {
-  //   try {
-  //     // Update cart with products that were not successfully processed
-  //     return await this.cartRepository.updateCartWithNotProcessed(
-  //       cartId,
-  //       notProcessed
-  //     );
-  //   } catch (error) {
-  //     console.error(error.message);
-  //     throw new Error("Error updating cart with not processed products");
-  //   }
-  // }
-
   async updateCartWithTicket(cartId, ticketId) {
     try {
       const cart = await this.cartRepository.getProductsFromCartByID(cartId);

@@ -885,3 +885,13 @@ http: GET in /apidocs/swagger-ui-init.js - 20:16:10
 http: GET in /apidocs/swagger-ui.css - 20:16:10
 http: GET in /apidocs/favicon-16x16.png - 20:16:11
 info: Server is running on port 8080
+http: GET in /apidocs/ - 20:18:27
+http: GET in /apidocs/swagger-ui.css - 20:18:27
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:18:27
+http: GET in /apidocs/swagger-ui-bundle.js - 20:18:28
+http: GET in /apidocs/swagger-ui-init.js - 20:18:28
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
