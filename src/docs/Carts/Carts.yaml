@@ -1,0 +1,270 @@
+openapi: 3.0.0
+info:
+  title: Cart API
+  description: API for managing shopping carts, including CRUD operations and purchasing functionality.
+  version: 1.0.0
+paths:
+  /api/carts:
+    get:
+      summary: Retrieve all carts
+      responses:
+        "200":
+          description: A list of all carts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The unique identifier for the cart
+                    products:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          productId:
+                            type: string
+                          quantity:
+                            type: integer
+    post:
+      summary: Create a new cart
+      responses:
+        "201":
+          description: The created cart
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+
+  /carts/{cartId}/products:
+    get:
+      summary: Retrieve all products in a specific cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of products in the cart
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      type: string
+                    quantity:
+                      type: integer
+    post:
+      summary: Add a product to a specific cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: productId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: quantity
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        "200":
+          description: The updated cart with the new product added
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+
+  /carts/{cartId}/products/{productId}:
+    put:
+      summary: Update the quantity of a specific product in a cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: quantity
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: The updated cart with the product quantity updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+    delete:
+      summary: Remove a specific product from a cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The updated cart with the product removed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+
+  /carts/{cartId}/clear:
+    delete:
+      summary: Remove all products from a specific cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The cart with all products removed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+
+  /carts/{cartId}/purchase:
+    post:
+      summary: Purchase all products in a specific cart
+      parameters:
+        - in: path
+          name: cartId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The result of the cart purchase including processed and not processed items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+                  notProcessed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                        quantity:
+                          type: integer
+
+  /carts/{id}:
+    delete:
+      summary: Delete a specific cart
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The deleted cart
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string

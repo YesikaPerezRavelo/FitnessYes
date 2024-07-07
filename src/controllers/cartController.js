@@ -143,16 +143,6 @@ class CartController {
         }
       }
 
-      // Step 3: Create the ticket for the purchase
-      // const ticket = await this.ticketController.createTicket({
-      //   purchaser: req.user.email, // Ensure req.user.email is defined
-      //   cart: cartId,
-      // });
-
-      // Step 4: Remove processed products from the cart
-      // await this.cartService.updateCartWithNotProcessed(cartId, notProcessed);
-
-      // Step 5: Send response
       return {
         processed,
         notProcessed,
@@ -162,18 +152,6 @@ class CartController {
       throw new Error("Error purchasing cart");
     }
   }
-
-  // async updateCartWithNotProcessed(cartId, notProcessed) {
-  //   try {
-  //     return await this.cartService.updateCartWithNotProcessed(
-  //       cartId,
-  //       notProcessed
-  //     );
-  //   } catch (error) {
-  //     console.error(error);
-  //     throw new Error("Error updating cart with not processed products");
-  //   }
-  // }
 }
 
 export default CartController;

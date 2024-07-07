@@ -861,3 +861,27 @@ http: POST in /api/session/login - 19:00:54
 http: GET in /user - 19:00:54
 http: GET in /favicon.ico - 19:00:54
 http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 19:01:33
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 20:07:05
+http: GET in /api/docs - 20:07:21
+http: GET in /api/docs/ - 20:07:25
+http: GET in /apidocs - 20:09:46
+http: GET in /apidocs/ - 20:09:47
+http: GET in /apidocs/swagger-ui.css - 20:09:47
+http: GET in /apidocs/swagger-ui-bundle.js - 20:09:47
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:09:47
+http: GET in /apidocs/swagger-ui-init.js - 20:09:47
+http: GET in /apidocs/favicon-16x16.png - 20:09:48
+http: GET in /apidocs/ - 20:12:49
+http: GET in /apidocs/swagger-ui-bundle.js - 20:12:50
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:12:50
+http: GET in /apidocs/swagger-ui-init.js - 20:12:50
+http: GET in /apidocs/swagger-ui.css - 20:12:50
+http: GET in /apidocs/ - 20:16:10
+http: GET in /apidocs/swagger-ui-bundle.js - 20:16:10
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:16:10
+http: GET in /apidocs/swagger-ui-init.js - 20:16:10
+http: GET in /apidocs/swagger-ui.css - 20:16:10
+http: GET in /apidocs/favicon-16x16.png - 20:16:11
+info: Server is running on port 8080
