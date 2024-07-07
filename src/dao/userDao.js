@@ -1,6 +1,6 @@
 import { userModel } from "../models/userModel.js";
 import * as dotenv from "dotenv";
-import jwt from "passport-jwt";
+import jwt from "jsonwebtoken";
 dotenv.config();
 
 const secretKey = process.env.SECRET_KEY;

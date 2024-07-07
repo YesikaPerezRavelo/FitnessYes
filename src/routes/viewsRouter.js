@@ -245,13 +245,12 @@ router.get("/recover/:token", async (req, res) => {
   const { token } = req.params;
   try {
     const user = await userController.getUserByToken(token);
-
     if (!user) {
       return res.status(404).render("recoverView", { error: "Invalid token" });
     }
-
     res.render("changePasswordView", { user, token });
   } catch (error) {
+    console.error("Error in recover route:", error);
     res.status(500).render("recoverView", {
       error: "Token has expired. Please request a new password recovery link.",
       token,
@@ -261,6 +260,8 @@ router.get("/recover/:token", async (req, res) => {
 
 router.post("/recover", async (req, res) => {
   const { email } = req.body;
+  console.log("Received email:", email);
+
   try {
     const result = await userController.sendPasswordRecoveryEmail(email);
     console.log(result);

@@ -62,7 +62,7 @@ router.get(
   }
 );
 
-// Route to switch user role (only teacher)
+// Route to switch user role (only student) Only to student to premium and vice versa
 router.get(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
@@ -72,7 +72,7 @@ router.get(
       const user = await userControllerDB.findUserById(req.params.uid);
       const roles = ["student", "premium"];
 
-      if (req.user.user.role !== "teacher") {
+      if (req.user.user.role !== "student") {
         return res.status(401).json({
           error: "Unauthorized",
           message: "You do not have permission to access this page.",
@@ -81,37 +81,8 @@ router.get(
 
       res.render("switchRole", {
         title: "Role Switcher",
-        user: user,
-        role: roles,
-      });
-    } catch (error) {
-      res.status(400).send({
-        status: "error",
-        message: error.message,
-      });
-    }
-  }
-);
-
-router.get(
-  "/premium/:uid",
-  passport.authenticate("jwt", { session: false }),
-  auth("student"),
-  async (req, res) => {
-    try {
-      const user = await userControllerDB.findUserById(req.params.uid);
-      const roles = ["student", "premium"];
-
-      if (req.user.user.role !== "teacher") {
-        return res.status(401).json({
-          error: "Unauthorized",
-          message: "You do not have permission to access this page.",
-        });
-      }
-
-      res.render("switchRoleView", {
-        title: "Role Switcher",
-        user: user,
+        style: "index.css",
+        user: user.user,
         role: roles,
       });
     } catch (error) {
@@ -130,9 +101,11 @@ router.put(
     try {
       const { uid } = req.params;
       const { role } = req.body;
+      console.log(`Updating role for user ${uid} to ${role}`); // Add this line
       const updatedUser = await userControllerDB.updateRole(uid, role);
       res.status(200).json({ success: true, user: updatedUser });
     } catch (error) {
+      console.error(`Error updating role: ${error.message}`); // Add this line
       res.status(500).json({ error: error.message });
     }
   }
