@@ -8,6 +8,7 @@ import { auth } from "../middlewares/auth.js";
 import { generateProducts } from "../utils/fakerUtil.js";
 import { transport } from "../utils/mailUtil.js";
 import __dirname from "../utils/constantsUtil.js";
+import { createHash, isValidPassword } from "../utils/functionUtil.js";
 
 const router = Router();
 const productController = new ProductController();
@@ -248,7 +249,12 @@ router.get("/recover/:token", async (req, res) => {
     if (!user) {
       return res.status(404).render("recoverView", { error: "Invalid token" });
     }
-    res.render("changePasswordView", { user, token });
+    res.render("changePasswordView", {
+      title: "Change Password View",
+      style: "index.css",
+      user,
+      token,
+    });
   } catch (error) {
     console.error("Error in recover route:", error);
     res.status(500).render("recoverView", {
@@ -292,9 +298,11 @@ router.post("/changePassword", async (req, res) => {
         .json({ error: "New password cannot be the same as old password" });
     }
 
-    await userController.updatePassword(user._id, newPassword);
+    const hashedPassword = createHash(newPassword);
+    await userController.updatePassword(user._id, hashedPassword);
     res.json({ success: "Password changed successfully" });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       error: "Token has expired. Please request a new password recovery link.",
     });

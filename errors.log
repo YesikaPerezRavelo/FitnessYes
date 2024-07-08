@@ -895,3 +895,50 @@ info: Server is running on port 8080
 info: Server is running on port 8080
 info: Server is running on port 8080
 info: Server is running on port 8080
+http: GET in /apidocs/ - 20:37:25
+http: GET in /apidocs/swagger-ui.css - 20:37:26
+http: GET in /apidocs/swagger-ui-init.js - 20:37:26
+http: GET in /apidocs/swagger-ui-bundle.js - 20:37:26
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:37:26
+http: GET in /apidocs/favicon-16x16.png - 20:37:27
+http: GET in /products - 20:39:53
+info: Server is running on port 8080
+http: GET in / - 22:30:50
+http: GET in /login - 22:30:53
+http: GET in /recover - 22:30:55
+http: POST in /recover - 22:31:01
+http: GET in /stylesheets/index.css - 22:31:01
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAyMjYxLCJleHAiOjE3MjA0MDU4NjF9.7a7ROCQWtYCz9hwRxKBZxoTiEBRL8rSfnHWqcfBAK2w - 22:31:25
+http: GET in /css/ - 22:31:25
+http: POST in /changePassword - 22:31:41
+http: GET in /login - 22:31:45
+http: POST in /api/session/login - 22:31:58
+http: GET in /user - 22:31:58
+http: GET in /api/session/logout - 22:32:08
+http: GET in /login - 22:32:08
+info: Server is running on port 8080
+http: GET in / - 22:43:08
+http: GET in /login - 22:43:11
+http: GET in /recover - 22:43:13
+http: POST in /recover - 22:43:19
+http: GET in /stylesheets/index.css - 22:43:19
+http: GET in /login - 22:43:38
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAyOTk5LCJleHAiOjE3MjA0MDY1OTl9._OIwpyGOXCpd6FOTWExYK8IrgY_hJQEqpOj33i7zC7E - 22:43:50
+info: Server is running on port 8080
+http: GET in / - 22:46:25
+http: GET in /login - 22:46:27
+http: GET in /recover - 22:46:28
+http: POST in /recover - 22:46:33
+http: GET in /stylesheets/index.css - 22:46:33
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAzMTkzLCJleHAiOjE3MjA0MDY3OTN9.d9WjTUILVY3mFaIvCP3TOte-bBEJGkrcO40tKT2_MiU - 22:46:46
+info: Server is running on port 8080
+http: GET in / - 22:48:17
+http: GET in /login - 22:48:23
+http: GET in /recover - 22:48:24
+http: POST in /recover - 22:48:29
+http: GET in /stylesheets/index.css - 22:48:29
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAzMzA5LCJleHAiOjE3MjA0MDY5MDl9.dAzxZwof-tBv0rdQPjOZxvlxFBvFFYRSSGf4BNHC5KU - 22:48:40
+http: GET in /css/ - 22:48:40
+info: Server is running on port 8080
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAzMzA5LCJleHAiOjE3MjA0MDY5MDl9.dAzxZwof-tBv0rdQPjOZxvlxFBvFFYRSSGf4BNHC5KU - 22:57:28
+http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAzMzA5LCJleHAiOjE3MjA0MDY5MDl9.dAzxZwof-tBv0rdQPjOZxvlxFBvFFYRSSGf4BNHC5KU - 22:58:24

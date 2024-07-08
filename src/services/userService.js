@@ -56,8 +56,7 @@ export default class UserService {
   }
 
   async updatePassword(userId, newPassword) {
-    const hashedPassword = createHash(newPassword);
-    return await this.userRepository.updatePassword(userId, hashedPassword);
+    return await this.userRepository.updatePassword(userId, newPassword);
   }
 
   async getUserByToken(token) {
