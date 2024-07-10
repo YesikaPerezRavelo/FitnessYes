@@ -1,6 +1,6 @@
 import Assert from "assert";
 import mongoose from "mongoose";
-import UserDao from "../dao/userDao";
+import UserDao from "../dao/userDao.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
