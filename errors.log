@@ -944,3 +944,14 @@ http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ
 http: GET in /recover/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inllc2lAZ21haWwuY29tIiwiaWF0IjoxNzIwNDAzMzA5LCJleHAiOjE3MjA0MDY5MDl9.dAzxZwof-tBv0rdQPjOZxvlxFBvFFYRSSGf4BNHC5KU - 22:58:24
 info: Server is running on port 8080
 info: Server is running on port 8080
+http: GET in / - 22:51:57
+http: GET in /login - 22:52:00
+http: POST in /api/session/login - 22:52:07
+http: GET in /user - 22:52:08
+http: GET in /products/ - 22:52:15
+http: GET in /chat - 22:52:18
+http: GET in /mockingproducts - 22:52:20
+http: GET in /cart?cid= - 22:52:22
+http: GET in /cart?cid=668de95665df2f613c9186b8 - 22:52:23
+http: GET in /api/session/logout - 22:52:25
+http: GET in /login - 22:52:25

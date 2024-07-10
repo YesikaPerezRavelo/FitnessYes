@@ -6,24 +6,26 @@ dotenv.config();
 
 const uri = process.env.URI;
 
-mongoose.connect(uri, { dbName: testing });
+mongoose.connect(uri, { dbName: "testing" });
 const dao = new UserDao();
 const assert = Assert.strict;
 
-//This groups all the related test togehter
+// This groups all the related tests together
 describe("Tests DAO Users", function () {
-  //Runs once befoe all test start. Use it to set up anything needed for all test.
+  // Runs once before all tests start. Use it to set up anything needed for all tests.
   before(function () {});
 
-  //Runs before each individual test. Use it to reset things so each test starts fresh.
+  // Runs before each individual test. Use it to reset things so each test starts fresh.
   beforeEach(function () {});
 
-  //Runs one after all test finish. Use it to clean up things set up in before.
+  // Runs once after all tests finish. Use it to clean up things set up in before.
   after(function () {});
 
-  //Runs after each individual test. Use it to clean up after each test.
+  // Runs after each individual test. Use it to clean up after each test.
   afterEach(function () {});
 
-  //This is a single test.
-  it("getAll() shoulde return all users", async function () {});
+  // This is a single test.
+  it("getAll() should return all users", async function () {
+    // Add test logic here
+  });
 });
