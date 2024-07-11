@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher", "premium"),
+  auth(["teacher", "premium"]),
   uploader.array("thumbnails", 3),
   async (req, res) => {
     if (req.files) {
@@ -132,7 +132,7 @@ router.put("/:pid", uploader.array("thumbnails", 3), async (req, res) => {
 router.delete(
   "/:pid",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher", "premium"),
+  auth(["teacher", "premium"]),
   async (req, res) => {
     try {
       const product = await productController.getProductByID(req.params.pid);

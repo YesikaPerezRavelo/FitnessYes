@@ -1095,3 +1095,27 @@ http: POST in /api/session/login - 08:17:50
 http: GET in /user - 08:17:50
 http: GET in /realtimeproducts - 08:17:52
 info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 08:29:49
+http: GET in /login - 08:29:52
+http: GET in /user - 08:29:52
+http: GET in /favicon.ico - 08:29:52
+http: GET in /api/session/logout - 08:29:57
+http: GET in /login - 08:29:57
+http: POST in /api/session/login - 08:30:01
+http: GET in /user - 08:30:02
+http: GET in /realtimeproducts - 08:30:03
+http: GET in /unauthorized - 08:30:03
+http: GET in /stylesheets/index.css - 08:30:04
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /user - 08:30:39
+http: GET in /favicon.ico - 08:30:40
+http: GET in /api/session/logout - 08:30:43
+http: GET in /login - 08:30:43
+http: GET in /favicon.ico - 08:30:43
+http: POST in /api/session/login - 08:30:47
+http: GET in /user - 08:30:47
+http: GET in /realtimeproducts - 08:30:49
+http: GET in /unauthorized - 08:30:49
+http: GET in /stylesheets/index.css - 08:30:50
