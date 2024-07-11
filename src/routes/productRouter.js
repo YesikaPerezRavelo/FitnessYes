@@ -85,7 +85,7 @@ router.post(
       if (req.user.user.role === "premium") {
         owner = req.user.user.email;
       } else {
-        owner = "admin";
+        owner = "teacher";
       }
 
       req.body.owner = owner;

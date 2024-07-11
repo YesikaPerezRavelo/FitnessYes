@@ -66,7 +66,7 @@ router.get(
 router.get(
   "/premium/:uid",
   passport.authenticate("jwt", { session: false }),
-  auth("student"),
+  auth(["student", "premium"]),
   async (req, res) => {
     try {
       const user = await userControllerDB.findUserById(req.params.uid);
@@ -82,7 +82,7 @@ router.get(
       res.render("switchRole", {
         title: "Role Switcher",
         style: "index.css",
-        user: user.user,
+        user: user,
         role: roles,
       });
     } catch (error) {

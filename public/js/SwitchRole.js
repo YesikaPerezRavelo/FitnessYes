@@ -12,7 +12,8 @@ form.addEventListener("submit", async (e) => {
     if (response.ok) {
       Swal.fire({
         title: "Role updated successfully",
-        icon: "success",
+        imageUrl:
+          "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
       });
     } else {
       Swal.fire({
