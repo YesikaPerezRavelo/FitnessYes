@@ -98,7 +98,7 @@ router.get(
 router.get(
   "/realtimeproducts",
   passport.authenticate("jwt", { session: false }),
-  auth("teacher"),
+  auth(["teacher", "premium"]),
   async (req, res) => {
     try {
       const products = await productController.getAllProducts();

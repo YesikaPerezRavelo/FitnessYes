@@ -22,9 +22,15 @@ export default class UserDao {
     return await userModel.findOne({ email }).lean();
   }
 
-  async update(userId, cartId) {
-    return await userModel.findByIdAndUpdate(userId, { cart: cartId });
+  async update(userId, updateData) {
+    return await userModel
+      .findByIdAndUpdate(userId, updateData, { new: true })
+      .lean();
   }
+
+  // async update(userId, cartId) {
+  //   return await userModel.findByIdAndUpdate(userId, { cart: cartId });
+  // }
 
   async findById(userId) {
     return await userModel.findById(userId).lean();
