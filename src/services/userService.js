@@ -69,4 +69,8 @@ export default class UserService {
     }
     return await this.userRepository.updateRole(userId, newRole);
   }
+
+  async deleteUserByEmail(userId) {
+    return await this.userRepository.deleteUserByEmail(userId);
+  }
 }

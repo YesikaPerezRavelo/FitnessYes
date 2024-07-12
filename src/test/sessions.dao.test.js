@@ -1,3 +1,4 @@
+//Assert testing
 import Assert from "assert";
 import mongoose from "mongoose";
 import UserDao from "../dao/userDao.js";
@@ -28,7 +29,7 @@ describe("Tests DAO Users", function () {
 
   // Runs before each individual test
   beforeEach(function () {
-    this.timeout(3000);
+    this.timeout(1000);
   });
 
   // Runs after the entire test suite
@@ -66,7 +67,12 @@ describe("Tests DAO Users", function () {
     Assert.strictEqual(result.email, modifiedEmail);
   });
 
-  it("delete()", async function () {
-    //do not wan to delete users
+  it("delete() should delete the user with the specified email", async function () {
+    const result = await dao.deleteByEmail(testUser.modifiedEmail);
+    Assert.strictEqual(typeof result, "object");
+    Assert.strictEqual(result.modifiedEmail, testUser.modifiedEmail);
+
+    const deletedUser = await dao.findByEmail(testUser.modifiedEmail);
+    Assert.strictEqual(deletedUser, null);
   });
 });
