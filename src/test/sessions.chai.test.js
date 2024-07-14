@@ -1,10 +1,11 @@
-import assert from "assert";
+import chai from "chai";
 import mongoose from "mongoose";
 import CartDao from "../dao/cartDao.js";
 import Cart from "../models/cartModel.js";
 import productModel from "../models/productModel.js";
-import { ObjectId } from "mongodb"; // Ensure ObjectId import
+import { ObjectId } from "mongodb";
 
+const expect = chai.expect;
 const cartDao = new CartDao();
 
 describe("CartDao", function () {
@@ -23,8 +24,8 @@ describe("CartDao", function () {
 
   it("should create a new cart", async function () {
     const cart = await cartDao.create();
-    assert.ok(cart._id);
-    assert.deepStrictEqual(cart.products, []);
+    expect(cart._id).to.exist;
+    expect(cart.products).to.be.an("array").that.is.empty;
   });
 
   it("should add a product to the cart", async function () {
@@ -43,12 +44,11 @@ describe("CartDao", function () {
     const cart = await cartDao.create();
     const updatedCart = await cartDao.addCart(cart._id, product._id, 2);
 
-    assert.strictEqual(updatedCart.products.length, 1);
-    assert.strictEqual(
-      updatedCart.products[0].product.toString(),
+    expect(updatedCart.products).to.have.lengthOf(1);
+    expect(updatedCart.products[0].product.toString()).to.equal(
       product._id.toString()
     );
-    assert.strictEqual(updatedCart.products[0].quantity, 2);
+    expect(updatedCart.products[0].quantity).to.equal(2);
   });
 
   it("should update product quantity in the cart", async function () {
@@ -68,7 +68,11 @@ describe("CartDao", function () {
     await cartDao.addCart(cart._id, product._id, 2);
     const updatedCart = await cartDao.updateQuantity(cart._id, product._id, 5);
 
-    assert.strictEqual(updatedCart.nModified, 1);
+    const updatedProduct = updatedCart.products.find(
+      (p) => p.product.toString() === product._id.toString()
+    );
+
+    expect(updatedProduct.quantity).to.equal(5);
   });
 
   it("should delete a product from the cart", async function () {
@@ -88,7 +92,7 @@ describe("CartDao", function () {
     await cartDao.addCart(cart._id, product._id, 2);
     const updatedCart = await cartDao.deleteProduct(cart._id, product._id);
 
-    assert.strictEqual(updatedCart.products.length, 0);
+    expect(updatedCart.products).to.have.lengthOf(0);
   });
 
   it("should get cart by ID", async function () {
@@ -108,7 +112,7 @@ describe("CartDao", function () {
     await cartDao.addCart(cart._id, product._id, 2);
     const foundCart = await cartDao.getById(cart._id);
 
-    assert.strictEqual(foundCart._id.toString(), cart._id.toString());
+    expect(foundCart._id.toString()).to.equal(cart._id.toString());
   });
 
   it("should delete all products from the cart", async function () {
@@ -128,6 +132,6 @@ describe("CartDao", function () {
     await cartDao.addCart(cart._id, product._id, 2);
     const updatedCart = await cartDao.deleteProducts(cart._id);
 
-    assert.strictEqual(updatedCart.products.length, 0);
+    expect(updatedCart.products).to.have.lengthOf(0);
   });
 });
