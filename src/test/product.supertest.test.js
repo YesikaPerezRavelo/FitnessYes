@@ -5,6 +5,7 @@ import { fakerES_MX } from "@faker-js/faker";
 import { startLogger } from "../utils/loggerUtil.js";
 import * as dotenv from "dotenv";
 import path from "path";
+//mocha src/test/product.supertest.test.js
 
 dotenv.config();
 const environment = process.env.NODE_ENV || "development";

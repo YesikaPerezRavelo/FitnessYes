@@ -1374,3 +1374,15 @@ http: GET in /api/cart - 19:38:34
 http: POST in /api/cart - 19:38:34
 http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:38:34
 info: DB disconnected
+info: Server is running on port 8080
+http: GET in / - 19:45:46
+http: GET in /apidocs/ - 19:45:52
+http: GET in /apidocs/swagger-ui.css - 19:45:53
+http: GET in /apidocs/swagger-ui-init.js - 19:45:53
+http: GET in /apidocs/swagger-ui-bundle.js - 19:45:53
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 19:45:53
+http: GET in /apidocs/ - 19:58:27
+http: GET in /apidocs/swagger-ui-bundle.js - 19:58:28
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 19:58:28
+http: GET in /apidocs/swagger-ui-init.js - 19:58:28
+http: GET in /apidocs/swagger-ui.css - 19:58:28
