@@ -3,6 +3,7 @@ import Assert from "assert";
 import mongoose from "mongoose";
 import UserDao from "../dao/userDao.js";
 import * as dotenv from "dotenv";
+//mocha --watch --parallel src/test/sessions.assert.test.js
 
 dotenv.config();
 

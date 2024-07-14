@@ -1,137 +1,83 @@
-import chai from "chai";
+// Chai testing
+import { expect } from "chai";
 import mongoose from "mongoose";
-import CartDao from "../dao/cartDao.js";
-import Cart from "../models/cartModel.js";
-import productModel from "../models/productModel.js";
-import { ObjectId } from "mongodb";
+import UserDao from "../dao/userDao.js";
+import * as dotenv from "dotenv";
 
-const expect = chai.expect;
-const cartDao = new CartDao();
+dotenv.config();
 
-describe("CartDao", function () {
+const uri = process.env.URI;
+
+mongoose.connect(uri, { dbName: "testingChai" });
+const dao = new UserDao();
+const testUser = {
+  firstName: "Testing",
+  lastName: "Fitness",
+  email: "testing@gmail.com",
+  password: "test123456",
+};
+
+describe("Tests DAO Users", function () {
+  // Runs before starting the test suite
   before(async function () {
-    await mongoose.connect("mongodb://localhost:27017/test", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    await Cart.deleteMany({});
-    await productModel.deleteMany({});
+    try {
+      await mongoose.connection.collections.users.drop();
+    } catch (error) {
+      console.log("No collection to drop");
+    }
   });
 
+  // Runs before each individual test
+  beforeEach(function () {
+    this.timeout(1000);
+  });
+
+  // Runs after the entire test suite
   after(async function () {
-    await mongoose.connection.close();
+    await mongoose.disconnect();
   });
 
-  it("should create a new cart", async function () {
-    const cart = await cartDao.create();
-    expect(cart._id).to.exist;
-    expect(cart.products).to.be.an("array").that.is.empty;
+  // Runs after each individual test
+  afterEach(function () {});
+
+  it("getAll() should return an array of users", async function () {
+    const result = await dao.getAll();
+    expect(result).to.be.an("array");
   });
 
-  it("should add a product to the cart", async function () {
-    const product = await productModel.create({
-      title: "Test Product",
-      description: "Test Description",
-      code: "test-code",
-      price: 10,
-      status: true,
-      stock: 100,
-      category: "Test Category",
-      thumbnails: [],
-      owner: "test-owner",
-    });
+  it("create() should save a new user", async function () {
+    const result = await dao.create(testUser);
 
-    const cart = await cartDao.create();
-    const updatedCart = await cartDao.addCart(cart._id, product._id, 2);
+    // Check that the result is an object
+    expect(result).to.be.an("object");
 
-    expect(updatedCart.products).to.have.lengthOf(1);
-    expect(updatedCart.products[0].product.toString()).to.equal(
-      product._id.toString()
-    );
-    expect(updatedCart.products[0].quantity).to.equal(2);
+    // Check that the result has an ID
+    expect(result._id).to.be.not.null;
+
+    // Check that the user data matches the input
+    expect(result.email).to.equal(testUser.email);
   });
 
-  it("should update product quantity in the cart", async function () {
-    const product = await productModel.create({
-      title: "Another Test Product",
-      description: "Another Test Description",
-      code: "another-test-code",
-      price: 20,
-      status: true,
-      stock: 50,
-      category: "Another Test Category",
-      thumbnails: [],
-      owner: "another-test-owner",
-    });
+  it("findByEmail() should return an object matching the desired email", async function () {
+    const result = await dao.findByEmail(testUser.email);
 
-    const cart = await cartDao.create();
-    await cartDao.addCart(cart._id, product._id, 2);
-    const updatedCart = await cartDao.updateQuantity(cart._id, product._id, 5);
-
-    const updatedProduct = updatedCart.products.find(
-      (p) => p.product.toString() === product._id.toString()
-    );
-
-    expect(updatedProduct.quantity).to.equal(5);
+    testUser._id = result._id;
+    expect(result).to.be.an("object");
+    expect(result._id).to.be.not.null;
+    expect(result.email).to.be.equal(testUser.email);
   });
 
-  it("should delete a product from the cart", async function () {
-    const product = await productModel.create({
-      title: "Yet Another Test Product",
-      description: "Yet Another Test Description",
-      code: "yet-another-test-code",
-      price: 15,
-      status: true,
-      stock: 70,
-      category: "Yet Another Test Category",
-      thumbnails: [],
-      owner: "yet-another-test-owner",
-    });
-
-    const cart = await cartDao.create();
-    await cartDao.addCart(cart._id, product._id, 2);
-    const updatedCart = await cartDao.deleteProduct(cart._id, product._id);
-
-    expect(updatedCart.products).to.have.lengthOf(0);
+  it("update() should return an object with correctly modified data", async function () {
+    const modifiedEmail = "newemail@gmail.com";
+    const result = await dao.update(testUser._id, { email: modifiedEmail });
+    expect(result).to.be.an("object");
+    expect(result._id).to.be.not.null;
+    expect(result.email).to.be.equal(modifiedEmail);
   });
 
-  it("should get cart by ID", async function () {
-    const product = await productModel.create({
-      title: "Final Test Product",
-      description: "Final Test Description",
-      code: "final-test-code",
-      price: 30,
-      status: true,
-      stock: 60,
-      category: "Final Test Category",
-      thumbnails: [],
-      owner: "final-test-owner",
-    });
-
-    const cart = await cartDao.create();
-    await cartDao.addCart(cart._id, product._id, 2);
-    const foundCart = await cartDao.getById(cart._id);
-
-    expect(foundCart._id.toString()).to.equal(cart._id.toString());
-  });
-
-  it("should delete all products from the cart", async function () {
-    const product = await productModel.create({
-      title: "Another Final Test Product",
-      description: "Another Final Test Description",
-      code: "another-final-test-code",
-      price: 40,
-      status: true,
-      stock: 80,
-      category: "Another Final Test Category",
-      thumbnails: [],
-      owner: "another-final-test-owner",
-    });
-
-    const cart = await cartDao.create();
-    await cartDao.addCart(cart._id, product._id, 2);
-    const updatedCart = await cartDao.deleteProducts(cart._id);
-
-    expect(updatedCart.products).to.have.lengthOf(0);
+  it("delete() should delete the user with the specified email", async function () {
+    const result = await dao.deleteByEmail(testUser.modifiedEmail);
+    expect(result).to.be.an("object");
+    expect(result._id).to.be.not.null;
   });
 });

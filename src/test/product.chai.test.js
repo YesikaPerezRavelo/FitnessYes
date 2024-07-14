@@ -1,15 +1,16 @@
-import chai from "chai";
+// Chai testing
+import { expect } from "chai";
 import mongoose from "mongoose";
 import ProductDao from "../dao/productDao.js";
 import * as dotenv from "dotenv";
-// mocha --watch --parallel src/test/product.chai.test.js
+
 dotenv.config();
 
-const expect = chai.expect;
 const uri = process.env.URI;
 
-mongoose.connect(uri, { dbName: "testing" });
+mongoose.connect(uri, { dbName: "testingChai" });
 const dao = new ProductDao();
+
 const testProduct = {
   title: "Test Product",
   description: "This is a test product",
@@ -31,7 +32,7 @@ describe("Tests DAO Products", function () {
 
   // Runs before each individual test
   beforeEach(function () {
-    this.timeout(1000);
+    this.timeout(5000);
   });
 
   // Runs after the entire test suite
@@ -49,8 +50,20 @@ describe("Tests DAO Products", function () {
 
   it("create() should save a new product", async function () {
     const result = await dao.create(testProduct);
+
+    // Check that the result is an object
     expect(result).to.be.an("object");
+
+    // Check that the result has an ID
     expect(result).to.have.property("_id");
+
+    // Check that the product data matches the input
+    expect(result.title).to.equal(testProduct.title);
+    expect(result.description).to.equal(testProduct.description);
+    expect(result.code).to.equal(testProduct.code);
+    expect(result.price).to.equal(testProduct.price);
+    expect(result.stock).to.equal(testProduct.stock);
+    expect(result.category).to.equal(testProduct.category);
   });
 
   it("getById() should return an object matching the desired ID", async function () {
