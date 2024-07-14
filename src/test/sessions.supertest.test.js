@@ -12,7 +12,7 @@ const envFile = environment === "production" ? "prod.env" : ".env";
 dotenv.config({ path: path.resolve(`../${envFile}`) });
 
 const requester = supertest("http://localhost:8080");
-const uri = process.env.NEWURI;
+const uri = process.env.URI;
 
 const generateUsers = () => ({
   user: fakerES_MX.internet.userName(),

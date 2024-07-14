@@ -1164,3 +1164,213 @@ http: POST in /api/users/login - 18:39:53
 http: GET in /login - 18:39:53
 http: POST in /api/session/register - 18:39:54
 info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:44:28
+http: GET in /login - 18:44:28
+http: POST in /api/session/register - 18:44:28
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:47:09
+http: GET in /login - 18:47:09
+http: POST in /api/session/register - 18:47:10
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/products - 18:49:55
+http: POST in /api/products - 18:49:55
+http: GET in /api/products/66919e0eeef71e51df84d2d0 - 18:49:55
+warning: Cannot get product
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 18:49:55
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 18:49:55
+info: DB disconnected
+info: DB connection successful
+http: GET in /api/products - 18:51:17
+http: POST in /api/products - 18:51:17
+http: GET in /api/products/66919e0eeef71e51df84d2d0 - 18:51:17
+warning: Cannot get product
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 18:51:17
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 18:51:18
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:51:59
+http: GET in /api/products - 18:52:00
+http: POST in /api/products - 18:52:00
+http: GET in /api/products/66919e0eeef71e51df84d2d0 - 18:52:00
+warning: Cannot get product
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 18:52:00
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 18:52:00
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:55:12
+http: GET in /login - 18:55:12
+http: GET in /api/products - 18:55:13
+http: POST in /api/products - 18:55:13
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 18:55:13
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 18:55:13
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:57:46
+http: GET in /login - 18:57:46
+http: GET in /api/products - 18:57:46
+http: POST in /api/products - 18:57:46
+http: PUT in /api/products/666118097451f62a4a8286c2 - 18:57:46
+http: DELETE in /api/products/666118097451f62a4a8286c2 - 18:57:47
+info: DB disconnected
+info: DB connection successful
+http: POST in /api/users/login - 18:58:57
+http: GET in /login - 18:58:57
+http: GET in /api/products - 18:58:58
+http: POST in /api/products - 18:58:58
+http: PUT in /api/products/666118097451f62a4a8286c2 - 18:58:58
+http: DELETE in /api/products/666118097451f62a4a8286c2 - 18:58:58
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:00:54
+http: GET in /login - 19:00:54
+http: GET in /api/products - 19:00:55
+http: POST in /api/products - 19:00:55
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:00:55
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:00:55
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:04:05
+http: GET in /login - 19:04:05
+http: GET in /api/products - 19:04:05
+http: POST in /api/products - 19:04:06
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:04:06
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:04:06
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:08:17
+http: GET in /login - 19:08:17
+http: GET in /api/products - 19:08:17
+http: POST in /api/products - 19:08:18
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:08:18
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:08:18
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:11:15
+http: GET in /login - 19:11:15
+http: GET in /api/products - 19:11:16
+http: POST in /api/products - 19:11:16
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:11:16
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:11:16
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:11:28
+http: GET in /login - 19:11:28
+http: POST in /api/session/register - 19:11:28
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:12:39
+http: GET in /login - 19:12:39
+http: GET in /api/products - 19:12:39
+http: POST in /api/products - 19:12:40
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:12:40
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:12:40
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:13:50
+http: GET in /login - 19:13:50
+http: GET in /api/products - 19:13:50
+http: POST in /api/products - 19:13:50
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:13:50
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:13:50
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:17:47
+http: GET in /login - 19:17:47
+http: GET in /api/products - 19:17:48
+http: POST in /api/products - 19:17:48
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:17:48
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:17:48
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:19:54
+http: GET in /login - 19:19:54
+http: GET in /api/products - 19:19:54
+http: POST in /api/products - 19:19:54
+http: PUT in /api/products/66919e0eeef71e51df84d2d0 - 19:19:54
+http: DELETE in /api/products/66919e0eeef71e51df84d2d0 - 19:19:54
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 19:22:00
+http: GET in /login - 19:22:00
+http: GET in /api/products - 19:22:00
+http: POST in /api/products - 19:22:00
+http: PUT in /api/products/661c83aa9905cc901b886f54 - 19:22:00
+http: DELETE in /api/products/661c83aa9905cc901b886f54 - 19:22:00
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: PUT in /api/products/661c83aa9905cc901b886f54 - 19:23:57
+http: POST in /api/users/login - 19:23:57
+http: GET in /login - 19:23:57
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: PUT in /api/products/661c83aa9905cc901b886f54 - 19:24:51
+http: POST in /api/users/login - 19:24:51
+http: GET in /login - 19:24:52
+info: DB disconnected
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:30:29
+http: POST in /api/cart - 19:30:30
+http: PUT in /api/carts/661c83aa9905cc901b886f54 - 19:30:30
+http: DELETE in /api/carts/661c83aa9905cc901b886f54 - 19:30:30
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:31:18
+http: POST in /api/cart - 19:31:18
+http: PUT in /api/cart/661c83aa9905cc901b886f54 - 19:31:18
+warning: Cannot update Cart
+http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:31:20
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:32:27
+http: POST in /api/cart - 19:32:28
+http: PUT in /api/cart/661c83aa9905cc901b886f54 - 19:32:28
+warning: Cannot update Cart
+http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:32:30
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:35:00
+http: POST in /api/cart - 19:35:00
+http: PUT in /api/cart/661c83aa9905cc901b886f54 - 19:35:01
+warning: Cannot update Cart
+http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:35:06
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:37:41
+http: POST in /api/cart - 19:37:42
+http: PUT in /api/cart/661c83aa9905cc901b886f54 - 19:37:42
+warning: Cannot update Cart
+http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:37:50
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: GET in /api/cart - 19:38:34
+http: POST in /api/cart - 19:38:34
+http: DELETE in /api/cart/661c83aa9905cc901b886f54 - 19:38:34
+info: DB disconnected
