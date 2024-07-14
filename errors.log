@@ -1386,3 +1386,16 @@ http: GET in /apidocs/swagger-ui-bundle.js - 19:58:28
 http: GET in /apidocs/swagger-ui-standalone-preset.js - 19:58:28
 http: GET in /apidocs/swagger-ui-init.js - 19:58:28
 http: GET in /apidocs/swagger-ui.css - 19:58:28
+http: GET in / - 19:59:31
+http: GET in /apidocs/ - 19:59:41
+http: GET in /apidocs/swagger-ui-bundle.js - 19:59:41
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 19:59:41
+http: GET in /apidocs/swagger-ui-init.js - 19:59:41
+http: GET in /apidocs/swagger-ui.css - 19:59:41
+http: GET in /apidocs/swagger-ui.css.map - 20:00:08
+http: GET in / - 20:06:17
+http: GET in /apidocs/ - 20:06:24
+http: GET in /apidocs/swagger-ui.css - 20:06:24
+http: GET in /apidocs/swagger-ui-bundle.js - 20:06:24
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:06:24
+http: GET in /apidocs/swagger-ui-init.js - 20:06:24
