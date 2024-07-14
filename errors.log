@@ -1119,3 +1119,48 @@ http: GET in /user - 08:30:47
 http: GET in /realtimeproducts - 08:30:49
 http: GET in /unauthorized - 08:30:49
 http: GET in /stylesheets/index.css - 08:30:50
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:23:13
+http: POST in /api/users/register - 18:23:13
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:28:20
+http: POST in /api/users/register - 18:28:20
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:32:48
+http: GET in /login - 18:32:48
+http: POST in /api/users/register - 18:32:49
+info: DB disconnected
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/session/login - 18:38:19
+http: POST in /api/session/register - 18:38:20
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 18:39:53
+http: GET in /login - 18:39:53
+http: POST in /api/session/register - 18:39:54
+info: DB disconnected
