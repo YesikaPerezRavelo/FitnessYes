@@ -1399,3 +1399,36 @@ http: GET in /apidocs/swagger-ui.css - 20:06:24
 http: GET in /apidocs/swagger-ui-bundle.js - 20:06:24
 http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:06:24
 http: GET in /apidocs/swagger-ui-init.js - 20:06:24
+info: Server is running on port 8080
+http: GET in / - 20:07:42
+http: GET in /login - 20:07:46
+http: POST in /api/session/login - 20:07:51
+http: GET in /user - 20:07:51
+http: GET in /apidocs/ - 20:08:00
+http: GET in /apidocs/swagger-ui.css - 20:08:00
+http: GET in /apidocs/swagger-ui-bundle.js - 20:08:00
+http: GET in /apidocs/swagger-ui-standalone-preset.js - 20:08:00
+http: GET in /apidocs/swagger-ui-init.js - 20:08:00
+info: Server is running on port 8080
+http: GET in / - 21:13:25
+http: GET in /login - 21:13:29
+info: Server is running on port 8080
+http: POST in /api/session/login - 21:13:50
+http: GET in /user - 21:13:50
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 21:13:54
+http: GET in /realtimeproducts - 21:14:07
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/logout - 21:18:07
+http: GET in /login - 21:18:07
+http: POST in /api/session/login - 21:18:36
+http: GET in /user - 21:18:36
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 21:18:41
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 21:18:47
+http: GET in /user - 21:18:50
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 21:19:02
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 21:19:09
+http: GET in /user - 21:19:12
+http: GET in /realtimeproducts - 21:19:16
+http: GET in /api/session/logout - 21:19:25
+http: GET in /login - 21:19:25

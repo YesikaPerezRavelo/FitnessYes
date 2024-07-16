@@ -72,7 +72,11 @@ router.get(
       const user = await userControllerDB.findUserById(req.params.uid);
       const roles = ["student", "premium"];
 
-      if (req.user.user.role !== "student") {
+      // allow "student" or "premium" change roles
+      if (
+        req.user.user.role !== "student" &&
+        req.user.user.role !== "premium"
+      ) {
         return res.status(401).json({
           error: "Unauthorized",
           message: "You do not have permission to access this page.",
@@ -101,11 +105,18 @@ router.put(
     try {
       const { uid } = req.params;
       const { role } = req.body;
-      console.log(`Updating role for user ${uid} to ${role}`); // Add this line
+      console.log(`Updating role for user ${uid} to ${role}`);
       const updatedUser = await userControllerDB.updateRole(uid, role);
-      res.status(200).json({ success: true, user: updatedUser });
+
+      // new token
+      const newToken = generateToken(updatedUser);
+      res.cookie("access_token", newToken);
+
+      res
+        .status(200)
+        .json({ success: true, user: updatedUser, token: newToken });
     } catch (error) {
-      console.error(`Error updating role: ${error.message}`); // Add this line
+      console.error(`Error updating role: ${error.message}`);
       res.status(500).json({ error: error.message });
     }
   }
