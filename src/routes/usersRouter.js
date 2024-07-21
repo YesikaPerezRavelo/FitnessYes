@@ -17,34 +17,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    req.session.failLogin = false;
-    const user = await userControllerDB.findUserEmail(email);
-    if (!user || password !== user.password) {
-      req.session.failLogin = true;
-      console.log("contraseña incorrecta");
-      return res.redirect("/login");
-    }
-    req.session.user = user;
-    const access_token = generateToken(user);
-    res.cookie("access_token", access_token).json("success", access_token);
-    // res.redirect("/user");
-  } catch (error) {
-    console.error("Error during login:", error);
-    req.session.failLogin = true;
-    res.redirect("/login");
-  }
-});
-
-router.get("/logout", (req, res) => {
-  req.session.destroy((error) => {
-    res.clearCookie("access_token");
-    res.redirect("/login");
-  });
-});
-
 const filterUserData = (user) => {
   const { _id, password, role, __v, ...filteredUser } = user;
   return filteredUser;

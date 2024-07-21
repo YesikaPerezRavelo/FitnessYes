@@ -45,16 +45,24 @@ sessionRouter.get("/failRegister", (_req, res) => {
 });
 
 sessionRouter.post("/login", async (req, res) => {
-  const user = await userControllerDB.findUserEmail(req.body.email);
-  if (!user || !isValidPassword(user, req.body.password)) {
-    return res.status(401).send({
+  try {
+    const user = await userControllerDB.findUserEmail(req.body.email);
+    if (!user || !isValidPassword(user, req.body.password)) {
+      return res.status(401).send({
+        status: "error",
+        message: "Error login!",
+      });
+    }
+    const token = generateToken(user);
+    res.cookie("auth", token, { maxAge: 60 * 60 * 1000, httpOnly: true });
+    res.redirect("/user"); // Redireccionar a la ruta adecuada
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).send({
       status: "error",
-      message: "Error login!",
+      message: "Internal Server Error",
     });
   }
-  const token = generateToken(user);
-  res.cookie("auth", token, { maxAge: 60 * 60 * 1000, httpOnly: true });
-  res.redirect(303, "/user");
 });
 
 sessionRouter.get("/failLogin", (_req, res) => {

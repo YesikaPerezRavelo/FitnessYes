@@ -1432,3 +1432,395 @@ http: GET in /user - 21:19:12
 http: GET in /realtimeproducts - 21:19:16
 http: GET in /api/session/logout - 21:19:25
 http: GET in /login - 21:19:25
+info: Server is running on port 8080
+http: GET in / - 14:34:03
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /login - 14:53:37
+http: POST in /api/session/login - 14:53:42
+http: GET in /login - 14:53:42
+http: POST in /api/session/login - 14:53:49
+http: GET in /login - 14:53:50
+info: Server is running on port 8080
+http: GET in / - 14:54:25
+http: GET in /login - 14:54:28
+http: POST in /api/session/login - 14:54:35
+http: GET in /login - 14:54:35
+http: GET in / - 14:54:56
+http: GET in /login - 14:54:57
+http: POST in /api/session/login - 14:55:03
+http: GET in /login - 14:55:03
+info: Server is running on port 8080
+http: GET in / - 14:56:22
+http: GET in /login - 14:56:31
+http: GET in /favicon.ico - 14:56:31
+http: POST in /api/session/login - 14:56:37
+http: GET in /user - 14:56:37
+http: GET in /favicon.ico - 14:56:37
+http: GET in /realtimeproducts - 14:56:43
+http: GET in /api/session/logout - 14:56:49
+http: GET in /login - 14:56:49
+http: POST in /api/session/login - 14:56:54
+http: GET in /user - 14:56:54
+http: GET in /products/ - 14:57:04
+http: GET in /unauthorized - 14:57:04
+http: GET in /stylesheets/index.css - 14:57:04
+http: GET in /user - 14:57:07
+http: GET in /realtimeproducts - 14:57:08
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/logout - 15:06:42
+http: GET in /login - 15:06:42
+http: GET in /user - 15:06:43
+http: GET in /favicon.ico - 15:06:43
+http: GET in / - 15:06:46
+http: GET in /login - 15:06:48
+http: GET in /user - 15:06:48
+http: GET in /api/session/logout - 15:06:52
+http: GET in /login - 15:06:52
+http: GET in /user - 15:06:52
+http: GET in /favicon.ico - 15:06:52
+http: GET in /api/session/logout - 15:06:59
+http: GET in /login - 15:06:59
+http: GET in /user - 15:06:59
+info: Server is running on port 8080
+http: GET in / - 15:07:45
+http: GET in /login - 15:07:47
+http: GET in /user - 15:07:48
+http: GET in /api/session/logout - 15:07:50
+http: GET in /login - 15:07:50
+http: GET in /user - 15:07:50
+http: GET in /api/session/logout - 15:07:54
+http: GET in /login - 15:07:54
+http: GET in /user - 15:07:54
+http: GET in /favicon.ico - 15:07:54
+info: Server is running on port 8080
+http: GET in /api/session/logout - 15:08:36
+http: GET in /login - 15:08:36
+http: GET in /user - 15:08:36
+info: Server is running on port 8080
+http: GET in /api/session/logout - 15:08:51
+http: GET in /login - 15:08:51
+http: GET in /favicon.ico - 15:08:51
+info: Server is running on port 8080
+http: POST in /api/session/login - 15:09:19
+http: GET in /user - 15:09:19
+http: GET in /api/session/logout - 15:09:21
+http: GET in /login - 15:09:21
+info: Server is running on port 8080
+http: GET in / - 15:11:49
+http: GET in /favicon.ico - 15:11:49
+http: GET in /login - 15:11:53
+http: GET in /favicon.ico - 15:11:53
+http: POST in /api/session/login - 15:12:01
+http: GET in /login - 15:12:01
+info: Server is running on port 8080
+http: POST in /api/session/login - 15:12:40
+http: GET in /user - 15:12:41
+http: GET in /api/session/logout - 15:12:45
+http: GET in /login - 15:12:45
+http: GET in /favicon.ico - 15:12:45
+info: Server is running on port 8080
+http: GET in /api/session/github - 15:13:19
+http: GET in /api/session/githubcallback?code=4cd5689987f2da683703 - 15:13:20
+http: GET in /user - 15:13:21
+http: GET in /products/ - 15:13:28
+http: GET in /api/session/logout - 15:13:30
+http: GET in /login - 15:13:30
+http: GET in /favicon.ico - 15:13:30
+http: POST in /api/session/login - 15:13:36
+http: POST in /api/session/login - 15:13:40
+http: POST in /api/session/login - 15:13:48
+info: Server is running on port 8080
+http: GET in / - 15:14:10
+http: GET in /favicon.ico - 15:14:10
+http: GET in /login - 15:14:12
+http: GET in /favicon.ico - 15:14:12
+http: POST in /api/session/login - 15:14:15
+http: GET in /user - 15:14:16
+http: GET in /products/ - 15:14:35
+http: GET in /unauthorized - 15:14:35
+http: GET in /stylesheets/index.css - 15:14:35
+http: GET in /user - 15:14:37
+http: GET in /realtimeproducts - 15:14:41
+http: GET in /api/session/logout - 15:14:47
+http: GET in /login - 15:14:47
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 15:25:59
+http: GET in /login - 15:25:59
+http: POST in /api/products - 15:25:59
+http: GET in /api/products - 15:25:59
+http: PUT in /api/products/undefined - 15:26:00
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 15:26:00
+http: POST in /api/products - 15:26:00
+http: POST in /api/products - 15:26:00
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 15:26:47
+http: GET in /login - 15:26:47
+http: POST in /api/products - 15:26:47
+http: GET in /api/products - 15:26:47
+http: PUT in /api/products/undefined - 15:26:48
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 15:26:48
+http: POST in /api/products - 15:26:48
+http: POST in /api/products - 15:26:48
+info: DB disconnected
+info: DB connection successful
+http: POST in /api/users/login - 15:30:55
+http: GET in /login - 15:30:55
+http: POST in /api/products - 15:30:56
+http: GET in /api/products - 15:30:56
+http: PUT in /api/products/undefined - 15:30:56
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 15:30:56
+http: POST in /api/products - 15:30:56
+http: POST in /api/products - 15:30:56
+info: DB disconnected
+info: Server is running on port 8080
+info: DB connection successful
+http: PUT in /api/products/661c83aa9905cc901b886f54 - 15:31:43
+http: POST in /api/users/login - 15:31:43
+http: GET in /login - 15:31:43
+info: DB disconnected
+info: Server is running on port 8080
+http: GET in /api/products - 15:38:08
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/auth/login - 15:42:17
+http: POST in /api/products - 15:42:17
+http: GET in /api/products - 15:42:17
+http: PUT in /api/products/null - 15:42:17
+warning: Cannot update product
+http: DELETE in /api/products/null - 15:42:17
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 15:47:08
+http: GET in /login - 15:47:08
+http: GET in /api/products - 15:47:09
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 15:50:10
+http: GET in /login - 15:50:11
+http: POST in /api/products - 15:50:11
+http: GET in /api/products - 15:50:11
+http: PUT in /api/products/undefined - 15:50:11
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 15:50:11
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 15:53:39
+http: GET in /login - 15:53:39
+http: POST in /api/products - 15:53:40
+http: GET in /api/products - 15:53:40
+http: PUT in /api/products/undefined - 15:53:40
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 15:53:40
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 16:05:36
+http: GET in /login - 16:05:36
+http: POST in /api/products - 16:05:36
+http: GET in /api/products - 16:05:36
+http: PUT in /api/products/undefined - 16:05:37
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 16:05:37
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 16:40:01
+http: GET in /login - 16:40:01
+http: POST in /api/products - 16:40:01
+http: GET in /api/products - 16:40:01
+http: GET in /api/products/undefined - 16:40:01
+warning: Cannot get product
+http: PUT in /api/products/undefined - 16:40:01
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 16:40:01
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/users/login - 16:47:52
+http: GET in /login - 16:47:52
+http: POST in /api/products - 16:47:52
+http: GET in /api/products - 16:47:52
+http: GET in /api/products/undefined - 16:47:52
+warning: Cannot get product
+http: PUT in /api/products/undefined - 16:47:52
+warning: Cannot update product
+http: DELETE in /api/products/undefined - 16:47:52
+info: Server is running on port 8080
+http: POST in /api/products - 16:56:58
+http: GET in /api/products - 16:56:58
+http: PUT in /api/products/null - 16:56:58
+warning: Cannot update product
+http: DELETE in /api/products/null - 16:56:58
+info: Server is running on port 8080
+http: POST in /api/products - 16:57:52
+http: GET in /api/products - 16:57:52
+http: PUT in /api/products/null - 16:57:52
+warning: Cannot update product
+http: DELETE in /api/products/null - 16:57:52
+info: Server is running on port 8080
+http: POST in /api/products - 17:04:32
+http: GET in /api/products - 17:04:32
+http: PUT in /api/products/null - 17:04:33
+warning: Cannot update product
+http: DELETE in /api/products/null - 17:04:33
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/products - 17:39:34
+http: GET in /api/products - 17:39:34
+http: PUT in /api/products/null - 17:39:34
+http: DELETE in /api/products/null - 17:39:34
+http: GET in / - 17:41:08
+http: GET in /login - 17:41:16
+http: POST in /api/session/login - 17:41:20
+http: GET in /user - 17:41:21
+http: GET in /realtimeproducts - 17:41:24
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/products - 17:52:53
+http: GET in /api/products - 17:52:53
+info: Server is running on port 8080
+http: POST in /api/products - 17:54:06
+info: Server is running on port 8080
+http: POST in /api/products - 17:57:25
+info: Server is running on port 8080
+http: POST in /api/products - 18:00:36
+info: Server is running on port 8080
+http: POST in /api/products - 18:02:57
+info: Server is running on port 8080
+http: POST in /api/products - 18:04:04
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/products - 18:09:10
+info: Server is running on port 8080
+http: POST in /api/products - 18:15:12
+warning: Cannot add product
+http: GET in /api/session/logout - 18:18:23
+http: GET in /login - 18:18:23
+http: POST in /api/session/login - 18:18:26
+http: GET in /user - 18:18:27
+http: GET in /realtimeproducts - 18:18:29
+http: GET in /unauthorized - 18:18:30
+http: GET in /stylesheets/index.css - 18:18:30
+http: GET in /user - 18:18:32
+http: GET in /realtimeproducts - 18:18:36
+http: GET in /unauthorized - 18:18:36
+http: GET in /stylesheets/index.css - 18:18:36
+http: GET in /user - 18:18:39
+info: Server is running on port 8080
+http: GET in /api/session/logout - 18:19:03
+http: GET in /login - 18:19:03
+http: POST in /api/session/login - 18:19:07
+http: GET in /user - 18:19:08
+http: GET in /realtimeproducts - 18:19:10
+http: POST in /api/products - 18:22:30
+info: Server is running on port 8080
+http: POST in /api/products - 18:24:04
+info: Server is running on port 8080
+http: POST in /api/products - 18:25:29
+info: Server is running on port 8080
+http: POST in /api/products - 18:27:32
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/products - 18:37:17
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: PUT in /api/products/661c83aa9905cc901b886f54 - 18:42:16
+http: POST in /api/users/login - 18:42:17
+http: GET in /login - 18:42:17
+info: DB disconnected
+info: Server is running on port 8080
+http: GET in / - 18:43:31
+http: GET in /login - 18:43:33
+http: GET in /user - 18:43:33
+http: GET in /api/session/logout - 18:43:35
+http: GET in /login - 18:43:35
+http: POST in /api/session/login - 18:43:40
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 18:50:35
+http: GET in /login - 18:50:37
+http: POST in /api/session/login - 18:50:41
+info: Server is running on port 8080
+http: GET in / - 18:51:24
+http: GET in /login - 18:51:25
+http: POST in /api/session/login - 18:51:29
+info: Server is running on port 8080
+http: GET in / - 18:52:11
+http: GET in /login - 18:52:12
+http: POST in /api/session/login - 18:52:16
+info: Server is running on port 8080
+http: GET in / - 18:56:49
+http: GET in /login - 18:56:53
+http: POST in /api/session/login - 18:56:57
+http: GET in /user - 18:56:58
+info: Server is running on port 8080
+http: GET in / - 18:57:30
+http: GET in /login - 18:57:32
+http: POST in /api/session/login - 18:57:39
+http: GET in /user - 18:57:40
+info: Server is running on port 8080
+http: GET in / - 18:58:17
+http: GET in /login - 18:58:19
+http: POST in /api/session/login - 18:58:24
+http: GET in /user - 18:58:25
+http: GET in /realtimeproducts - 18:58:29
+info: Server is running on port 8080
+http: GET in /api/session/logout - 19:01:39
+http: GET in /login - 19:01:39
+http: POST in /api/session/login - 19:01:45
+http: GET in /user - 19:01:45
+http: GET in /realtimeproducts - 19:01:49
+http: GET in /favicon.ico - 19:01:49
+http: GET in /api/session/logout - 19:01:53
+http: GET in /login - 19:01:53
+http: POST in /api/session/login - 19:01:58
+http: GET in /user - 19:01:58
+http: GET in /realtimeproducts - 19:02:03
+info: Server is running on port 8080
+http: GET in /api/session/logout - 19:04:06
+http: GET in /login - 19:04:06
+http: GET in /api/session/github - 19:04:10
+http: GET in /api/session/githubcallback?code=3b79b839ec14819c3bda - 19:04:11
+http: GET in /user - 19:04:12
+http: GET in /api/session/logout - 19:04:17
+http: GET in /login - 19:04:17
+http: POST in /api/session/login - 19:04:20
+http: GET in /user - 19:04:21
+http: GET in /products/ - 19:04:25
+http: GET in /unauthorized - 19:04:25
+http: GET in /stylesheets/index.css - 19:04:25
+http: GET in /user - 19:04:27
+http: GET in /favicon.ico - 19:04:31
+http: GET in /realtimeproducts - 19:04:33
+http: GET in /api/session/logout - 19:04:37
+http: GET in /login - 19:04:37
+info: Server is running on port 8080
+http: POST in /api/session/login - 19:05:24
+http: GET in /user - 19:05:25
+http: GET in /api/session/logout - 19:05:30
+http: GET in /login - 19:05:30
+http: POST in /api/session/login - 19:05:34
+http: GET in /user - 19:05:34
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 19:05:37
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 19:05:41
+http: GET in /user - 19:05:43
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 19:05:47
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 19:05:53
+http: GET in /user - 19:05:56
+http: GET in /api/session/logout - 19:06:02
+http: GET in /login - 19:06:02
+http: GET in /api/session/github - 19:06:05
+http: GET in /api/session/githubcallback?code=14e9453af16c547eb258 - 19:06:05
+http: GET in /user - 19:06:06
+http: GET in /api/session/logout - 19:06:10
+http: GET in /login - 19:06:10
+info: Server is running on port 8080

@@ -82,3 +82,78 @@ after(async () => {
   await mongoose.disconnect();
   startLogger("DB disconnected");
 });
+
+// import { expect } from "chai";
+// import supertest from "supertest";
+// import jwt from "jsonwebtoken";
+// import * as dotenv from "dotenv";
+// import mongoose from "mongoose";
+// import ProductDTO from "../dao/DTOs/productDto.js";
+
+// // Load environment variables
+// dotenv.config();
+
+// // Set up Supertest and test data
+// const uri = process.env.URI;
+// const SECRET_KEY = process.env.SECRET_KEY;
+// const requester = supertest("http://localhost:8080");
+
+// const testProduct = {
+//   title: "TestProduct",
+//   description: "TestDescription",
+//   code: "12345",
+//   price: 1000,
+//   stock: 100,
+//   category: "ABC",
+// };
+
+// // Connect to the test database
+// mongoose.connect(uri, {
+//   dbName: "testingSuperTest",
+// });
+
+// // Define a test user
+// const user = {
+//   _id: "test_user_id", // Use a valid test user ID
+//   owner: "teacher",
+// };
+
+// // Generate a JWT token for the test user
+// const token = jwt.sign({ _id: user._id, owner: user.user.owner }, SECRET_KEY, {
+//   expiresIn: "1h",
+// });
+
+// describe("Test Products", function () {
+//   // Increase the timeout if necessary
+//   this.timeout(5000);
+
+//   // Clean up before each test
+//   before(async function () {
+//     try {
+//       const productCollection = mongoose.connection.db.collection("products");
+//       await productCollection.deleteMany({}); // Drop all documents in the collection
+//     } catch (error) {
+//       console.log("No collection to drop or other error:", error);
+//     }
+//   });
+
+//   // Test case for creating a product
+//   it("POST /api/products should create a product successfully", async function () {
+//     const response = await requester
+//       .post("/api/products")
+//       .set("Cookie", [`auth=${token}`]) // Use the JWT token for authorization
+//       .send(testProduct);
+
+//     // Assert the response
+//     expect(response.status).to.equal(200);
+//     expect(response.body.status).to.equal("success");
+
+//     // Fetch the created product from the database and verify its owner
+//     const product = await mongoose.connection.db
+//       .collection("products")
+//       .findOne({ code: testProduct.code });
+//     expect(product).to.not.be.null;
+//     const productDto = new ProductDTO(product);
+//     expect(productDto.owner).to.equal(user.user.owner);
+//   });
+// });
