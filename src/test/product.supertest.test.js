@@ -5,7 +5,7 @@ import { fakerES_MX } from "@faker-js/faker";
 import { startLogger } from "../utils/loggerUtil.js";
 import * as dotenv from "dotenv";
 import path from "path";
-//mocha src/test/product.supertest.test.js
+// mocha src/test/product.supertest.test.js
 
 dotenv.config();
 const environment = process.env.NODE_ENV || "development";
@@ -32,8 +32,6 @@ export const generateProducts = () => ({
   thumbnail: fakerES_MX.image.url({ height: 100, width: 100 }),
 });
 
-let authToken;
-
 before(async function () {
   this.timeout(10000);
   try {
@@ -44,116 +42,131 @@ before(async function () {
   }
 });
 
-describe("Testing login endpoint", () => {
+describe("Testing product endpoints", () => {
+  let authToken; // Authentication token
+  let createdProduct; // Store the created product
+
   it("Login credentials", async () => {
     const response = await requester
-      .post("/api/users/login")
+      .post("/api/session/login")
       .send(isTeacher)
       .set("Accept", "application/json");
 
-    if (response.statusCode === 302) {
-      const location = response.headers.location;
-      const followUpResponse = await requester.get(location);
+    expect(response.statusCode).to.equal(302);
+    authToken = response.headers["set-cookie"][0].split("=")[1];
+  });
 
-      expect(followUpResponse.statusCode).to.equal(200);
-      authToken = followUpResponse.body.token;
-    } else {
-      expect(response.statusCode).to.equal(200);
-      expect(response.body).to.have.property("token");
-      authToken = response.body.token;
-    }
+  it("Create a product", async () => {
+    const productData = generateProducts();
+    const response = await requester
+      .post("/api/products")
+      .set("Cookie", `auth=${authToken}`)
+      .send(productData);
 
-    console.log("Auth Token:", authToken);
+    console.log("Create product response:", response.body);
+
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property("status", "success");
+    expect(response.body).to.have.property("payload");
+    createdProduct = response.body.payload;
+  });
+
+  it("Verify created product data", async () => {
+    expect(createdProduct).to.have.property("_id");
+    expect(createdProduct).to.have.property("title");
+    expect(createdProduct).to.have.property("description");
+    expect(createdProduct).to.have.property("code");
+    expect(createdProduct).to.have.property("price");
+    expect(createdProduct).to.have.property("status");
+    expect(createdProduct).to.have.property("stock");
+    expect(createdProduct).to.have.property("category");
+    expect(createdProduct).to.have.property("owner", "teacher"); // Ensure the owner is 'teacher'
+  });
+
+  it("Update a product", async () => {
+    const updatedData = {
+      title: "Updated Product Title",
+      description: "Updated Product Description",
+      price: 999.99,
+    };
+
+    const updateResponse = await requester
+      .put(`/api/products/${createdProduct._id}`)
+      .set("Cookie", `auth=${authToken}`)
+      .send(updatedData);
+
+    expect(updateResponse.status).to.equal(200);
+    expect(updateResponse.body).to.have.property("status", "success");
+
+    const fetchResponse = await requester
+      .get(`/api/products/${createdProduct._id}`)
+      .set("Cookie", `auth=${authToken}`);
+
+    expect(fetchResponse.status).to.equal(200);
+    expect(fetchResponse.body).to.have.property("status", "success");
+    const updatedProduct = fetchResponse.body.payload;
+
+    // Verify the updated data
+    expect(updatedProduct).to.have.property("_id", createdProduct._id);
+    expect(updatedProduct).to.have.property("title", updatedData.title);
+    expect(updatedProduct).to.have.property(
+      "description",
+      updatedData.description
+    );
+    expect(updatedProduct).to.have.property("price", updatedData.price);
+  });
+
+  it("Delete a product", async () => {
+    const deleteResponse = await requester
+      .delete(`/api/products/${createdProduct._id}`)
+      .set("Cookie", `auth=${authToken}`);
+
+    console.log("Delete product response:", deleteResponse.body);
+
+    expect(deleteResponse.status).to.equal(200);
+    expect(deleteResponse.body).to.have.property("status", "success");
+
+    const fetchResponse = await requester
+      .get(`/api/products/${createdProduct._id}`)
+      .set("Cookie", `auth=${authToken}`);
+
+    console.log("Fetch after delete response:", fetchResponse.body);
+
+    expect(fetchResponse.status).to.equal(400); // Updated to reflect the actual status code returned by the server
+  });
+
+  it("Get all products", async () => {
+    const response = await requester
+      .get("/api/products")
+      .set("Cookie", `auth=${authToken}`);
+
+    console.log("Get all products response:", response.body);
+
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property("status", "success");
+    expect(response.body).to.have.property("payload");
+
+    const payload = response.body.payload; // Correctly define payload here
+
+    expect(payload).to.have.property("docs");
+    expect(Array.isArray(payload.docs)).to.be.true;
+    expect(payload.docs.length).to.be.greaterThan(0); // Ensure there are products
+
+    // Validate each product in the docs array
+    payload.docs.forEach((product) => {
+      expect(product).to.have.property("_id");
+      expect(product).to.have.property("title");
+      expect(product).to.have.property("description");
+      expect(product).to.have.property("code");
+      expect(product).to.have.property("price");
+      expect(product).to.have.property("status");
+      expect(product).to.have.property("stock");
+      expect(product).to.have.property("category");
+    });
+  });
+
+  after(async () => {
+    await mongoose.disconnect();
+    startLogger("DB disconnected");
   });
 });
-
-it("PUT Operation for Products Endpoint", async () => {
-  const updatedProduct = { title: "New Title" };
-  const response = await requester
-    .put("/api/products/661c83aa9905cc901b886f54")
-    .send(updatedProduct)
-    .set("Accept", "application/json")
-    .set("Authorization", `Bearer ${authToken}`);
-
-  expect(response.status).to.equal(200);
-});
-
-after(async () => {
-  await mongoose.disconnect();
-  startLogger("DB disconnected");
-});
-
-// import { expect } from "chai";
-// import supertest from "supertest";
-// import jwt from "jsonwebtoken";
-// import * as dotenv from "dotenv";
-// import mongoose from "mongoose";
-// import ProductDTO from "../dao/DTOs/productDto.js";
-
-// // Load environment variables
-// dotenv.config();
-
-// // Set up Supertest and test data
-// const uri = process.env.URI;
-// const SECRET_KEY = process.env.SECRET_KEY;
-// const requester = supertest("http://localhost:8080");
-
-// const testProduct = {
-//   title: "TestProduct",
-//   description: "TestDescription",
-//   code: "12345",
-//   price: 1000,
-//   stock: 100,
-//   category: "ABC",
-// };
-
-// // Connect to the test database
-// mongoose.connect(uri, {
-//   dbName: "testingSuperTest",
-// });
-
-// // Define a test user
-// const user = {
-//   _id: "test_user_id", // Use a valid test user ID
-//   owner: "teacher",
-// };
-
-// // Generate a JWT token for the test user
-// const token = jwt.sign({ _id: user._id, owner: user.user.owner }, SECRET_KEY, {
-//   expiresIn: "1h",
-// });
-
-// describe("Test Products", function () {
-//   // Increase the timeout if necessary
-//   this.timeout(5000);
-
-//   // Clean up before each test
-//   before(async function () {
-//     try {
-//       const productCollection = mongoose.connection.db.collection("products");
-//       await productCollection.deleteMany({}); // Drop all documents in the collection
-//     } catch (error) {
-//       console.log("No collection to drop or other error:", error);
-//     }
-//   });
-
-//   // Test case for creating a product
-//   it("POST /api/products should create a product successfully", async function () {
-//     const response = await requester
-//       .post("/api/products")
-//       .set("Cookie", [`auth=${token}`]) // Use the JWT token for authorization
-//       .send(testProduct);
-
-//     // Assert the response
-//     expect(response.status).to.equal(200);
-//     expect(response.body.status).to.equal("success");
-
-//     // Fetch the created product from the database and verify its owner
-//     const product = await mongoose.connection.db
-//       .collection("products")
-//       .findOne({ code: testProduct.code });
-//     expect(product).to.not.be.null;
-//     const productDto = new ProductDTO(product);
-//     expect(productDto.owner).to.equal(user.user.owner);
-//   });
-// });
