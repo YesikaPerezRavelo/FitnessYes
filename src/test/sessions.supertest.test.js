@@ -6,6 +6,7 @@ import { fakerES_MX } from "@faker-js/faker";
 import { startLogger } from "../utils/loggerUtil.js";
 import path from "path";
 
+// Load environment variables
 dotenv.config();
 const environment = process.env.NODE_ENV || "development";
 const envFile = environment === "production" ? "prod.env" : ".env";
@@ -21,7 +22,7 @@ const generateUsers = () => ({
 });
 
 const newUser = generateUsers();
-const isStudent = { user: "student", password: "test12345" };
+const isStudent = { email: "super@test.com", password: "test12345" };
 
 before(async function () {
   this.timeout(10000);
@@ -35,19 +36,13 @@ before(async function () {
 });
 
 describe("Testing users routes", () => {
-  it("POST Login Operation for Users Endpoint", async () => {
+  it("Login credentials", async () => {
     const response = await requester
-      .post("/api/users/login")
+      .post("/api/session/login")
       .send(isStudent)
       .set("Accept", "application/json");
 
-    if (response.statusCode === 302) {
-      const location = response.headers.location;
-      const followUpResponse = await requester.get(location);
-      expect(followUpResponse.statusCode).to.equal(200);
-    } else {
-      expect(response.statusCode).to.equal(200);
-    }
+    expect(response.statusCode).to.equal(302);
   });
 
   it("POST Register for Users Endpoint", async () => {

@@ -1992,3 +1992,25 @@ http: GET in /api/products/669dbffd6db38e6efce71636 - 23:12:14
 warning: Cannot get product
 http: GET in /api/products - 23:12:14
 info: DB disconnected
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/session/login - 23:15:58
+http: POST in /api/session/register - 23:15:58
+info: DB disconnected
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/session/login - 23:19:26
+http: POST in /api/session/register - 23:19:27
+info: DB disconnected
+http: GET in /login - 23:22:07
+http: GET in /register - 23:22:09
+http: POST in /api/session/register - 23:22:40
+http: POST in /api/session/login - 23:22:51
+http: GET in /user - 23:22:51
+info: Server is running on port 8080
+info: DB connection successful
+http: POST in /api/session/login - 23:23:37
+http: POST in /api/session/register - 23:23:38
+info: DB disconnected
