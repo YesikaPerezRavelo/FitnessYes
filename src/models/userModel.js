@@ -36,6 +36,18 @@ const usersSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Cart",
   },
+  documents: [
+    {
+      name: String,
+      reference: String,
+    },
+  ],
+  last_connection: [
+    {
+      login: Date,
+      logout: Date,
+    },
+  ],
 });
 
 usersSchema.pre("save", function (next) {

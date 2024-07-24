@@ -2014,3 +2014,60 @@ info: DB connection successful
 http: POST in /api/session/login - 23:23:37
 http: POST in /api/session/register - 23:23:38
 info: DB disconnected
+info: Server is running on port 8080
+http: GET in / - 22:34:25
+info: Server is running on port 8080
+http: GET in /login - 22:39:10
+http: POST in /api/session/login - 22:39:16
+http: GET in /user - 22:39:16
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 22:39:20
+http: GET in /user - 22:39:25
+http: GET in /realtimeproducts - 22:39:30
+http: GET in /products/ - 22:39:35
+http: GET in /unauthorized - 22:39:35
+http: GET in /stylesheets/index.css - 22:39:35
+http: GET in /user - 22:39:37
+http: GET in /chat - 22:39:39
+http: GET in /unauthorized - 22:39:39
+http: GET in /stylesheets/index.css - 22:39:39
+http: GET in /user - 22:39:41
+http: GET in /cart?cid= - 22:39:44
+http: GET in /cart?cid=66a05b605863f80aa592a36e - 22:39:44
+http: GET in /api/session/logout - 22:39:47
+http: GET in /login - 22:39:47
+info: Server is running on port 8080
+http: POST in /api/session/login - 22:52:46
+http: GET in /user - 22:52:47
+http: GET in /products/ - 22:52:52
+http: GET in /chat - 22:52:59
+http: GET in /mockingproducts - 22:53:02
+info: Server is running on port 8080
+http: GET in /api/session/logout - 23:45:55
+http: GET in /login - 23:45:55
+http: POST in /api/session/login - 23:46:12
+http: GET in /user - 23:46:12
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 23:46:16
+http: PUT in /api/users/premium/669dc270577a97a08cc8ef6b - 23:46:23
+info: Server is running on port 8080
+http: PUT in /api/users/premium/669dc270577a97a08cc8ef6b - 23:49:07
+http: GET in /user - 23:49:10
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 23:49:14
+http: PUT in /api/users/premium/669dc270577a97a08cc8ef6b - 23:49:25
+http: GET in /user - 23:49:28
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 23:49:44
+info: Server is running on port 8080
+http: GET in /api/session/logout - 23:55:36
+http: GET in /login - 23:55:36
+info: Server is running on port 8080
+http: POST in /api/session/login - 23:55:52
+http: GET in /user - 23:55:52
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 23:55:57
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 23:56:00
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 23:56:09
+info: Server is running on port 8080
+http: PUT in /api/users/premium/666c9445bcf2b01775d1b06e - 23:57:23
+http: GET in /user - 23:57:25
+http: GET in /api/session/logout - 23:57:28
+http: GET in /login - 23:57:28
+info: Server is running on port 8080
+info: Server is running on port 8080
