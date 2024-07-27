@@ -70,6 +70,10 @@ export default class UserService {
     return await this.userRepository.updateRole(userId, newRole);
   }
 
+  async updateUserDocuments(userId, documents) {
+    return await this.userRepository.updateUserDocuments(userId, documents);
+  }
+
   async deleteUserByEmail(userId) {
     return await this.userRepository.deleteUserByEmail(userId);
   }

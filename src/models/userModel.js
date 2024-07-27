@@ -42,12 +42,9 @@ const usersSchema = new mongoose.Schema({
       reference: String,
     },
   ],
-  last_connection: [
-    {
-      login: Date,
-      logout: Date,
-    },
-  ],
+  last_connection: {
+    type: Date,
+  },
 });
 
 usersSchema.pre("save", function (next) {

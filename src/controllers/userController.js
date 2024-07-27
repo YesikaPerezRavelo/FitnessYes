@@ -97,10 +97,35 @@ export default class UserController {
     });
   }
 
-  async updateRole(uid, role) {
+  // async updateRole(uid, role) {
+  //   try {
+  //     const updatedUser = await this.userService.updateRole(uid, role);
+  //     return updatedUser;
+  //   } catch (error) {
+  //     throw new Error("Error updating role: " + error.message);
+  //   }
+  // }
+
+  async updateUserDocuments(userId, documents) {
     try {
-      const updatedUser = await this.userService.updateRole(uid, role);
-      return updatedUser;
+      const user = await this.userService.findUserById(userId);
+      user.documents.push(...documents);
+      await user.save();
+      return user;
+    } catch (error) {
+      throw new Error("Error updating documents: " + error.message);
+    }
+  }
+
+  async updateRole(userId, role) {
+    try {
+      const user = await this.userService.findUserById(userId);
+      if (!user) throw new Error("User not found");
+
+      user.role = role;
+      user.last_connection = new Date();
+      await user.save();
+      return user;
     } catch (error) {
       throw new Error("Error updating role: " + error.message);
     }

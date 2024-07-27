@@ -1,26 +1,19 @@
 import multer from "multer";
+import path from "path";
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    let destinationFolder = "";
-
-    if (file.fieldname === "documents") {
-      destinationFolder = "documents";
-    } else if (file.fieldname === "profileImage") {
-      destinationFolder = "profiles";
+  destination: (req, file, cb) => {
+    if (file.fieldname === "profileImage") {
+      cb(null, "public/img/profiles/");
     } else if (file.fieldname === "productImage") {
-      destinationFolder = "products";
+      cb(null, "public/img/products/");
+    } else {
+      cb(null, "public/img/documents/");
     }
-    cb(null, `src/public/img/uploads/${destinationFolder}`);
   },
-
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-  limits: {
-    // limit
-    fileSize: 2 * 1024 * 1024, // 2 MB
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 
-export const uploader = multer({ storage });
+export const uploader = multer({ storage: storage });

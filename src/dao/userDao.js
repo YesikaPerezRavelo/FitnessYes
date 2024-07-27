@@ -55,6 +55,14 @@ export default class UserDao {
     );
   }
 
+  async updateUserDocuments(userId, documents) {
+    return await userModel.findByIdAndUpdate(
+      userId,
+      { $push: { documents: { $each: documents } } },
+      { new: true }
+    );
+  }
+
   async deleteByEmail(userId) {
     return await userModel.findOneAndDelete(userId).lean();
   }

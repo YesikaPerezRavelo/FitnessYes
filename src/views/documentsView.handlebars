@@ -1,0 +1,30 @@
+<body>
+  <div class="container">
+    <h1>Upload Your Documents</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="idDocument">ID Document:</label>
+      <input type="file" id="idDocument" class="docs" name="idDocument" /><br
+      /><br />
+
+      <label for="addressDocument">Address Document:</label>
+      <input
+        type="file"
+        id="addressDocument"
+        class="docs"
+        name="addressDocument"
+      /><br /><br />
+
+      <label for="statementDocument">Bank Statement:</label>
+      <input
+        type="file"
+        id="statementDocument"
+        class="docs"
+        name="statementDocument"
+      /><br /><br />
+
+      <button type="submit">Upload Documents</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/uploader.js"></script>
+</body>
