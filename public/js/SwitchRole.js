@@ -43,9 +43,15 @@ form.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     console.error(error);
+    Swal.fire({
+      title: "Error updating role",
+      text: "An error occurred while updating the role. Please try again.",
+      icon: "error",
+    });
   }
 });
 
 uploadButton.addEventListener("click", () => {
-  window.location.href = "/documentsView";
+  const userId = document.getElementById("role").dataset.userId;
+  window.location.href = `/api/users/${userId}/documents`;
 });

@@ -211,12 +211,10 @@ router.get(
         userId: req.params.uid,
       });
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          error: "Error rendering documents view",
-          message: error.message,
-        });
+      res.status(500).json({
+        error: "Error rendering documents view",
+        message: error.message,
+      });
     }
   }
 );

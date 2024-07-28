@@ -2150,3 +2150,32 @@ http: GET in /login - 20:48:33
 http: GET in /user - 20:48:33
 http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 20:48:38
 http: GET in /documentsView - 20:48:49
+http: GET in / - 20:56:25
+http: GET in /login - 20:56:26
+http: GET in /user - 20:56:26
+http: GET in /api/session/logout - 20:56:29
+http: GET in /login - 20:56:29
+http: POST in /api/session/login - 20:56:47
+http: GET in /user - 20:56:47
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 20:56:51
+http: GET in /documentsView - 20:56:58
+http: GET in /documentsView - 21:01:11
+http: GET in /documentsView - 21:01:14
+info: Server is running on port 8080
+http: GET in / - 21:10:33
+http: GET in /login - 21:10:36
+http: GET in /user - 21:10:36
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:10:40
+http: GET in /documentsView - 21:10:47
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:21:37
+http: GET in /login - 21:21:39
+http: GET in /user - 21:21:39
+http: GET in /api/session/logout - 21:21:44
+http: GET in /login - 21:21:44
+http: POST in /api/session/login - 21:21:58
+http: GET in /user - 21:21:58
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:22:04
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:22:10
+http: GET in /css/ - 21:22:11
