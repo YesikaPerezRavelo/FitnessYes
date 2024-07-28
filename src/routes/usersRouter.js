@@ -204,10 +204,11 @@ router.get(
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
-
+      console.log("User data:", user);
       res.render("documentsView", {
         title: "Documents Uploader",
         user: user,
+        style: "index.css",
         userId: req.params.uid,
       });
     } catch (error) {
@@ -234,6 +235,12 @@ router.post(
       const userId = req.params.uid;
       const files = req.files;
 
+      // Fetch the user from the database
+      const user = await userControllerDB.findUserById(userId);
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
       let documents = [];
       if (files.idDocument)
         documents.push({
@@ -251,12 +258,14 @@ router.post(
           reference: `/public/img/documents/${files.statementDocument[0].filename}`,
         });
 
+      // Update user's documents
       await userControllerDB.updateUserDocuments(userId, documents);
 
       res
         .status(200)
         .json({ message: "Documents uploaded successfully.", documents });
     } catch (error) {
+      console.error(`Error updating documents: ${error.message}`);
       res
         .status(500)
         .json({ error: "Error uploading documents", message: error.message });
@@ -270,7 +279,7 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const userId = req.params.uid;
+      const userId = req.params;
       const user = await userControllerDB.findUserById(userId);
 
       const requiredDocs = [

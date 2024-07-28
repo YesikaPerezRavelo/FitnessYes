@@ -108,25 +108,25 @@ export default class UserController {
 
   async updateUserDocuments(userId, documents) {
     try {
-      const user = await this.userService.findUserById(userId);
-      user.documents.push(...documents);
-      await user.save();
+      const user = await this.userService.updateUserDocuments(
+        userId,
+        documents
+      );
       return user;
     } catch (error) {
+      console.error("Error updating documents:", error);
       throw new Error("Error updating documents: " + error.message);
     }
   }
 
   async updateRole(userId, role) {
     try {
-      const user = await this.userService.findUserById(userId);
-      if (!user) throw new Error("User not found");
+      const updatedUser = await this.userService.updateRole(userId, role);
+      if (!updatedUser) throw new Error("User not found");
 
-      user.role = role;
-      user.last_connection = new Date();
-      await user.save();
-      return user;
+      return updatedUser;
     } catch (error) {
+      console.error("Error updating role:", error);
       throw new Error("Error updating role: " + error.message);
     }
   }

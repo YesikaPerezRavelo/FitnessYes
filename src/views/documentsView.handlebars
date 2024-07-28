@@ -1,7 +1,10 @@
 <body>
   <div class="container">
+    <p>User ID: {{user._id}}</p>
     <h1>Upload Your Documents</h1>
     <form id="uploadForm" enctype="multipart/form-data">
+      <input type="hidden" id="userId" value="{{user._id}}" />
+
       <label for="idDocument">ID Document:</label>
       <input type="file" id="idDocument" class="docs" name="idDocument" /><br
       /><br />
@@ -24,7 +27,9 @@
 
       <button type="submit">Upload Documents</button>
     </form>
+    <a href="/user">Return to user account</a>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/js/uploader.js"></script>
 </body>
