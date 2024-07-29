@@ -1,66 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Remove item from cart
-  const removeButtons = document.querySelectorAll(".remove-item");
-  removeButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
-      const productId = button.dataset.productId;
-      const cartId = button.dataset.cartId;
+  const cartId = new URLSearchParams(window.location.search).get("cid"); // Get cartId from URL
 
-      try {
-        const response = await fetch(
-          `/api/cart/${cartId}/products/${productId}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+  if (!cartId) {
+    console.error("Cart ID is missing");
+    return;
+  }
 
-        if (response.ok) {
-          alert("Product removed from cart successfully");
-          location.reload(); // Refresh the page to update the cart view
-        } else {
-          const result = await response.json();
-          alert(`Error removing product from cart: ${result.message}`);
-        }
-      } catch (error) {
-        console.error("Error removing product from cart:", error);
-        alert("There was an error removing the product from the cart");
-      }
-    });
-  });
-
-  // Clear cart
-  const clearCartButton = document.querySelector(".clear-cart-btn");
-  clearCartButton.addEventListener("click", async () => {
-    const cartId = clearCartButton.dataset.cartId;
-
+  async function fetchCart() {
     try {
-      const response = await fetch(`/api/cart/${cartId}/products`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        alert("Cart cleared successfully");
-        location.reload(); // Refresh the page to update the cart view
+      const response = await fetch(`/api/carts/${cartId}`);
+      const result = await response.json();
+      if (result.status === "success") {
+        updateCartUI(result.payload);
       } else {
-        const result = await response.json();
-        alert(`Error clearing cart: ${result.message}`);
+        console.error("Error fetching cart:", result.message);
       }
     } catch (error) {
-      console.error("Error clearing cart:", error);
-      alert("There was an error clearing the cart");
+      console.error("Error fetching cart:", error);
     }
-  });
+  }
 
-  // Checkout
-  const checkoutButton = document.querySelector(".checkout-btn");
-  checkoutButton.addEventListener("click", () => {
-    alert("Checkout functionality not implemented yet.");
-    // Add your checkout functionality here
-  });
+  function updateCartUI(cartData) {
+    // Update your cart UI with cartData
+    console.log("Cart data:", cartData);
+    // Implement UI update logic
+  }
+
+  fetchCart();
 });

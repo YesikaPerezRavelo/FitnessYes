@@ -2396,3 +2396,19 @@ http: POST in /api/users/669dc270577a97a08cc8ef6b/documents - 21:02:33
 http: GET in /user - 21:02:41
 http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:02:44
 http: GET in /user - 21:02:51
+http: GET in /products/ - 21:06:56
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 21:15:37
+http: GET in /products/ - 21:17:43
+http: GET in /js/product.js - 21:17:44
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 21:25:37
+http: GET in /products/ - 21:25:49
+http: GET in /js/product.js - 21:25:49
+http: GET in /login - 22:25:51
+http: POST in /api/session/login - 22:25:57
+http: GET in /user - 22:25:58
+http: GET in /api/session/logout - 22:26:03
+http: GET in /login - 22:26:03
