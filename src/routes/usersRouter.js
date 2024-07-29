@@ -220,7 +220,7 @@ router.get(
   }
 );
 
-// Endpoint to upload documents
+/// Endpoint to upload documents
 router.post(
   "/:uid/documents",
   uploader.fields([
@@ -279,8 +279,12 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const userId = req.params;
+      const userId = req.params.uid;
       const user = await userControllerDB.findUserById(userId);
+
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
 
       const requiredDocs = [
         "ID Document",

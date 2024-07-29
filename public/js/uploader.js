@@ -36,7 +36,7 @@ form.addEventListener("submit", async (e) => {
     console.log("Response status:", response.status);
     if (response.ok) {
       Swal.fire({
-        title: "Documents uploaded successfully",
+        title: "Documents uploaded successfully, now you can update role",
         imageUrl:
           "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
       });
