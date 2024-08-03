@@ -1,6 +1,7 @@
 import UserRepository from "../repository/userRepository.js";
 import { createHash, isValidPassword } from "../utils/functionUtil.js";
 import jwt from "jsonwebtoken";
+import { userModel } from "../models/userModel.js";
 import * as dotenv from "dotenv";
 dotenv.config();
 
@@ -64,10 +65,18 @@ export default class UserService {
   }
 
   async updateRole(userId, newRole) {
-    if (!["student", "premium"].includes(newRole)) {
+    if (!["student", "premium", "teacher"].includes(newRole)) {
       throw new Error("Invalid role");
     }
-    return await this.userRepository.updateRole(userId, newRole);
+
+    const updatedUser = await this.userRepository.updateRole(userId, newRole);
+
+    if (!updatedUser) throw new Error("User not found");
+
+    // Update last_connection after role is updated
+    await userModel.findByIdAndUpdate(userId, { last_connection: new Date() });
+
+    return updatedUser;
   }
 
   async updateUserDocuments(userId, documents) {

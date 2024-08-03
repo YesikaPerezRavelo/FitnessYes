@@ -2412,3 +2412,130 @@ http: POST in /api/session/login - 22:25:57
 http: GET in /user - 22:25:58
 http: GET in /api/session/logout - 22:26:03
 http: GET in /login - 22:26:03
+info: Server is running on port 8080
+http: GET in / - 21:10:06
+http: GET in /login - 21:10:14
+http: POST in /api/session/login - 21:10:33
+http: GET in /user - 21:10:34
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:10:38
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:10:45
+info: Server is running on port 8080
+http: GET in / - 21:12:28
+http: GET in /login - 21:12:31
+http: GET in /user - 21:12:32
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:12:37
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:12:49
+http: GET in /user - 21:13:07
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:13:10
+info: Server is running on port 8080
+http: GET in / - 21:13:40
+http: GET in /login - 21:13:43
+http: GET in /user - 21:13:43
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:13:46
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:13:55
+info: Server is running on port 8080
+http: GET in /user - 21:18:56
+http: GET in /chat - 21:19:00
+http: GET in /favicon.ico - 21:21:07
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:21:10
+info: Server is running on port 8080
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:29:46
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /user - 21:31:38
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:31:42
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:31:51
+http: GET in /user - 21:31:54
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:32:17
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:32:26
+info: Server is running on port 8080
+http: GET in /user - 21:33:30
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:33:34
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:40:24
+http: GET in /login - 21:40:26
+http: GET in /user - 21:40:26
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:40:29
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:40:36
+info: Server is running on port 8080
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:41:36
+info: Server is running on port 8080
+http: GET in / - 21:48:33
+http: GET in /login - 21:48:35
+http: GET in /user - 21:48:36
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:48:39
+http: GET in /api/public/js/switchRole.js - 21:48:39
+http: GET in /user - 21:49:03
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:49:06
+http: GET in /api/public/js/switchRole.js - 21:49:06
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:49:33
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 21:49:39
+info: Server is running on port 8080
+http: GET in /user - 21:53:53
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 21:53:56
+http: GET in /user - 21:54:48
+http: GET in /api/session/logout - 21:54:53
+http: GET in /login - 21:54:53
+http: GET in /register - 21:54:59
+http: GET in /login - 21:55:07
+http: POST in /api/session/login - 21:55:13
+http: GET in /user - 21:55:14
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 21:55:18
+http: GET in /user - 21:55:25
+http: GET in /products/ - 21:55:34
+http: GET in /unauthorized - 21:55:34
+http: GET in /stylesheets/index.css - 21:55:35
+http: GET in /user - 21:55:38
+http: GET in /products/ - 21:55:46
+http: GET in /unauthorized - 21:55:46
+http: GET in /stylesheets/index.css - 21:55:46
+http: GET in /user - 21:55:55
+http: GET in /realtimeproducts - 21:56:31
+http: GET in /api/session/logout - 21:56:41
+http: GET in /login - 21:56:41
+http: POST in /api/session/login - 21:56:56
+http: GET in /user - 21:56:56
+http: GET in /products/ - 21:56:58
+http: GET in /js/product.js - 21:56:59
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 22:33:16
+http: GET in /js/product.js - 22:33:17
+http: GET in /favicon.ico - 22:33:17
+http: GET in /products/ - 22:33:43
+http: GET in /js/product.js - 22:33:43
+info: Server is running on port 8080
+http: GET in /cart?cid= - 22:36:46
+http: GET in /cart?cid=66ad89ae7a8b7919590e9c81 - 22:36:47
+http: GET in /api/carts/66ad89ae7a8b7919590e9c81 - 22:36:47
+info: Server is running on port 8080
+http: GET in /products/ - 22:37:54
+http: GET in /js/product.js - 22:37:54
+http: GET in /api/session/logout - 22:38:39
+http: GET in /login - 22:38:39
+http: POST in /api/session/login - 22:38:56
+http: GET in /user - 22:38:56
+http: GET in /products/ - 22:38:59
+http: GET in /js/product.js - 22:38:59
+http: GET in / - 22:39:35
+http: GET in /login - 22:39:37
+http: GET in /user - 22:39:37
+http: GET in /products/ - 22:39:39
+http: GET in /js/product.js - 22:39:39
+http: GET in /products/ - 22:43:31
+http: GET in /js/product.js - 22:43:31
+http: GET in /products/ - 22:43:38
+http: GET in /js/product.js - 22:43:38
+http: GET in /products/ - 22:43:47
+http: GET in /js/product.js - 22:43:47
+http: GET in /products/ - 22:44:01
+http: GET in /js/product.js - 22:44:01
+http: GET in /products/ - 22:44:25
+http: GET in /js/product.js - 22:44:25
+http: GET in /products/ - 22:49:17
+http: GET in /js/product.js - 22:49:17
+http: GET in /products/ - 22:49:43
+http: GET in /js/product.js - 22:49:43
+http: GET in /products/ - 22:50:06
+http: GET in /js/product.js - 22:50:07
