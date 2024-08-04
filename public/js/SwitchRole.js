@@ -35,9 +35,11 @@ form.addEventListener("submit", async (e) => {
         uploadButton.style.display = "none";
       }
     } else {
+      const errorResponse = await response.json();
       Swal.fire({
         title: "Error updating role",
-        text: "Need to upload Documents",
+        text:
+          errorResponse.error || "An error occurred while updating the role.",
         icon: "error",
       });
     }

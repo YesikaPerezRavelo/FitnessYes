@@ -17,7 +17,7 @@ form.addEventListener("submit", async (e) => {
   }
 
   const userId = userIdElement.value;
-  console.log("User ID:", userId); // Add this line to log the user ID
+  console.log("User ID:", userId);
   if (!userId) {
     console.error("userId not found");
     Swal.fire({
@@ -26,6 +26,11 @@ form.addEventListener("submit", async (e) => {
       icon: "error",
     });
     return;
+  }
+
+  // Log the form data to check if it's correctly populated
+  for (let [key, value] of formData.entries()) {
+    console.log(key, value);
   }
 
   try {
@@ -41,11 +46,11 @@ form.addEventListener("submit", async (e) => {
           "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
       });
     } else {
-      const errorText = await response.text();
-      console.error("Error response text:", errorText);
+      const errorResponse = await response.text();
+      console.error("Error response text:", errorResponse);
       Swal.fire({
         title: "Error uploading documents",
-        text: errorText || "Please try again",
+        text: errorResponse || "Please try again",
         icon: "error",
       });
     }
