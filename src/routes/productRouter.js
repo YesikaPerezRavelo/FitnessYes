@@ -8,6 +8,7 @@ import passport from "passport";
 import { auth } from "../middlewares/auth.js";
 import productModel from "../models/productModel.js";
 import { checkOwnership } from "../utils/checkOwnershipUtil.js";
+import { transport } from "../utils/mailUtil.js";
 
 const router = Router();
 const productController = new ProductController();
@@ -154,6 +155,37 @@ router.delete(
 
       if (proceedWithDelete) {
         await productController.deleteProduct(pid);
+
+        // Notify the premium user
+        if (req.user.user.role === "premium") {
+          const mailOptions = {
+            from: "Yesika Perez <yesikapr@gmail.com>",
+            to: req.user.user.email,
+            subject: "Product Deleted",
+            html: `<div>
+                      <h1>Product Deleted</h1>
+                      <p>Your product with ID ${pid} has been deleted.</p>
+                   </div>`,
+          };
+
+          transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.error("Error sending email:", error);
+            } else {
+              console.log("Email sent:", info.response);
+              io.emit("emailSent", { message: "Email sent successfully!" }); // Emit socket event
+            }
+          });
+        }
+
+        // Fetch the updated product list
+        const products = await productController.getAllProducts(); // Adjust this method if needed
+
+        io.emit("productDeleted", {
+          message: "Product deleted successfully!",
+          products,
+        });
+
         return res.status(200).send({
           status: "success",
           message: "Product erased",

@@ -1,5 +1,4 @@
 <div class="container">
-
   <nav>
     <ul class="nav_list">
       <li class="nav__item">
@@ -53,8 +52,6 @@
 
     <hr />
 
-    <p>{{products.pagingCounter}}</p>
-
     <div class="products-box">
       {{#each products.docs}}
         <div class="product-card">
@@ -71,8 +68,22 @@
       {{/each}}
     </div>
 
+    <div class="pagination">
+      {{#if products.hasPrevPage}}
+        <a
+          href="/realtimeproducts?page={{products.prevPage}}&limit={{products.limit}}"
+          class="prev"
+        >Previous</a>
+      {{/if}}
+      {{#if products.hasNextPage}}
+        <a
+          href="/realtimeproducts?page={{products.nextPage}}&limit={{products.limit}}"
+          class="next"
+        >Next</a>
+      {{/if}}
+    </div>
   </div>
-
 </div>
 <script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/js/realtimeproducts.js"></script>

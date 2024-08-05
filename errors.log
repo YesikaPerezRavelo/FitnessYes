@@ -2609,3 +2609,120 @@ http: GET in /api/users/premium/66aee08dfa5fcac270fdd5db - 23:34:16
 http: GET in /favicon.ico - 23:34:16
 http: PUT in /api/users/premium/66aee08dfa5fcac270fdd5db - 23:34:21
 http: GET in /user - 23:34:27
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/products - 19:48:01
+http: GET in / - 20:00:57
+http: GET in /login - 20:01:03
+http: POST in /api/session/login - 20:01:15
+http: GET in /user - 20:01:16
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 20:01:22
+http: GET in /api/users/669dc270577a97a08cc8ef6b/documents - 20:01:30
+http: POST in /api/users/669dc270577a97a08cc8ef6b/documents - 20:01:48
+http: GET in /user - 20:01:52
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 20:01:56
+http: PUT in /api/users/premium/669dc270577a97a08cc8ef6b - 20:02:01
+http: GET in /user - 20:02:05
+http: GET in /api/users/premium/669dc270577a97a08cc8ef6b - 20:02:08
+http: PUT in /api/users/premium/669dc270577a97a08cc8ef6b - 20:02:11
+http: GET in /user - 20:02:15
+http: GET in /products/ - 20:02:17
+http: GET in /js/product.js - 20:02:18
+http: GET in /products?page=2 - 20:02:28
+http: GET in /js/product.js - 20:02:28
+http: GET in /products?page=3 - 20:02:32
+http: GET in /js/product.js - 20:02:32
+http: GET in /products?page=4 - 20:02:35
+http: GET in /js/product.js - 20:02:36
+http: GET in /products?page=5 - 20:02:38
+http: GET in /js/product.js - 20:02:39
+http: GET in /products?page=6 - 20:02:42
+http: GET in /js/product.js - 20:02:42
+http: GET in /products?page=7 - 20:02:45
+http: GET in /js/product.js - 20:02:45
+http: GET in /products?page=8 - 20:02:48
+http: GET in /js/product.js - 20:02:48
+http: GET in /api/session/logout - 20:04:20
+http: GET in /login - 20:04:20
+http: POST in /api/session/login - 20:04:25
+http: GET in /user - 20:04:25
+http: GET in /realtimeproducts - 20:04:29
+http: GET in /favicon.ico - 20:04:29
+http: GET in /realtimeproducts - 20:05:53
+http: GET in /favicon.ico - 20:05:53
+http: GET in /products?page=2 - 20:05:57
+http: GET in /unauthorized - 20:05:57
+http: GET in /stylesheets/index.css - 20:05:57
+http: GET in /realtimeproducts - 20:06:05
+http: GET in /products?page=2 - 20:06:11
+http: GET in /unauthorized - 20:06:11
+http: GET in /stylesheets/index.css - 20:06:11
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /realtimeproducts - 20:37:51
+http: GET in /realtimeproducts?page=2&limit=5 - 20:37:56
+http: GET in /realtimeproducts?page=3&limit=5 - 20:38:00
+http: GET in /realtimeproducts?page=4&limit=5 - 20:38:03
+http: GET in /products/ - 21:03:21
+http: GET in /unauthorized - 21:03:21
+http: GET in /stylesheets/index.css - 21:03:22
+http: GET in /user - 21:03:24
+http: GET in /realtimeproducts - 21:03:25
+http: GET in /realtimeproducts?page=2&limit=5 - 21:03:32
+http: GET in /realtimeproducts?page=3&limit=5 - 21:03:36
+http: GET in /realtimeproducts?page=3&limit=5 - 21:06:09
+http: GET in /realtimeproducts?page=2&limit=5 - 21:06:13
+http: GET in /realtimeproducts?page=2&limit=5 - 21:06:32
+http: GET in /realtimeproducts?page=2&limit=5 - 21:07:09
+http: GET in /api/session/logout - 21:07:22
+http: GET in /login - 21:07:22
+http: POST in /api/session/login - 21:07:31
+http: GET in /user - 21:07:31
+http: GET in /realtimeproducts - 21:07:32
+http: GET in /realtimeproducts?page=2&limit=5 - 21:07:35
+http: GET in /realtimeproducts?page=3&limit=5 - 21:07:38
+http: GET in /realtimeproducts?page=4&limit=5 - 21:07:46
+http: GET in /realtimeproducts?page=5&limit=5 - 21:07:57
+http: GET in /realtimeproducts?page=6&limit=5 - 21:09:39
+http: GET in /favicon.ico - 21:09:39
+http: GET in /realtimeproducts?page=5&limit=5 - 21:09:45
+http: GET in /realtimeproducts?page=6&limit=5 - 21:09:53
+http: GET in /realtimeproducts?page=5&limit=5 - 21:09:57
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=5&limit=5 - 22:36:27
+http: GET in / - 22:36:31
+http: GET in /login - 22:36:33
+http: POST in /api/session/login - 22:36:39
+http: GET in /user - 22:36:39
+http: GET in /realtimeproducts - 22:36:41
+http: GET in /realtimeproducts?page=2&limit=5 - 22:36:46
+http: GET in /realtimeproducts?page=3&limit=5 - 22:36:51
+http: GET in /realtimeproducts?page=4&limit=5 - 22:36:54
+http: GET in /realtimeproducts?page=5&limit=5 - 22:37:01
+http: GET in /realtimeproducts?page=6&limit=5 - 22:37:05
+http: GET in /realtimeproducts?page=7&limit=5 - 22:37:08
+http: GET in /realtimeproducts?page=8&limit=5 - 22:37:12
+http: GET in /realtimeproducts?page=8&limit=5 - 22:37:24
+http: GET in /realtimeproducts?page=9&limit=5 - 22:37:32
+http: GET in /realtimeproducts?page=8&limit=5 - 22:37:44
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=8&limit=5 - 22:42:09
+http: GET in /realtimeproducts?page=9&limit=5 - 22:42:39
+http: GET in /realtimeproducts?page=10&limit=5 - 22:42:42
+http: GET in /realtimeproducts?page=11&limit=5 - 22:42:45
+http: GET in /realtimeproducts?page=10&limit=5 - 22:42:57
+http: GET in /realtimeproducts?page=9&limit=5 - 22:46:43
+http: GET in /realtimeproducts?page=10&limit=5 - 22:46:48
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=10&limit=5 - 22:53:45
+http: GET in /realtimeproducts?page=9&limit=5 - 22:53:50
+http: GET in /realtimeproducts?page=8&limit=5 - 22:53:54
+http: GET in /realtimeproducts?page=9&limit=5 - 22:53:58
+http: GET in /realtimeproducts?page=10&limit=5 - 22:54:02
+http: GET in /realtimeproducts?page=9&limit=5 - 22:54:11
+http: GET in /realtimeproducts?page=10&limit=5 - 22:54:14
+http: GET in /realtimeproducts?page=9&limit=5 - 22:54:46

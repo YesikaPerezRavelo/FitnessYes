@@ -100,12 +100,18 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   auth(["teacher", "premium"]),
   async (req, res) => {
+    let { limit = 5, page = 1 } = req.query;
+    page = parseInt(page);
+    limit = parseInt(limit);
+
     try {
-      const products = await productController.getAllProducts();
+      const products = await productController.getAllProducts(limit, page);
       res.render("realTimeProducts", {
         title: "Productos",
         style: "index.css",
         products,
+        currentPage: page,
+        totalPages: products.totalPages,
       });
     } catch (error) {
       res.status(403).send({
