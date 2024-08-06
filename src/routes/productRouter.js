@@ -160,7 +160,8 @@ router.delete(
         if (req.user.user.role === "premium") {
           const mailOptions = {
             from: "Yesika Perez <yesikapr@gmail.com>",
-            to: req.user.user.email,
+            to: "yesikapr@gmail.com",
+            //to: req.user.user.email,
             subject: "Product Deleted",
             html: `<div>
                       <h1>Product Deleted</h1>
@@ -179,7 +180,7 @@ router.delete(
         }
 
         // Fetch the updated product list
-        const products = await productController.getAllProducts(); // Adjust this method if needed
+        const products = await productController.getAllProducts();
 
         io.emit("productDeleted", {
           message: "Product deleted successfully!",

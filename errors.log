@@ -2726,3 +2726,29 @@ http: GET in /realtimeproducts?page=10&limit=5 - 22:54:02
 http: GET in /realtimeproducts?page=9&limit=5 - 22:54:11
 http: GET in /realtimeproducts?page=10&limit=5 - 22:54:14
 http: GET in /realtimeproducts?page=9&limit=5 - 22:54:46
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 20:30:19
+http: GET in /login - 20:30:22
+http: POST in /api/session/login - 20:30:31
+http: GET in /user - 20:30:31
+http: GET in /realtimeproducts - 20:30:33
+http: GET in /realtimeproducts?page=2&limit=5 - 20:30:37
+http: GET in /realtimeproducts?page=3&limit=5 - 20:30:41
+http: GET in /favicon.ico - 20:30:41
+http: GET in /realtimeproducts?page=4&limit=5 - 20:30:44
+http: GET in /realtimeproducts?page=2&limit=10 - 20:30:59
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=1&limit=10 - 20:38:56
+http: GET in /favicon.ico - 20:38:57
+http: GET in /realtimeproducts?page=2&limit=10 - 20:39:54
+http: GET in /realtimeproducts?page=3&limit=10 - 20:39:58
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=2&limit=10 - 20:40:52
+http: GET in /realtimeproducts?page=2&limit=10 - 20:40:52
+http: GET in /favicon.ico - 20:40:52
+info: Server is running on port 8080
+http: GET in /realtimeproducts?page=2&limit=10 - 20:51:27

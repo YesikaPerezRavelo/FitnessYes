@@ -92,8 +92,10 @@ socket.on("emailSent", (data) => {
 socket.on("productDeleted", (data) => {
   Swal.fire({
     icon: "success",
-    title: "Product Deleted",
+    title:
+      "We have send you and email that the product has been deleted correctly",
     text: data.message,
+    imageUrl: "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
   });
   updateProductList(data.products);
 });
