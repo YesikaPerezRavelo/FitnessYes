@@ -12,23 +12,6 @@ const userController = new UserController();
 const ticketController = new TicketController();
 const productController = new ProductController();
 
-router.get("/:cid", async (req, res) => {
-  try {
-    const result = await cartController.getProductsFromCartByID(req.params.cid);
-    console.log("Cart data:", result); // Add this line
-    res.send({
-      status: "success",
-      payload: result,
-    });
-  } catch (error) {
-    req.logger.warning("Cannot fetch the details");
-    res.status(400).send({
-      status: "error",
-      message: error.message,
-    });
-  }
-});
-
 router.post("/", async (req, res) => {
   try {
     const result = await cartController.createCart();

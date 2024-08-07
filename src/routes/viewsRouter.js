@@ -77,18 +77,24 @@ router.get(
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
     try {
+      // Fetch user and products
       const user = await userController.findUserById(req.user.user._id);
       const products = await productController.getAllProducts(limit, page);
+      const cartId = req.params.cid;
+
+      // Render products page
       res.render("products", {
         title: "Productos",
         style: "index.css",
         user,
         products,
+        cartId,
       });
     } catch (error) {
-      res.status(403).send({
+      console.error("Error fetching products:", error);
+      res.status(500).send({
         status: "error",
-        message: "Forbidden",
+        message: "Internal Server Error",
       });
     }
   }
