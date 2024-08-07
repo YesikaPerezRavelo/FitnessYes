@@ -28,27 +28,28 @@
       <h2 class="cart-title">Your Cart</h2>
     </div>
     <div class="cart-items">
-      {{#each products}}
-        <div class="cart-item">
-          <div class="item-image">
-            <img src="{{this.product.image}}" alt="{{this.product.name}}" />
-          </div>
-          <div class="item-details">
-            <h3 class="item-name">{{this.product.name}}</h3>
-            <p class="item-description">{{this.product.description}}</p>
-            <p class="item-price">${{this.product.price}}</p>
-            <p class="item-quantity">Quantity: {{this.quantity}}</p>
-          </div>
-          <div class="item-actions">
-            <button
-              class="remove-item"
-              data-product-id="{{this.product._id}}"
-              data-cart-id="{{../cartId}}"
-            >Remove</button>
-          </div>
-        </div>
-      {{/each}}
+  {{#each products}}
+    <div class="cart-item">
+      <div class="item-image">
+        <img src="{{this.product.image}}" alt="{{this.product.title}}" />
+      </div>
+      <div class="item-details">
+        <h3 class="item-name">{{this.product.title}}</h3>
+        <p class="item-description">{{this.product.description}}</p>
+        <p class="item-price">${{this.product.price}}</p>
+        <p class="item-quantity">Quantity: {{this.quantity}}</p>
+      </div>
+      <div class="item-actions">
+        <button
+          class="remove-item"
+          data-product-id="{{this.product._id}}"
+          data-cart-id="{{../cartId}}"
+        >Remove</button>
+      </div>
     </div>
+  {{/each}}
+</div>
+
     <div class="cart-total">
       <p>Total: ${{totalPrice}}</p>
     </div>
@@ -56,17 +57,9 @@
       <button class="checkout-btn" data-cart-id="{{cartId}}">Checkout</button>
       <button class="clear-cart-btn" data-cart-id="{{cartId}}">Clear Cart</button>
     </div>
-    <div class="paginate">
-      {{#if products.prevPage}}
-        <a href="/cart?page={{products.prevPage}}" class="prev">previous</a>
-      {{/if}}
-      {{#if products.nextPage}}
-        <a href="/cart?page={{products.nextPage}}" class="next">next</a>
-      {{/if}}
-    </div>
   </div>
 </div>
 
 
-<script src="/socket.io/socket.io.js"></script>
+
 <script src="/js/cart.js"></script>

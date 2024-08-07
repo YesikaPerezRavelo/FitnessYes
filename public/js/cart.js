@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cartId = new URLSearchParams(window.location.search).get("cid"); // Get cartId from URL
+  const cartId = new URLSearchParams(window.location.search).get("cid");
 
   if (!cartId) {
     console.error("Cart ID is missing");
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(`/api/carts/${cartId}`);
       const result = await response.json();
       if (result.status === "success") {
+        console.log("Fetched cart data:", result.payload); // Add this line
         updateCartUI(result.payload);
       } else {
         console.error("Error fetching cart:", result.message);
@@ -21,9 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateCartUI(cartData) {
-    // Update your cart UI with cartData
-    console.log("Cart data:", cartData);
-    // Implement UI update logic
+    console.log("Updating UI with cart data:", cartData); // Add this line
+    // Implement UI update logic here
+    // For example, iterate over cartData.products and append items to the cart UI
   }
 
   fetchCart();
