@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Sending request to add product ${productId} to cart ${cartId} with quantity ${quantity}`
       );
 
-      fetch(`/api/carts/${cartId}/products/${productId}`, {
+      fetch(`/api/cart/${cartId}/products/${productId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

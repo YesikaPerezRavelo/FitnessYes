@@ -2933,3 +2933,4 @@ http: GET in /login - 13:03:56
 http: POST in /api/session/login - 13:04:08
 http: GET in /user - 13:04:09
 http: GET in /products - 13:04:11
+info: Server is running on port 8080
