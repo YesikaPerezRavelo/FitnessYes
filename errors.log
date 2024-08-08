@@ -2942,3 +2942,29 @@ http: GET in /login - 16:05:11
 http: POST in /api/session/login - 16:05:14
 http: GET in /user - 16:05:15
 http: GET in /products - 16:05:16
+http: GET in /products/ - 16:19:53
+http: GET in /realtimeproducts - 16:19:55
+http: GET in /chat - 16:19:59
+http: GET in /unauthorized - 16:19:59
+http: GET in /stylesheets/index.css - 16:19:59
+info: Server is running on port 8080
+http: GET in /chat - 16:23:52
+http: GET in /mockingproducts - 16:23:54
+http: GET in /cart?cid= - 16:23:56
+http: GET in /cart?cid=66b51b4cdd621a682102ad26 - 16:23:56
+http: GET in /api/carts/66b51b4cdd621a682102ad26 - 16:23:56
+http: GET in /products/ - 16:23:59
+http: GET in /realtimeproducts - 16:23:59
+http: GET in /chat - 16:24:00
+http: GET in /mockingproducts - 16:24:01
+http: GET in /cart?cid= - 16:24:02
+http: GET in /cart?cid=66b51b52dd621a682102ad2f - 16:24:02
+http: GET in /api/carts/66b51b52dd621a682102ad2f - 16:24:02
+http: GET in /products/ - 16:24:03
+info: Server is running on port 8080
+http: GET in /cart?cid= - 16:25:27
+http: GET in /cart?cid=66b51ba71fe98555f56d93a8 - 16:25:27
+http: GET in /api/carts/66b51ba71fe98555f56d93a8 - 16:25:28
+http: GET in /products/ - 16:25:29
+http: GET in /products?page=2 - 16:25:32
+http: GET in /products?page=3 - 16:25:35
