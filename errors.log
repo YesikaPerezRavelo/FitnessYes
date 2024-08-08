@@ -2897,3 +2897,33 @@ http: GET in /user - 23:47:25
 http: GET in /products?cid - 23:47:32
 http: GET in /api/session/logout - 23:48:11
 http: GET in /login - 23:48:11
+info: Server is running on port 8080
+http: GET in / - 21:27:51
+http: GET in /login - 21:27:54
+http: POST in /api/session/login - 21:28:08
+http: GET in /user - 21:28:09
+http: GET in /products?cid - 21:28:11
+http: GET in /cart?cid= - 21:28:17
+http: GET in /cart?cid=66b4112103eba7ebb9ad2efc - 21:28:18
+http: GET in /api/carts/66b4112103eba7ebb9ad2efc - 21:28:18
+http: GET in /products/ - 21:28:19
+info: Server is running on port 8080
+http: GET in /products/ - 21:32:35
+http: GET in /cart?cid= - 21:32:40
+http: GET in /cart?cid=66b41228f4f5e9dbc4e66c65 - 21:32:40
+http: GET in /api/carts/66b41228f4f5e9dbc4e66c65 - 21:32:40
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 21:50:28
+http: GET in /products?page=2 - 21:50:31
+http: GET in /products?page=2 - 21:53:59
+http: GET in /cart?cid= - 21:54:05
+http: GET in /cart?cid=66b4172db7c46570f34f0980 - 21:54:05
+http: GET in /api/carts/66b4172db7c46570f34f0980 - 21:54:06
+http: GET in /products/ - 21:54:07
+http: GET in /cart?cid= - 21:57:53
+http: GET in /cart?cid=66b41811b7c46570f34f0986 - 21:57:53
+http: GET in /api/carts/66b41811b7c46570f34f0986 - 21:57:54
+http: GET in /products/ - 21:58:45
+info: Server is running on port 8080
+http: GET in /products/ - 21:59:36

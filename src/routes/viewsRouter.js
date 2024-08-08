@@ -80,7 +80,6 @@ router.get(
       // Fetch user and products
       const user = await userController.findUserById(req.user.user._id);
       const products = await productController.getAllProducts(limit, page);
-      const cartId = req.params.cid;
 
       // Render products page
       res.render("products", {
@@ -88,7 +87,6 @@ router.get(
         style: "index.css",
         user,
         products,
-        cartId,
       });
     } catch (error) {
       console.error("Error fetching products:", error);
