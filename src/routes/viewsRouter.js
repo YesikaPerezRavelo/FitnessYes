@@ -73,7 +73,7 @@ router.get(
 router.get(
   "/products",
   passport.authenticate("jwt", { session: false }),
-  auth("student"),
+  auth(["student", "premium"]),
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
     try {
