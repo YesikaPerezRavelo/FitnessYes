@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const productId = event.target.dataset.productId;
-      const cartId = event.target.dataset.user.cartId;
+      const cartId = event.target.dataset.cartId;
       const quantity = 1; // Adjust quantity as needed
 
       if (!cartId) {

@@ -2927,3 +2927,9 @@ http: GET in /api/carts/66b41811b7c46570f34f0986 - 21:57:54
 http: GET in /products/ - 21:58:45
 info: Server is running on port 8080
 http: GET in /products/ - 21:59:36
+info: Server is running on port 8080
+http: GET in / - 13:03:53
+http: GET in /login - 13:03:56
+http: POST in /api/session/login - 13:04:08
+http: GET in /user - 13:04:09
+http: GET in /products - 13:04:11
