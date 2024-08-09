@@ -76,6 +76,8 @@ router.get(
   auth(["student", "premium"]),
   async (req, res) => {
     let { limit = 5, page = 1 } = req.query;
+    const cartId = req.user.user.cart;
+
     try {
       // Fetch user and products
       const user = await userController.findUserById(req.user.user._id);
@@ -87,6 +89,7 @@ router.get(
         style: "index.css",
         user,
         products,
+        cartId,
       });
     } catch (error) {
       console.error("Error fetching products:", error);

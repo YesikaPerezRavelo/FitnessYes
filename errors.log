@@ -2968,3 +2968,18 @@ http: GET in /api/carts/66b51ba71fe98555f56d93a8 - 16:25:28
 http: GET in /products/ - 16:25:29
 http: GET in /products?page=2 - 16:25:32
 http: GET in /products?page=3 - 16:25:35
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 15:15:42
+http: GET in /login - 15:15:47
+http: POST in /api/session/login - 15:17:26
+http: GET in /user - 15:17:26
+http: GET in /products - 15:18:31
+http: GET in /products?page=2 - 15:18:39
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products?page=2 - 16:05:00
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4fb1f81c89e8a8db59fc - 16:05:05
+http: GET in /cart?cid= - 16:05:09
+http: GET in /cart?cid=66b668658fb568de0bbf924a - 16:05:09
+http: GET in /api/carts/66b668658fb568de0bbf924a - 16:05:10
