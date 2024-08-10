@@ -161,12 +161,16 @@ router.get(
         cartId = newCart._id;
         return res.redirect(`/cart?cid=${cartId}`);
       }
+
+      // Fetch the cart with populated products
       const cart = await cartController.getProductsFromCartByID(cartId);
+
+      // Render the cart page with the products
       res.render("cart", {
         title: "YesFitness Cart",
         style: "index.css",
         cartId,
-        products: cart.products || [],
+        cart,
         user: req.user,
       });
     } catch (error) {

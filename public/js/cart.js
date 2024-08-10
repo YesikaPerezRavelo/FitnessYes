@@ -1,31 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cartId = new URLSearchParams(window.location.search).get("cid");
+  const removeButtons = document.querySelectorAll(".remove-item");
+  const clearCartButton = document.querySelector(".clear-cart-btn");
+  const checkoutButton = document.querySelector(".checkout-btn");
 
-  if (!cartId) {
-    console.error("Cart ID is missing");
-    return;
-  }
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const productId = button.dataset.productId;
+      const cartId = button.dataset.cartId;
 
-  async function fetchCart() {
-    try {
-      const response = await fetch(`/api/carts/${cartId}`);
-      const result = await response.json();
-      if (result.status === "success") {
-        console.log("Fetched cart data:", result.payload); // Add this line
-        updateCartUI(result.payload);
-      } else {
-        console.error("Error fetching cart:", result.message);
+      try {
+        await fetch(`/api/cart/${cartId}/products/${productId}`, {
+          method: "DELETE",
+        });
+        location.reload();
+      } catch (error) {
+        console.error("Error removing item:", error);
       }
+    });
+  });
+
+  clearCartButton.addEventListener("click", async () => {
+    const cartId = clearCartButton.dataset.cartId;
+
+    try {
+      await fetch(`/api/cart/${cartId}`, {
+        method: "DELETE",
+      });
+      location.reload();
     } catch (error) {
-      console.error("Error fetching cart:", error);
+      console.error("Error clearing cart:", error);
     }
-  }
+  });
 
-  function updateCartUI(cartData) {
-    console.log("Updating UI with cart data:", cartData); // Add this line
-    // Implement UI update logic here
-    // For example, iterate over cartData.products and append items to the cart UI
-  }
+  checkoutButton.addEventListener("click", async () => {
+    const cartId = checkoutButton.dataset.cartId;
 
-  fetchCart();
+    try {
+      await fetch(`/api/cart/${cartId}/purchase`, {
+        method: "POST",
+      });
+      location.href = `/checkout?cartId=${cartId}`;
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  });
 });
