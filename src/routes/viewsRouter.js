@@ -150,26 +150,67 @@ router.get(
 );
 
 // Cart route
+// router.get(
+//   "/cart",
+//   passport.authenticate("jwt", { session: false }),
+//   async (req, res) => {
+//     let cartId = req.query.cid;
+//     try {
+//       if (!cartId) {
+//         // Create a new cart if no cart ID is provided
+//         const newCart = await cartController.createCart();
+//         cartId = newCart._id;
+//         return res.redirect(`/cart?cid=${cartId}`);
+//       }
+
+//       // Fetch the cart details
+//       const cart = await cartController.getProductsFromCartByID(cartId);
+
+//       // Render the cart page with the cart data
+//       res.render("cart", {
+//         title: "YesFitness Cart",
+//         style: "index.css",
+//         cartId,
+//         cart,
+//         user: req.user,
+//       });
+//     } catch (error) {
+//       console.error(error);
+//       res.redirect("/error");
+//     }
+//   }
+// );
+
 router.get(
   "/cart",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    let cartId = req.query.cid;
+    const cartId = req.user.user.cart;
+
     try {
       if (!cartId) {
-        const newCart = await cartController.createCart();
-        cartId = newCart._id;
-        return res.redirect(`/cart?cid=${cartId}`);
+        return res.status(400).send({
+          status: "error",
+          error: "Cart ID is required",
+        });
       }
 
-      // Fetch the cart with populated products
+      // Fetch the cart details
       const cart = await cartController.getProductsFromCartByID(cartId);
 
-      // Render the cart page with the products
+      if (!cart) {
+        return res.status(404).send({
+          status: "error",
+          error: "Cart not found",
+        });
+      }
+
+      // Render the cart page with the cart data
       res.render("cart", {
         title: "YesFitness Cart",
         style: "index.css",
         cartId,
+        products: cart.products,
         cart,
         user: req.user,
       });

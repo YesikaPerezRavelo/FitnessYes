@@ -22,7 +22,6 @@
     </ul>
   </nav>
 
-
   <div class="cart">
     <div class="cart-header">
       <h2 class="cart-title">Your Cart</h2>
@@ -44,7 +43,7 @@
               <button
                 class="remove-item"
                 data-product-id="{{this.product._id}}"
-                data-cart-id="{{../cartId}}"
+                data-cart-id="{{cartId}}"
               >Remove</button>
             </div>
           </div>
@@ -58,7 +57,7 @@
       <button class="clear-cart-btn" data-cart-id="{{cartId}}">Clear Cart</button>
     </div>
   </div>
-</div>
 
+</div>
 
 <script src="/js/cart.js"></script>
