@@ -160,7 +160,7 @@ router.delete(
         if (req.user.user.role === "premium") {
           const mailOptions = {
             from: "Yesika Perez <yesikapr@gmail.com>",
-            to: req.user.user.email,
+            to: email,
             subject: "Product Deleted",
             html: `<div>
                       <h1>Product Deleted</h1>

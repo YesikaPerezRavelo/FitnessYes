@@ -78,6 +78,8 @@ router.get(
     let { limit = 5, page = 1 } = req.query;
     const cartId = req.user.user.cart;
 
+    console.log("Cart ID:", cartId); // Add this line for debugging
+
     try {
       // Fetch user and products
       const user = await userController.findUserById(req.user.user._id);

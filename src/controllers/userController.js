@@ -138,4 +138,19 @@ export default class UserController {
       console.error(error);
     }
   }
+
+  async deleteUsers(req, res) {
+    try {
+      const result = await this.userService.deleteUsers();
+      res.send({
+        status: "success",
+        payload: result,
+      });
+    } catch (error) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+      });
+    }
+  }
 }

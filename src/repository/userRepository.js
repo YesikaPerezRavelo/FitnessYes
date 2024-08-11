@@ -80,4 +80,12 @@ export default class UserRepository {
       throw new Error("Error deleting user: " + error.message);
     }
   }
+
+  async deleteUsers() {
+    try {
+      return await this.userDao.deleteUsers();
+    } catch (error) {
+      throw new Error("Error deleting users: " + error.message);
+    }
+  }
 }

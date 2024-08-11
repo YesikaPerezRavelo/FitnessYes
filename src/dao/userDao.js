@@ -1,6 +1,9 @@
 import { userModel } from "../models/userModel.js";
 import * as dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import { transport } from "../utils/mailUtil.js";
+import moment from "moment-timezone";
+
 dotenv.config();
 
 const secretKey = process.env.SECRET_KEY;
@@ -65,5 +68,48 @@ export default class UserDao {
 
   async deleteByEmail(userId) {
     return await userModel.findOneAndDelete(userId).lean();
+  }
+
+  async deleteUsers() {
+    try {
+      const timeZone = moment.tz("America/Argentina/Buenos_Aires");
+      const twoDaysAgo = moment().subtract(2, "days").toDate();
+
+      // Find inactive users
+      const inactiveUsers = await userModel
+        .find({ last_connection: { $lte: twoDaysAgo } })
+        .lean();
+
+      // Send emails to inactive users
+      for (const user of inactiveUsers) {
+        const mailOptions = {
+          from: "Yesika Perez <yesikapr@gmail.com>",
+          to: user.email,
+          subject: "Account Termination Due to Inactivity",
+          html: `<p>Your account has been terminated due to inactivity.</p>`,
+        };
+
+        `<div style="font-family: 'Montserrat', sans-serif; color: black;">
+                    <h1>Account Termination Due to Inactivity</h1>
+                     <p>We have received a request to delete inactive accounts.</p>
+                    <p>To create a new account click:</p>
+                    <button href="http://localhost:8080/register" class="button">New Account</button>
+                     </div>`;
+
+        transport.sendMail(mailOptions);
+      }
+
+      // Delete inactive users
+      const result = await userModel.deleteMany({
+        last_connection: { $lte: twoDaysAgo },
+      });
+
+      return {
+        status: "success",
+        deletedCount: result.deletedCount,
+      };
+    } catch (error) {
+      throw new Error("Error deleting users: " + error.message);
+    }
   }
 }

@@ -86,4 +86,8 @@ export default class UserService {
   async deleteUserByEmail(userId) {
     return await this.userRepository.deleteUserByEmail(userId);
   }
+
+  async deleteUsers() {
+    return await this.userRepository.deleteUsers();
+  }
 }

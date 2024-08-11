@@ -3166,3 +3166,338 @@ info: Server is running on port 8080
 http: GET in /products/ - 20:22:39
 http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 20:22:41
 http: GET in /cart?cid= - 20:22:44
+http: DELETE in /api/cart//products/661c4b02f81c89e8a8db59d0 - 20:29:10
+http: GET in /cart?cid= - 20:29:11
+http: DELETE in /api/cart//products/661c4b02f81c89e8a8db59d0 - 20:29:26
+http: GET in /cart?cid= - 20:29:27
+http: DELETE in /api/cart//products/661c4fb1f81c89e8a8db59fc - 20:29:32
+http: GET in /cart?cid= - 20:29:32
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070 - 20:29:36
+http: GET in /cart?cid= - 20:29:36
+http: GET in /products/ - 20:29:43
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b02f81c89e8a8db59d0 - 20:29:47
+http: GET in /cart?cid= - 20:29:50
+info: Server is running on port 8080
+http: GET in / - 15:14:52
+http: GET in /login - 15:14:57
+http: POST in /api/session/login - 15:15:09
+http: GET in /user - 15:15:10
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:15:14
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:15:21
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:15:24
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:15:42
+http: GET in /user - 15:15:45
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:15:51
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:15:54
+http: GET in /user - 15:15:57
+http: GET in /api/session/logout - 15:18:31
+http: GET in /login - 15:18:31
+http: POST in /api/session/login - 15:18:43
+http: GET in /user - 15:18:43
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:29:23
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497?role=student - 15:29:27
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497?role=student - 15:29:32
+http: GET in /user - 15:29:36
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:33:18
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:33:22
+http: GET in /user - 15:33:24
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:33:59
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:34:05
+http: GET in /user - 15:34:12
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:34:14
+info: Server is running on port 8080
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:39:02
+http: GET in /user - 15:39:06
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:39:09
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:39:12
+http: GET in /user - 15:39:15
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:39:18
+info: Server is running on port 8080
+http: GET in /user - 15:41:13
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:16
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:19
+http: GET in /user - 15:41:25
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:29
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:35
+http: GET in /user - 15:41:42
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:49
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:52
+http: GET in /user - 15:41:56
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:41:59
+http: GET in /user - 15:42:07
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:42:11
+info: Server is running on port 8080
+http: GET in /user - 15:47:28
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:47:33
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:47:34
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:47:43
+http: GET in /user - 15:47:50
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:47:54
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:00
+http: GET in /user - 15:48:03
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:06
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:48:11
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:48:30
+http: GET in /user - 15:48:35
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:38
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:42
+http: GET in /user - 15:48:46
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:51
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:48:55
+http: GET in /user - 15:48:59
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:49:19
+info: Server is running on port 8080
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:51:28
+http: GET in /user - 15:51:31
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:51:35
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:51:40
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:51:59
+http: GET in /user - 15:52:01
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:54:46
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:54:53
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:55:09
+http: GET in /user - 15:55:11
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:55:14
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:55:18
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:55:24
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:55:50
+http: GET in /user - 15:55:53
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:55:55
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:55:57
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:56:04
+info: Server is running on port 8080
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:56:58
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 15:57:13
+http: GET in /user - 15:57:15
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:57:18
+http: GET in /user - 15:57:21
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:57:25
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:57:30
+http: GET in /user - 15:57:34
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:57:38
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 15:57:42
+http: GET in /user - 15:57:44
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:00:30
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:00:35
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:00:46
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:01:00
+http: GET in /user - 16:01:03
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:01:06
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:01:08
+info: Server is running on port 8080
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:01:25
+info: Server is running on port 8080
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:01:56
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:02:00
+info: Server is running on port 8080
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:02:26
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:02:33
+http: GET in /user - 16:02:36
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:03:04
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:03:07
+http: GET in /user - 16:03:11
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:03:14
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:03:23
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:03:37
+http: GET in /user - 16:03:40
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:03:42
+http: GET in /user - 16:03:46
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:04:11
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:04:15
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:04:18
+http: GET in /user - 16:04:21
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:04:24
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:04:27
+http: GET in /user - 16:04:29
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:04:33
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /user - 16:10:41
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:10:44
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:10:48
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:10:50
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:11:06
+http: GET in /user - 16:11:08
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:11:16
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:11:23
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:11:26
+info: Server is running on port 8080
+http: GET in /user - 16:15:12
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:15:15
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:15:20
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:15:25
+http: GET in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:15:27
+http: POST in /api/users/66b2c4d1eb6f5bb9df0a3497/documents - 16:15:42
+http: PUT in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:15:44
+http: GET in /user - 16:15:49
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:15:54
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:15:57
+http: GET in /user - 16:16:15
+http: GET in /user - 16:16:15
+http: GET in /api/users/premium/66b2c4d1eb6f5bb9df0a3497 - 16:16:18
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: PUT in /api/users/66b2c4d1eb6f5bb9df0a3497/role - 16:19:20
+http: GET in /user - 16:19:30
+http: GET in / - 16:19:37
+http: GET in /login - 16:19:38
+http: POST in /api/session/login - 16:19:48
+http: GET in /user - 16:19:48
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: POST in /api/session/login - 16:20:29
+http: GET in /user - 16:20:30
+info: Server is running on port 8080
+http: GET in / - 16:24:20
+http: GET in /login - 16:24:25
+http: POST in /api/session/login - 16:24:36
+http: GET in /user - 16:24:37
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 16:25:24
+http: GET in /login - 16:25:26
+http: POST in /api/session/login - 16:25:37
+http: GET in /user - 16:25:38
+http: POST in /api/session/login - 16:25:50
+http: GET in /user - 16:25:50
+http: GET in /api/session/logout - 16:25:56
+http: GET in /login - 16:25:56
+http: GET in /register - 16:26:09
+http: POST in /api/session/register - 16:26:34
+http: POST in /api/session/login - 16:26:44
+http: GET in /user - 16:26:44
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:27:02
+http: GET in /favicon.ico - 16:27:03
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:27:10
+http: GET in /api/users/66b9106af92c2e94ca4263c3/documents - 16:27:13
+http: GET in /user - 16:27:15
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:27:58
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:28:01
+http: GET in /user - 16:28:03
+http: GET in /api/session/logout - 16:28:19
+http: GET in /login - 16:28:19
+http: POST in /api/session/login - 16:28:31
+http: GET in /user - 16:28:31
+http: POST in /api/session/login - 16:28:53
+http: GET in /user - 16:28:53
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:28:56
+http: GET in /api/users/66b9106af92c2e94ca4263c3/documents - 16:29:04
+http: POST in /api/users/66b9106af92c2e94ca4263c3/documents - 16:29:22
+http: GET in /user - 16:29:26
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:29:29
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 16:29:32
+info: Server is running on port 8080
+http: GET in /user - 16:30:50
+http: GET in /products - 16:30:59
+http: GET in /cart?cid= - 16:31:23
+http: GET in /products/ - 16:32:08
+info: Server is running on port 8080
+http: GET in /products/ - 16:34:44
+http: GET in /products/ - 16:38:18
+info: Server is running on port 8080
+http: GET in /products/ - 16:42:23
+http: POST in /api/cart//products/661c4b43f81c89e8a8db59d6 - 16:42:27
+info: Server is running on port 8080
+http: GET in /cart?cid= - 16:43:25
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/logout - 16:47:21
+http: GET in /login - 16:47:22
+http: POST in /api/session/login - 16:47:32
+http: GET in /user - 16:47:33
+http: GET in / - 16:47:36
+http: GET in /login - 16:47:40
+http: POST in /api/session/login - 16:47:45
+http: GET in /user - 16:47:45
+http: GET in /products - 16:47:49
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 16:47:58
+http: GET in /cart?cid= - 16:48:02
+http: DELETE in /api/cart//products/661c4b02f81c89e8a8db59d0 - 16:48:08
+http: GET in /cart?cid= - 16:48:08
+http: DELETE in /api/cart//products/661c4b02f81c89e8a8db59d0 - 16:48:10
+http: GET in /cart?cid= - 16:48:10
+http: GET in /products/ - 16:48:15
+http: GET in /api/session/logout - 16:48:18
+http: GET in /login - 16:48:18
+http: POST in /api/session/login - 16:48:29
+http: GET in /user - 16:48:29
+http: GET in /products - 16:48:31
+http: GET in /cart?cid= - 16:49:54
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/logout - 16:57:41
+http: GET in /login - 16:57:41
+http: POST in /api/session/login - 16:57:55
+http: GET in /user - 16:57:56
+http: GET in /products - 16:57:58
+http: GET in /api/session/logout - 16:58:08
+http: GET in /login - 16:58:08
+http: POST in /api/session/login - 16:58:16
+http: GET in /user - 16:58:16
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products - 17:12:35
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 17:12:38
+http: GET in /cart?cid= - 17:12:44
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070 - 17:13:14
+http: GET in /cart?cid= - 17:13:14
+http: GET in /products/ - 17:15:24
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 17:15:33
+http: GET in /cart?cid= - 17:15:38
+http: GET in /products/ - 17:16:03
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /cart?cid= - 17:52:56
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 17:53:09
+http: GET in /checkout?cartId=666c9445bcf2b01775d1b070 - 17:53:10
+http: GET in /api/users - 17:58:02
+info: Server is running on port 8080
+http: GET in /api/session/logout - 18:02:17
+http: GET in /login - 18:02:17
+http: POST in /api/session/login - 18:02:23
+http: GET in /user - 18:02:23
+http: GET in /api/session/logout - 18:02:25
+http: GET in /login - 18:02:26
+http: POST in /api/session/login - 18:02:30
+http: GET in /user - 18:02:30
+http: GET in /api/session/logout - 18:02:34
+http: GET in /login - 18:02:34
+http: POST in /api/session/login - 18:02:45
+http: GET in /user - 18:02:45
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 18:02:51
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 18:02:55
+http: GET in /user - 18:02:58
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 18:03:49
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 18:03:52
+http: DELETE in /api/users/delete - 18:07:03
+http: POST in /api/session/login - 18:08:27
+http: GET in /user - 18:08:28
+http: DELETE in /api/users/delete - 18:08:39
+http: GET in / - 18:13:48
+http: GET in /login - 18:13:50
+http: GET in /user - 18:13:50
+http: GET in /api/session/logout - 18:13:53
+http: GET in /login - 18:13:53
+http: GET in /register - 18:13:55
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: DELETE in /api/users/delete - 18:27:24
+info: Server is running on port 8080
