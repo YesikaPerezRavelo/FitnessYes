@@ -14,7 +14,7 @@
         <a class="nav_link" href="/mockingproducts">Extras</a>
       </li>
       <li class="nav__item">
-        <a class="nav_link" href="/cart?cid={{user.cartId}}">Cart</a>
+        <a class="nav_link" href="/cart?cid={{cartId}}">Cart</a>
       </li>
       <li class="nav__item">
         <a class="nav_link" href="/api/session/logout">Logout</a>
@@ -40,11 +40,6 @@
               <p class="item-quantity">Quantity: {{this.quantity}}</p>
             </div>
             <div class="item-actions">
-              <button
-                class="remove-item"
-                data-product-id="{{this.product._id}}"
-                data-cart-id="{{cartId}}"
-              >Remove</button>
             </div>
           </div>
         {{/each}}
@@ -54,10 +49,11 @@
     </div>
     <div class="cart-actions">
       <button class="checkout-btn" data-cart-id="{{cartId}}">Checkout</button>
+
       <button class="clear-cart-btn" data-cart-id="{{cartId}}">Clear Cart</button>
     </div>
   </div>
-
 </div>
 
 <script src="/js/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

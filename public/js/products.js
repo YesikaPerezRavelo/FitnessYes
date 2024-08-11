@@ -29,9 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((data) => {
           console.log("Data:", data);
+          Swal.fire({
+            title: "Success!",
+            text: "Product has been added to your cart.",
+            icon: "success",
+            imageUrl:
+              "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
+            confirmButtonText: "Ok",
+          });
         })
         .catch((error) => {
           console.error("Error:", error);
+          Swal.fire({
+            title: "Error!",
+            text: "An error occurred while adding the product to your cart.",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
         });
     });
   });

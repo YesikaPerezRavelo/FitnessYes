@@ -4,17 +4,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkoutButton = document.querySelector(".checkout-btn");
 
   removeButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
+    button.addEventListener("click", async (event) => {
       const productId = button.dataset.productId;
       const cartId = button.dataset.cartId;
 
-      try {
-        await fetch(`/api/cart/${cartId}/products/${productId}`, {
-          method: "DELETE",
+      if (!productId || !cartId) {
+        console.error("Product ID or Cart ID is missing");
+        Swal.fire({
+          title: "Error!",
+          text: "Product ID or Cart ID is missing.",
+          icon: "error",
+          confirmButtonText: "Ok",
         });
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/api/cart/${cartId}/products/${productId}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        Swal.fire({
+          title: "Success!",
+          text: "Product has been removed from the cart.",
+          imageUrl:
+            "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
+          confirmButtonText: "Ok",
+        });
+
         location.reload();
       } catch (error) {
         console.error("Error removing item:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "An error occurred while removing the product from the cart.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
       }
     });
   });
@@ -36,12 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartId = checkoutButton.dataset.cartId;
 
     try {
-      await fetch(`/api/cart/${cartId}/purchase`, {
+      const response = await fetch(`/api/cart/${cartId}/purchase`, {
         method: "POST",
       });
-      location.href = `/checkout?cartId=${cartId}`;
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Redirect directly to the ticket page
+      location.href = "/api/cart/ticket";
     } catch (error) {
       console.error("Error during checkout:", error);
+      Swal.fire({
+        title: "Checkout Failed!",
+        text: "There was an error processing your purchase.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
     }
   });
 });

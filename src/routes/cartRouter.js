@@ -199,26 +199,23 @@ router.post(
   "/:cid/purchase",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    console.log("el usuario es", req.user);
     try {
-      // console.log("req.user:", req.user);
-      // Step 1: Get purchaser's email (assuming it's stored in req.user.email)
       const purchaser = req.user.user.email;
       const cartId = req.params.cid;
 
-      // Step 2: Purchase cart and get products that couldn't be processed
+      // Step 1: Process the cart and get processed items
       const { processed, notProcessed } = await cartController.purchaseCart(
         cartId
       );
 
-      // Step 3: Calculate total amount from the processed items in cart
+      // Step 2: Calculate the total amount
       const cart = await cartController.getProductsFromCartByID(cartId);
       let amount = 0;
       for (const cartProduct of cart.products) {
         amount += cartProduct.product.price * cartProduct.quantity;
       }
 
-      // Step 4: Create ticket for the purchase
+      // Step 3: Create the ticket
       const ticket = await ticketController.createTicket(
         purchaser,
         amount,
@@ -226,21 +223,19 @@ router.post(
         cartId
       );
 
-      console.log(purchaser);
-
-      // Step 5: Update cart with products that were not successfully processed
-      // await cartController.updateCartWithNotProcessed(cartId, notProcessed);
-
-      // Step 6: Send response
-      res.send({
-        status: "success",
-        payload: {
-          ticket,
-          notProcessed,
+      // Step 4: Render the ticket view
+      res.render("ticket", {
+        ticket: {
+          title: "YesFitness Purchase",
+          style: "index.css",
+          code: ticket.code,
+          purchaseDateTime: ticket.purchaseDateTime,
+          amount: ticket.amount,
+          purchaser: ticket.purchaser,
         },
       });
     } catch (error) {
-      console.error("Error en cartRouter ", error);
+      console.error("Error during checkout:", error);
       res.status(400).send({
         status: "error",
         message: error.message,

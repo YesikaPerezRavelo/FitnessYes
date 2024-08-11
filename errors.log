@@ -3501,3 +3501,212 @@ info: Server is running on port 8080
 info: Server is running on port 8080
 http: DELETE in /api/users/delete - 18:27:24
 info: Server is running on port 8080
+http: GET in / - 18:53:49
+http: GET in /login - 18:53:51
+http: POST in /api/session/login - 19:05:14
+http: GET in /favicon.ico - 19:05:15
+http: POST in /api/session/login - 19:05:27
+http: POST in /api/session/login - 19:05:42
+http: GET in /user - 19:05:43
+http: GET in /api/session/logout - 19:05:47
+http: GET in /login - 19:05:48
+http: POST in /api/session/login - 19:05:51
+http: GET in /user - 19:05:51
+http: GET in /api/users/premium/666c9445bcf2b01775d1b06e - 19:05:54
+http: GET in /user - 19:05:58
+http: GET in /api/session/logout - 19:06:01
+http: GET in /login - 19:06:01
+http: POST in /api/session/login - 19:06:22
+http: GET in /user - 19:06:22
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:06:26
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:06:30
+http: GET in /user - 19:06:35
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:10:11
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3?role=student - 19:10:15
+http: GET in /user - 19:10:19
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:10:41
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3?role=student - 19:10:43
+http: GET in /user - 19:10:47
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:11:15
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:11:41
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:12:19
+http: GET in /user - 19:12:26
+info: Server is running on port 8080
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:17:34
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:17:38
+http: GET in /api/users/66b9106af92c2e94ca4263c3/documents - 19:17:43
+http: POST in /api/users/66b9106af92c2e94ca4263c3/documents - 19:18:01
+http: GET in /user - 19:18:05
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:18:08
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:18:13
+info: Server is running on port 8080
+http: GET in /user - 19:20:42
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:20:45
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:20:49
+http: GET in /api/users/66b9106af92c2e94ca4263c3/documents - 19:20:53
+http: POST in /api/users/66b9106af92c2e94ca4263c3/documents - 19:21:08
+http: GET in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:21:11
+http: PUT in /api/users/premium/66b9106af92c2e94ca4263c3 - 19:21:15
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /user - 19:24:16
+info: Server is running on port 8080
+http: GET in /products - 19:25:07
+http: GET in /products/ - 19:26:04
+http: GET in /api/session/logout - 19:26:06
+http: GET in /login - 19:26:06
+http: POST in /api/session/login - 19:26:11
+http: GET in /user - 19:26:11
+http: GET in /products - 19:26:15
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 19:26:17
+http: GET in /cart?cid= - 19:26:33
+http: GET in /products/ - 19:26:35
+info: Server is running on port 8080
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 19:30:25
+http: GET in /cart?cid= - 19:30:36
+http: GET in /products/ - 19:30:39
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b02f81c89e8a8db59d0 - 19:30:41
+http: GET in /cart?cid= - 19:30:46
+http: GET in /products/ - 19:31:00
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4da2f81c89e8a8db59f2 - 19:31:06
+info: Server is running on port 8080
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4da2f81c89e8a8db59f2 - 19:31:53
+info: Server is running on port 8080
+http: GET in /products?page=2 - 19:32:08
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c82909905cc901b886f42 - 19:32:12
+http: GET in /cart?cid= - 19:32:17
+info: Server is running on port 8080
+http: GET in /products/ - 19:39:00
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 19:39:03
+http: GET in /cart?cid= - 19:39:07
+http: GET in /cart?cid= - 19:39:50
+info: Server is running on port 8080
+http: GET in /products/ - 19:42:17
+http: GET in /favicon.ico - 19:42:21
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 19:42:28
+http: GET in /cart?cid= - 19:42:31
+info: Server is running on port 8080
+http: GET in /products/ - 19:44:36
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 19:44:39
+http: GET in /cart?cid= - 19:44:42
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:44:46
+http: GET in /cart?cid= - 19:44:46
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:44:51
+http: GET in /cart?cid= - 19:44:51
+info: Server is running on port 8080
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:28
+http: GET in /cart?cid= - 19:45:28
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:36
+http: GET in /cart?cid= - 19:45:37
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:39
+http: GET in /cart?cid= - 19:45:39
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:41
+http: GET in /cart?cid= - 19:45:41
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:43
+http: GET in /cart?cid= - 19:45:43
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:45
+http: GET in /cart?cid= - 19:45:45
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:45:47
+http: GET in /cart?cid= - 19:45:47
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93d879ed6020a652d7571 - 19:45:51
+http: GET in /cart?cid= - 19:45:53
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93bece8543cf56506be45 - 19:45:56
+http: GET in /cart?cid= - 19:45:56
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93bece8543cf56506be45 - 19:46:01
+http: GET in /cart?cid= - 19:46:01
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93d879ed6020a652d7571 - 19:46:11
+http: GET in /cart?cid= - 19:46:11
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93d879ed6020a652d7571 - 19:46:15
+http: GET in /cart?cid= - 19:46:16
+http: GET in /products/ - 19:46:32
+http: GET in /cart?cid= - 19:46:34
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93b91536a69f0e7d6d43c - 19:46:38
+http: GET in /cart?cid= - 19:46:39
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93d879ed6020a652d7571 - 19:46:43
+http: GET in /cart?cid= - 19:46:43
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93d879ed6020a652d7571 - 19:46:45
+http: GET in /cart?cid= - 19:46:45
+info: Server is running on port 8080
+http: GET in /products/ - 19:49:20
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4da2f81c89e8a8db59f2 - 19:49:26
+http: GET in /cart?cid= - 19:49:30
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93bece8543cf56506be45 - 19:49:34
+info: Server is running on port 8080
+http: GET in /products/ - 19:51:21
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 19:51:25
+http: GET in /cart?cid= - 19:51:27
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:51:29
+info: Server is running on port 8080
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:51:53
+info: Server is running on port 8080
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b93bece8543cf56506be45 - 19:52:26
+info: Server is running on port 8080
+http: GET in /products/ - 19:59:32
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4da2f81c89e8a8db59f2 - 19:59:36
+http: GET in /cart?cid= - 19:59:41
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:59:44
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070/products/66b91be523196604fe695acf - 19:59:49
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070 - 19:59:53
+http: GET in /cart?cid= - 19:59:53
+http: GET in /products/ - 20:00:01
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:00:04
+http: GET in /cart?cid= - 20:00:07
+http: GET in /cart?cid= - 20:00:34
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 20:15:23
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 20:15:29
+http: GET in /cart?cid= - 20:15:33
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:15:37
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:15:49
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:15:54
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /products/ - 20:25:36
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 20:25:40
+http: GET in /cart?cid= - 20:25:44
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:25:48
+info: Server is running on port 8080
+http: GET in /products/ - 20:27:37
+http: GET in / - 20:27:43
+http: GET in /login - 20:27:45
+http: POST in /api/session/login - 20:27:50
+http: GET in /user - 20:27:50
+http: GET in /products - 20:27:52
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:27:56
+http: GET in /cart?cid= - 20:28:00
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:28:10
+info: Server is running on port 8080
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:31:32
+info: Server is running on port 8080
+http: GET in /products/ - 20:34:18
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 20:34:25
+http: GET in /cart?cid= - 20:34:30
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:34:35
+http: GET in /ticket - 20:34:37
+info: Server is running on port 8080
+http: GET in / - 20:35:43
+http: GET in /login - 20:35:47
+http: GET in /user - 20:35:48
+http: GET in /products - 20:35:54
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:35:58
+http: GET in /cart?cid= - 20:36:02
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:36:06
+http: GET in /cart/ticket - 20:36:06
+info: Server is running on port 8080
+http: GET in /products/ - 20:37:52
+http: GET in /api/session/logout - 20:37:53
+http: GET in /login - 20:37:53
+http: POST in /api/session/login - 20:38:02
+http: GET in /user - 20:38:03
+http: GET in /products - 20:38:05
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:38:10
+http: GET in /cart?cid= - 20:38:17
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:38:23
+http: GET in /api/cart/ticket - 20:38:24
+warning: Cannot fetch the details
