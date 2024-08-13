@@ -3908,3 +3908,14 @@ http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:49:33
 http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:54:30
 http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:58:10
 http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:58:30
+http: GET in /products/ - 00:11:08
+http: GET in /realtimeproducts - 00:11:10
+http: GET in /products - 00:11:24
+http: GET in /realtimeproducts - 00:11:25
+http: GET in /chat - 00:11:26
+http: GET in /mockingproducts - 00:11:28
+http: GET in /cart?cid= - 00:11:30
+http: DELETE in /api/cart/66baaa94912e390dafd37d0a - 00:11:35
+http: GET in /cart?cid= - 00:11:35
+http: GET in /api/session/logout - 00:11:37
+http: GET in /login - 00:11:37
