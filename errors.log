@@ -3852,3 +3852,15 @@ http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 22:54:52
 http: GET in /css/ - 22:54:52
 http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 22:56:22
 http: GET in /css/ - 22:56:23
+info: Server is running on port 8080
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:08:45
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:08:46
+http: GET in /css/ - 23:08:46
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:12:27
+http: GET in /css/ - 23:12:27
+info: Server is running on port 8080
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:05
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:05
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:05
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:06
+http: GET in /css/ - 23:13:06

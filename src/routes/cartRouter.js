@@ -194,7 +194,7 @@ router.get("/:cid", async (req, res) => {
   }
 });
 
-//checking the route
+//checking the route THIS IS ADDED TO FILL IN FOR POST BUT IT IS NOT CORRECT
 router.post("/:cid/purchase", async (req, res) => {
   try {
     const results = await cartController.getProductsFromCartByID(
@@ -242,6 +242,8 @@ router.get(
         processed,
         cartId
       );
+
+      console.log("generated ticket", ticket);
 
       // Step 4: Render the ticket view
       res.render("ticket", {
