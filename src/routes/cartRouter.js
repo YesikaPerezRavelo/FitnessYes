@@ -194,8 +194,28 @@ router.get("/:cid", async (req, res) => {
   }
 });
 
+//checking the route
+router.post("/:cid/purchase", async (req, res) => {
+  try {
+    const results = await cartController.getProductsFromCartByID(
+      req.params.cid
+    );
+
+    res.send({
+      status: "success",
+      payload: results,
+    });
+  } catch (error) {
+    req.logger.warning("Purchase Failed");
+    res.status(400).send({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
+
 // POST /carts/:cid/purchase - Finalize the purchase process for a cart
-router.post(
+router.get(
   "/:cid/purchase",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
