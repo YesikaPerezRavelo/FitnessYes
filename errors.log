@@ -3864,3 +3864,47 @@ http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:05
 http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:05
 http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:13:06
 http: GET in /css/ - 23:13:06
+info: Server is running on port 8080
+http: GET in / - 23:28:59
+http: GET in /login - 23:29:03
+http: GET in /user - 23:29:03
+http: GET in /api/users/premium/66baaa94912e390dafd37d06 - 23:29:11
+http: PUT in /api/users/premium/66baaa94912e390dafd37d06 - 23:29:15
+http: GET in /api/users/66baaa94912e390dafd37d06/documents - 23:29:20
+http: POST in /api/users/66baaa94912e390dafd37d06/documents - 23:29:39
+http: GET in /user - 23:29:41
+http: GET in /api/users/premium/66baaa94912e390dafd37d06 - 23:29:46
+http: PUT in /api/users/premium/66baaa94912e390dafd37d06 - 23:29:51
+http: GET in /user - 23:30:06
+http: GET in /products - 23:30:43
+http: POST in /api/cart/66baaa94912e390dafd37d0a/products/661c4b20f81c89e8a8db59d3 - 23:30:49
+http: GET in /cart?cid= - 23:30:54
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:31:00
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:31:00
+http: GET in /css/ - 23:31:00
+http: GET in /api/session/logout - 23:33:24
+http: GET in /login - 23:33:24
+http: POST in /api/session/login - 23:33:36
+http: GET in /user - 23:33:36
+http: GET in /api/users/premium/66baaa94912e390dafd37d06 - 23:33:41
+http: PUT in /api/users/premium/66baaa94912e390dafd37d06 - 23:33:45
+http: GET in /user - 23:33:48
+http: GET in /products - 23:34:17
+info: Server is running on port 8080
+http: GET in /api/users/premium/66baaa94912e390dafd37d06 - 23:36:15
+http: PUT in /api/users/premium/66baaa94912e390dafd37d06 - 23:36:19
+http: GET in /user - 23:36:23
+info: Server is running on port 8080
+http: GET in /products - 23:38:41
+info: Server is running on port 8080
+http: POST in /api/cart/66baaa94912e390dafd37d0a/products/661c4b02f81c89e8a8db59d0 - 23:43:07
+http: GET in /cart?cid= - 23:43:10
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:43:14
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:43:14
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:49:33
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:54:30
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:58:10
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 23:58:30

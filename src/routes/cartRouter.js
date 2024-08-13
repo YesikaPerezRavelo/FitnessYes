@@ -243,18 +243,15 @@ router.get(
         cartId
       );
 
-      console.log("generated ticket", ticket);
-
       // Step 4: Render the ticket view
       res.render("ticket", {
-        ticket: {
-          title: "YesFitness Purchase",
-          style: "index.css",
-          code: ticket.code,
-          purchaseDateTime: ticket.purchaseDateTime,
-          amount: ticket.amount,
-          purchaser: ticket.purchaser,
-        },
+        title: "YesFitness Purchase",
+        style: "index.css",
+        code: ticket.ticket.code,
+        purchaseDateTime: ticket.ticket.purchaseDateTime,
+        amount: ticket.ticket.amount,
+        purchaser: ticket.ticket.purchaser,
+        products: ticket.ticket.products,
       });
     } catch (error) {
       console.error("Error during checkout:", error);
