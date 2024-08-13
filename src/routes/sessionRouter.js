@@ -3,7 +3,7 @@ import userController from "../controllers/userController.js";
 import passport from "passport";
 import { generateToken } from "../utils/utils.js";
 import { isValidPassword } from "../utils/functionUtil.js";
-//policies
+// Policies
 import { auth } from "../middlewares/auth.js";
 import CartController from "../controllers/cartController.js";
 
@@ -25,16 +25,29 @@ sessionRouter.get("/users", async (_req, res) => {
 });
 
 sessionRouter.post("/register", async (req, res) => {
-  const response = await userControllerDB.registerUser(req.body);
-  const cart = await cartControllerDB.createCart();
-  console.log(cart);
-  const result = await userControllerDB.updateUser(response._id, cart._id);
-  console.log(result);
-  res.render("login", {
-    title: "YesFitness | Login",
-    style: "index.css",
-    failLogin: req.session.failLogin ?? false,
-  });
+  try {
+    // Create the user
+    const response = await userControllerDB.registerUser(req.body);
+
+    // Create a cart
+    const cart = await cartControllerDB.createCart();
+
+    // Update the user with the cart ID
+    await userControllerDB.updateUser(response._id, { cart: cart._id });
+
+    // Render the login page
+    res.render("login", {
+      title: "YesFitness | Login",
+      style: "index.css",
+      failLogin: req.session.failLogin ?? false,
+    });
+  } catch (error) {
+    console.error("Error during registration:", error);
+    res.status(500).send({
+      status: "error",
+      message: "Internal Server Error",
+    });
+  }
 });
 
 sessionRouter.get("/failRegister", (_req, res) => {
@@ -55,7 +68,7 @@ sessionRouter.post("/login", async (req, res) => {
     }
     const token = generateToken(user);
     res.cookie("auth", token, { maxAge: 60 * 60 * 1000, httpOnly: true });
-    res.redirect("/user"); // Redireccionar a la ruta adecuada
+    res.redirect("/user");
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).send({
@@ -108,7 +121,7 @@ sessionRouter.get(
   }
 );
 
-//added this part new
+// Added this part new
 sessionRouter.get(
   "/:uid",
   passport.authenticate("jwt", { session: false }),

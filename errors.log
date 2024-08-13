@@ -3745,3 +3745,24 @@ http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59
 http: GET in /cart?cid= - 21:15:38
 http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 21:15:41
 http: GET in /api/cart/666c9445bcf2b01775d1b070/purchase - 21:15:42
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:35:51
+http: GET in /login - 21:35:55
+http: GET in /register - 21:35:57
+info: Server is running on port 8080
+http: POST in /api/session/register - 21:36:36
+http: POST in /api/session/login - 21:36:49
+http: GET in /user - 21:36:49
+http: GET in /products - 21:36:52
+http: GET in /products - 21:37:43
+http: POST in /api/cart/66baaa94912e390dafd37d0a/products/661c4b43f81c89e8a8db59d6 - 21:37:46
+http: GET in /cart?cid= - 21:37:49
+http: DELETE in /api/cart/66baaa94912e390dafd37d0a - 21:38:54
+http: GET in /cart?cid= - 21:38:54
+http: GET in /products/ - 21:39:07
+http: POST in /api/cart/66baaa94912e390dafd37d0a/products/661c4b20f81c89e8a8db59d3 - 21:39:09
+http: GET in /cart?cid= - 21:39:12
+http: POST in /api/cart/66baaa94912e390dafd37d0a/purchase - 21:39:14
+http: GET in /api/cart/66baaa94912e390dafd37d0a/purchase - 21:39:14

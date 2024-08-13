@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { createHash } from "../utils/functionUtil.js";
+import Cart from "./cartModel.js"; // Import the Cart model
 
 const usersCollection = "users";
 
@@ -47,7 +48,21 @@ const usersSchema = new mongoose.Schema({
   },
 });
 
-usersSchema.pre("save", function (next) {
+// Pre-save hook to create a cart if it doesn't exist
+usersSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    try {
+      // Create a new cart and associate it with the user
+      const newCart = await Cart.create({
+        /* Default cart values */
+      });
+      this.cart = newCart._id;
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  // Hash password if it's being modified
   if (this.isModified("password")) {
     if (this.password) {
       this.password = createHash(this.password);
@@ -55,6 +70,7 @@ usersSchema.pre("save", function (next) {
       return next(new Error("Password is required"));
     }
   }
+
   next();
 });
 
