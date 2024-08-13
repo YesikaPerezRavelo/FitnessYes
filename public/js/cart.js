@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // Redirect directly to the ticket page
-      location.href = "/api/cart/ticket";
+      // Redirect to the ticket view after successful purchase
+      location.href = `/api/cart/${cartId}/purchase`;
     } catch (error) {
       console.error("Error during checkout:", error);
       Swal.fire({

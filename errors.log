@@ -3710,3 +3710,38 @@ http: GET in /cart?cid= - 20:38:17
 http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:38:23
 http: GET in /api/cart/ticket - 20:38:24
 warning: Cannot fetch the details
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 20:20:23
+http: GET in /login - 20:20:29
+http: POST in /api/session/login - 20:20:38
+http: GET in /user - 20:20:38
+http: GET in /products - 20:20:47
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:20:50
+http: GET in /cart?cid= - 20:20:54
+http: GET in /cart?cid= - 20:21:44
+info: Server is running on port 8080
+http: GET in /cart?cid= - 20:22:07
+http: DELETE in /api/cart/666c9445bcf2b01775d1b070 - 20:22:17
+http: GET in /cart?cid= - 20:22:17
+http: GET in /products/ - 20:22:20
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4da2f81c89e8a8db59f2 - 20:22:23
+http: GET in /cart?cid= - 20:22:27
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:22:30
+http: GET in /api/cart/$%7BcartId%7D/purchase - 20:22:30
+info: Server is running on port 8080
+http: GET in /products/ - 20:30:18
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b20f81c89e8a8db59d3 - 20:30:20
+http: GET in /cart?cid= - 20:30:22
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:30:25
+http: GET in /api/cart/666c9445bcf2b01775d1b070/purchase - 20:30:26
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:15:22
+http: GET in /login - 21:15:25
+http: GET in /user - 21:15:25
+http: GET in /products - 21:15:30
+http: POST in /api/cart/666c9445bcf2b01775d1b070/products/661c4b43f81c89e8a8db59d6 - 21:15:34
+http: GET in /cart?cid= - 21:15:38
+http: POST in /api/cart/666c9445bcf2b01775d1b070/purchase - 21:15:41
+http: GET in /api/cart/666c9445bcf2b01775d1b070/purchase - 21:15:42

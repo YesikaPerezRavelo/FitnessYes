@@ -139,18 +139,11 @@ export default class UserController {
     }
   }
 
-  async deleteUsers(req, res) {
+  async deleteUsers(userId) {
     try {
-      const result = await this.userService.deleteUsers();
-      res.send({
-        status: "success",
-        payload: result,
-      });
+      return await this.userService.deleteUsers(userId);
     } catch (error) {
-      res.status(400).send({
-        status: "error",
-        message: error.message,
-      });
+      console.error(error);
     }
   }
 }
