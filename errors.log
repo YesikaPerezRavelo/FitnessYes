@@ -4051,3 +4051,7 @@ http: POST in /api/cart/66bc1c38e95960d709b036fc/products/661c4b43f81c89e8a8db59
 http: GET in /cart?cid= - 00:17:32
 http: POST in /api/cart/66bc1c38e95960d709b036fc/purchase - 00:17:36
 http: GET in /api/cart/66bc1c38e95960d709b036fc/purchase - 00:17:37
+info: Server is running on port 8080
+http: GET in / - 00:24:06
+http: GET in / - 00:24:21
+http: GET in /api/session/githubcallback?code=2bb31d6d02c05e2a4c72 - 00:24:57
