@@ -4055,3 +4055,77 @@ info: Server is running on port 8080
 http: GET in / - 00:24:06
 http: GET in / - 00:24:21
 http: GET in /api/session/githubcallback?code=2bb31d6d02c05e2a4c72 - 00:24:57
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 12:15:34
+http: GET in / - 12:17:26
+http: GET in /login - 12:17:27
+http: GET in /api/session/github - 12:17:30
+http: GET in /api/session/githubcallback?code=877a77ff09d56c5f7683 - 12:17:30
+http: GET in /user - 12:17:32
+info: Server is running on port 8080
+http: GET in / - 12:22:27
+http: GET in /login - 12:22:29
+http: GET in /user - 12:22:29
+http: GET in /login - 12:22:38
+http: GET in /user - 12:22:38
+info: Server is running on port 8080
+http: GET in /login - 12:23:17
+http: GET in /user - 12:23:17
+info: Server is running on port 8080
+http: GET in / - 12:24:08
+http: GET in /login - 12:24:10
+http: GET in /user - 12:24:11
+info: Server is running on port 8080
+http: GET in / - 12:25:59
+http: GET in /login - 12:26:01
+http: GET in /user - 12:26:02
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 12:44:09
+http: GET in /login - 12:44:12
+http: GET in /user - 12:44:12
+http: GET in /login - 12:44:16
+http: GET in /user - 12:44:16
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /login - 12:47:00
+http: GET in /user - 12:47:01
+info: Server is running on port 8080
+http: GET in / - 12:47:50
+http: GET in /login - 12:47:53
+http: GET in /user - 12:47:53
+http: GET in /api/session/logout - 12:48:18
+http: GET in /login - 12:48:18
+info: Server is running on port 8080
+http: GET in /api/session/github - 12:48:51
+http: GET in /api/session/githubcallback?code=d2f7a1bb64bea4ab544d - 12:48:52
+http: GET in /user - 12:48:53
+info: Server is running on port 8080
+http: GET in /user - 12:49:42
+info: Server is running on port 8080
+http: GET in /api/session/logout - 12:55:37
+http: GET in /login - 12:55:37
+http: GET in /api/session/github - 12:55:39
+http: GET in /api/session/githubcallback?code=6dc375cd1bd046cdde6a - 12:55:39
+http: GET in /user - 12:55:41
+info: Server is running on port 8080
+http: GET in /api/session/github - 12:56:38
+http: GET in /api/session/githubcallback?code=0bce6aed3e9e0e64116f - 12:56:39
+http: GET in /user - 12:56:40
+info: Server is running on port 8080
+http: GET in / - 13:01:50
+http: GET in /login - 13:01:52
+http: GET in /user - 13:01:52
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /login - 13:07:53
+http: GET in /user - 13:07:53
+http: GET in /products - 13:07:58
+info: Server is running on port 8080
+http: GET in /api/session/logout - 13:08:21
+http: GET in /login - 13:08:21
+http: GET in /api/session/github - 13:08:23
+http: GET in /api/session/githubcallback?code=9cd4b5754599c3b6c742 - 13:08:23
+http: GET in /user - 13:08:25
