@@ -73,12 +73,18 @@ export default class UserDao {
   async deleteUsers() {
     try {
       const timeZone = moment.tz("America/Argentina/Buenos_Aires");
-      const twoDaysAgo = moment().subtract(2, "days").toDate();
+      const utcOffset = timeZone.utcOffset();
+      const lastConnection = new Date(timeZone.valueOf() + utcOffset * 60000);
+      const twoDaysAgo = new Date(
+        lastConnection.getTime() - 2 * 24 * 60 * 60 * 1000
+      );
 
-      // Find inactive users
-      const inactiveUsers = await userModel
-        .find({ last_connection: { $lte: twoDaysAgo } })
-        .lean();
+      const inactiveUsers = await userModel.find({
+        last_connection: { $lte: twoDaysAgo },
+      });
+      const result = await userModel.deleteMany({
+        last_connection: { $lte: twoDaysAgo },
+      });
 
       // Send emails to inactive users
       for (const user of inactiveUsers) {
@@ -86,30 +92,30 @@ export default class UserDao {
           from: "Yesika Perez <yesikapr@gmail.com>",
           to: user.email,
           subject: "Account Termination Due to Inactivity",
-          html: `<p>Your account has been terminated due to inactivity.</p>`,
-        };
-
-        `<div style="font-family: 'Montserrat', sans-serif; color: black;">
-                    <h1>Account Termination Due to Inactivity</h1>
+          html: `<div style="font-family: 'Montserrat', sans-serif; color: black;">
+                    <h1>Your account has been terminated due to inactivity.</h1>
                      <p>We have received a request to delete inactive accounts.</p>
                     <p>To create a new account click:</p>
                     <button href="http://localhost:8080/register" class="button">New Account</button>
-                     </div>`;
+                     </div>`,
+        };
 
-        transport.sendMail(mailOptions);
+        await new Promise((resolve, reject) => {
+          transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return reject(error);
+            }
+            resolve(info);
+          });
+        });
       }
-
-      // Delete inactive users
-      const result = await userModel.deleteMany({
-        last_connection: { $lte: twoDaysAgo },
-      });
 
       return {
         status: "success",
         deletedCount: result.deletedCount,
       };
     } catch (error) {
-      throw new Error("Error deleting users: " + error.message);
+      throw new Error("Error deleting users!");
     }
   }
 }

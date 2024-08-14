@@ -3919,3 +3919,135 @@ http: DELETE in /api/cart/66baaa94912e390dafd37d0a - 00:11:35
 http: GET in /cart?cid= - 00:11:35
 http: GET in /api/session/logout - 00:11:37
 http: GET in /login - 00:11:37
+info: Server is running on port 8080
+http: GET in / - 17:03:40
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 21:05:27
+http: GET in / - 21:28:31
+http: GET in /login - 21:28:34
+http: GET in /api/session/github - 21:28:36
+http: GET in /api/session/githubcallback?code=416ccbecd4c1f6ab9609 - 21:28:37
+http: GET in /user - 21:28:39
+http: GET in /products - 21:28:45
+http: GET in /cart?cid= - 21:28:57
+http: GET in /favicon.ico - 21:28:57
+http: GET in /api/session/logout - 21:29:10
+http: GET in /login - 21:29:10
+http: POST in /api/session/login - 21:41:05
+http: GET in /user - 21:41:05
+http: GET in /user - 21:41:49
+http: GET in /products - 21:41:56
+http: GET in /favicon.ico - 21:41:56
+http: GET in /realtimeproducts - 21:42:34
+http: GET in /realtimeproducts - 21:44:55
+http: GET in /favicon.ico - 21:44:55
+http: GET in /products - 21:45:45
+http: GET in /user - 21:50:36
+http: GET in /realtimeproducts - 21:50:39
+http: GET in /realtimeproducts - 21:51:04
+http: GET in /realtimeproducts - 21:52:50
+http: GET in /products - 21:52:53
+http: GET in /realtimeproducts - 21:52:55
+http: GET in /chat - 21:52:57
+http: GET in /mockingproducts - 21:52:58
+http: GET in /cart?cid= - 21:53:00
+http: GET in /products - 21:53:06
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: DELETE in /api/users/delete - 23:29:27
+http: POST in /api/session/login - 23:29:38
+http: GET in /user - 23:29:39
+http: DELETE in /api/users/delete - 23:29:45
+info: Server is running on port 8080
+http: DELETE in /api/users/delete - 23:32:41
+http: DELETE in /api/users/delete - 23:32:54
+info: Server is running on port 8080
+http: DELETE in /api/users/delete - 23:34:42
+http: GET in / - 23:35:32
+http: GET in /favicon.ico - 23:35:33
+http: GET in /login - 23:35:35
+http: POST in /api/session/login - 23:35:41
+http: GET in /user - 23:35:41
+http: GET in /products - 23:35:48
+http: GET in /api/session/logout - 23:35:55
+http: GET in /login - 23:35:55
+info: Server is running on port 8080
+http: GET in /api/session/github - 23:43:59
+http: GET in /api/session/githubcallback?code=56efbb9d4a0c94dce7c1 - 23:44:00
+info: Server is running on port 8080
+http: GET in /api/session/github - 23:44:24
+http: GET in /api/session/githubcallback?code=eb2ab299a2ad99e5258e - 23:44:25
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/github - 23:47:32
+http: GET in /api/session/githubcallback?code=bf8896d7408fe045fca5 - 23:47:33
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in /api/session/github - 23:49:26
+http: GET in /api/session/githubcallback?code=691f143a2208f886b8dd - 23:49:27
+info: Server is running on port 8080
+info: Server is running on port 8080
+http: GET in / - 23:53:39
+http: GET in /login - 23:53:41
+http: GET in /api/session/github - 23:53:43
+http: GET in /api/session/githubcallback?code=5e532654b18070aad96e - 23:53:43
+http: GET in /user - 23:53:45
+info: Server is running on port 8080
+http: GET in / - 23:55:07
+http: GET in /login - 23:55:09
+http: GET in /user - 23:55:10
+http: GET in /login - 23:55:25
+http: GET in /user - 23:55:25
+info: Server is running on port 8080
+http: GET in /login - 23:59:40
+http: GET in /user - 23:59:40
+info: Server is running on port 8080
+http: GET in /login - 00:01:11
+http: GET in /user - 00:01:11
+info: Server is running on port 8080
+http: GET in / - 00:04:39
+http: GET in /login - 00:04:40
+http: GET in /user - 00:04:41
+http: GET in /api/session/logout - 00:04:55
+http: GET in /login - 00:04:56
+http: GET in /api/session/github - 00:04:58
+http: GET in /api/session/githubcallback?code=e6b6edae380b6364cda7 - 00:04:58
+info: Server is running on port 8080
+http: GET in / - 00:06:05
+http: GET in /login - 00:06:08
+http: GET in /api/session/github - 00:06:10
+http: GET in /api/session/githubcallback?code=0b4ee281230ce89de8eb - 00:06:11
+http: GET in /user - 00:06:12
+info: Server is running on port 8080
+http: GET in /api/session/github - 00:06:39
+http: GET in /api/session/githubcallback?code=405f83850b376993d3cf - 00:06:40
+http: GET in /user - 00:06:41
+http: GET in /api/session/github - 00:09:47
+http: GET in /api/session/githubcallback?code=6faf629349a4f2f17b8c - 00:09:48
+http: GET in /user - 00:09:49
+http: GET in / - 00:10:04
+http: GET in /login - 00:10:06
+http: GET in /user - 00:10:06
+http: GET in / - 00:10:14
+http: GET in /login - 00:10:16
+http: GET in /user - 00:10:16
+http: GET in / - 00:10:56
+http: GET in /login - 00:10:58
+http: GET in /user - 00:10:58
+info: Server is running on port 8080
+http: GET in / - 00:16:31
+http: GET in /login - 00:16:33
+http: GET in /user - 00:16:33
+info: Server is running on port 8080
+http: GET in /user - 00:17:18
+http: GET in /products - 00:17:24
+http: POST in /api/cart/66bc1c38e95960d709b036fc/products/661c4b43f81c89e8a8db59d6 - 00:17:28
+http: GET in /cart?cid= - 00:17:32
+http: POST in /api/cart/66bc1c38e95960d709b036fc/purchase - 00:17:36
+http: GET in /api/cart/66bc1c38e95960d709b036fc/purchase - 00:17:37

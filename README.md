@@ -1,8 +1,10 @@
-**# ProductYesFitness an E-commerce**
+# Backend e-commerce for FitnessYes \*\*
 
-**### Portfolio**
+This backend e-commerce website handles all the data such as prices, products, users, sessions, messages, order details, and fulfillment. In short, the frontend will defines how the online shopping experience feels, and the backend will defines how all its functions work. This project will provides an API for managing products, shopping carts, messages, and purchase tickets. It uses Express.js as a framework and MongoDB as a database.
 
-**#### Back-end Project, Website to sell products**
+**### Website**
+
+[Website](https://fitnessyes.onrender.com/)
 
 ---
 
@@ -11,35 +13,37 @@
 Start Selling Online — Quick & Easy Setup - Everything You Need To Start a Healthy Life Style.
 Grow spiritually, physical and emotionally.
 
-Back-end using JavaScript which is the most popular backend language. It is used by over 97% of websites, and it is also the language of choice for many popular frameworks, such as Node. js and Express. js.
+## Features
 
-**#### Dependencies**
+- **Product Management**
+- **Product Management**: Add, update, delete, and retrieve products.
+- **Cart Management**: Add products to a cart, update quantities, and remove products from the cart.
+- **Message Management**: Send messages and retrieve the user messages.
+- **Purchase Processing**: Checkout carts and generate purchase tickets.
+- **Documentation**: API documentation accessible
 
-1. npm init -y
-   (type : module)
-2. npm i express
-3. npm i multer
-4. npm i nodemon g
-5. Postman: API testing
-6. npm express
-7. npm express-handlebars
-8. npm mongodb
-9. npm mongoose
-10. npm mongoose-paginate-v2
-11. npm socket.io"
-12. Mongo DB atlas: Cloud-Native Document Database
-13. mpn axios
-14. mpn bcrypt
-15. mpn connect-mongo
-16. mpn cookie-parse
-17. mpn cookie-parser
-18. mpn dotenv
-19. mpn express-session
-20. mpn jsonwebtoken
-21. mpn passport
-22. mpn passport-github2
-23. passport-jwt
-24. mpn passport-local
+## Installation
+
+- **Install dependencies**:
+
+  ```bash
+  npm install
+  ```
+
+- **Start the server**:
+
+  ```bash
+  npm start
+  ```
+
+  The server will be available at `http://localhost:8080`.
+
+- **Teacher(Admin) Panel**:
+
+  ```bash
+  user: admin@fitness.com
+  password: admin12345
+  ```
 
 ---
 
