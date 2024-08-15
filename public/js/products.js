@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Add to Cart Button functionality
   document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const productId = event.target.dataset.productId;
@@ -9,10 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Cart ID is missing");
         return;
       }
-
-      console.log(
-        `Sending request to add product ${productId} to cart ${cartId} with quantity ${quantity}`
-      );
 
       fetch(`/api/cart/${cartId}/products/${productId}`, {
         method: "POST",
@@ -27,19 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           return response.json();
         })
-        .then((data) => {
-          console.log("Data:", data);
+        .then(() => {
           Swal.fire({
             title: "Success!",
             text: "Product has been added to your cart.",
             icon: "success",
-            imageUrl:
-              "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
             confirmButtonText: "Ok",
           });
+
+          // Update the quantity display
+          const itemCountSpan = document.querySelector(
+            `.item-count[data-product-id="${productId}"]`
+          );
+          itemCountSpan.textContent =
+            parseInt(itemCountSpan.textContent) + quantity;
         })
         .catch((error) => {
-          console.error("Error:", error);
           Swal.fire({
             title: "Error!",
             text: "An error occurred while adding the product to your cart.",
@@ -47,6 +47,54 @@ document.addEventListener("DOMContentLoaded", () => {
             confirmButtonText: "Ok",
           });
         });
+    });
+  });
+
+  // Delete Button functionality
+  document.querySelectorAll(".delete-product-button").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const productId = event.target.dataset.productId;
+      const cartId = event.target.dataset.cartId;
+
+      if (!cartId) {
+        console.error("Cart ID is missing");
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/api/cart/${cartId}/products/${productId}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (response.ok) {
+          // Success: Update UI
+          Swal.fire({
+            title: "Deleted!",
+            text: "Product has been removed from your cart.",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+
+          // Update quantity display to 0 or remove the product card
+          const itemCountSpan = document.querySelector(
+            `.item-count[data-product-id="${productId}"]`
+          );
+          itemCountSpan.textContent = 0; // or remove the element if needed
+        } else {
+          // Error response from backend
+          throw new Error("Failed to delete the product from the cart");
+        }
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: "An error occurred while deleting the product from your cart.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      }
     });
   });
 });

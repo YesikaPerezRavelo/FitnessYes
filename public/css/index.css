@@ -77,17 +77,6 @@ button {
   font-family: "Montserrat", sans-serif;
 }
 
-#button-delete {
-  background-color: #d78383;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-family: "Montserrat", sans-serif;
-}
-
 body {
   background-color: white;
   color: black;
@@ -333,6 +322,34 @@ input[type="text"] {
 }
 
 .add-to-cart-button:hover {
+  background-color: #a54242;
+}
+
+.delete-product-button {
+  background-color: #d78383;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.delete-product-button:hover {
+  background-color: #a54242;
+}
+
+#button-delete {
+  background-color: #d78383;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+#button-delete:hover {
   background-color: #a54242;
 }
 

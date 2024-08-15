@@ -23,30 +23,33 @@
   </nav>
 
   <div class="box">
-    <h1>Productos</h1>
+    <h1>Products</h1>
     <hr />
     <div class="products-form">
-      <h2>Crear Producto</h2>
+      <h2>Create Products</h2>
       <form>
-        <label for="title">Título</label>
+        <label for="title">Title</label>
         <input name="title" id="title" type="text" />
 
-        <label for="description">Descripción</label>
+        <label for="description">description</label>
         <input name="description" id="description" type="text" />
 
-        <label for="code">Código</label>
+        <label for="code">Code</label>
         <input name="code" id="code" type="text" />
 
-        <label for="price">Precio</label>
+        <label for="price">Price</label>
         <input name="price" id="price" type="number" />
 
         <label for="stock">Stock</label>
         <input name="stock" id="stock" type="number" />
 
-        <label for="category">Categoria</label>
+        <label for="category">Category</label>
         <input name="category" id="category" type="text" />
 
-        <button id="button-create" onclick="createProduct(event)">Crear</button>
+        <button
+          id="button-create"
+          onclick="createProduct(event)"
+        >Create</button>
       </form>
     </div>
 
@@ -63,7 +66,7 @@
           <button
             id="button-delete"
             onclick="deleteProduct('{{this._id}}')"
-          >Eliminar</button>
+          >Delete</button>
         </div>
       {{/each}}
     </div>
