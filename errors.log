@@ -4523,3 +4523,8 @@ http: GET in /mockingproducts - 00:27:07
 http: GET in /chat - 00:27:09
 http: GET in /realtimeproducts - 00:27:11
 info: Server is running on port 8080
+http: GET in /api/session/logout - 00:30:12
+http: GET in /login - 00:30:12
+http: GET in / - 00:30:16
+info: Server is running on port 8080
+http: GET in / - 00:44:17

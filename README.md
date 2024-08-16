@@ -38,11 +38,21 @@ Grow spiritually, physical and emotionally.
 
   The server will be available at `http://localhost:8080`.
 
-- **Teacher(Admin) Panel**:
+- **Panel**:
 
   ```bash
+  Teacher
   user: admin@fitness.com
   password: admin12345
+
+  Student
+  user: student@fitness.com
+  password: test12345
+
+  Premium
+  user: premium@fitness.com
+  password: test12345
+
   ```
 
 ---
