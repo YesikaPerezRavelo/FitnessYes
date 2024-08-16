@@ -111,11 +111,11 @@ input {
 }
 
 .red {
-  color: red;
+  color: #d78383;
 }
 
 .black {
-  color: black;
+  color: #333;
 }
 
 .container {
@@ -408,11 +408,11 @@ input {
 }
 
 .red {
-  color: red;
+  color: #d78383;
 }
 
 .black {
-  color: black;
+  color: #333;
 }
 
 .products-form {
@@ -600,4 +600,8 @@ img {
   color: black;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.footer {
+  padding-bottom: 0.5rem;
 }

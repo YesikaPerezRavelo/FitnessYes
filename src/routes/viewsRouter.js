@@ -57,7 +57,7 @@ router.get(
     try {
       const user = await userController.findUserById(req.user.user._id);
       res.render("user", {
-        title: "YesFitness | Usuario",
+        title: "YesFitness | User",
         style: "index.css",
         user,
         cart: [],
@@ -87,7 +87,7 @@ router.get(
 
       // Render products page
       res.render("products", {
-        title: "Productos",
+        title: "YesFitness | Products",
         style: "index.css",
         user,
         products,
@@ -116,7 +116,7 @@ router.get(
     try {
       const products = await productController.getAllProducts(limit, page);
       res.render("realTimeProducts", {
-        title: "Productos",
+        title: "YesFitness | Add Products",
         style: "index.css",
         products,
         currentPage: page,

@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
           Swal.fire({
             title: "Success!",
             text: "Product has been added to your cart.",
-            icon: "success",
+            imageUrl:
+              "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
             confirmButtonText: "Ok",
           });
 
@@ -74,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
           Swal.fire({
             title: "Deleted!",
             text: "Product has been removed from your cart.",
-            icon: "success",
+            imageUrl:
+              "https://yesikaperezravelo.github.io/FitnessPlanYes/img/i.webp",
             confirmButtonText: "Ok",
           });
 
